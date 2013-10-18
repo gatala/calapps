@@ -39,11 +39,6 @@ table#calapps {
   width: 100%;
   border-bottom: 2px solid black;
 }
-table#movies th {
-  border: 2px solid white;
-  font-weight: bold;
-  background-color: wheat;
-}
 table#calapps th, table#calapps td {
   padding: 4px;
   text-align: left;
