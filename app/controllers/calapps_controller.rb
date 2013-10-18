@@ -34,10 +34,10 @@ class CalappsController < ApplicationController
 	end 
 
 
-	def destroy 
-		@calapp = Calapp.find(param[:id])
+	def destroy
+		@calapp = Calapp.find(params[:id])
 		@calapp.destroy
-		flash[:notice] = "#{calapp.name} was sucessfully deleted."
+		flash[:notice] = "#{@calapp.name} was sucessfully deleted."
 		redirect_to calapps_path
 	end
 
