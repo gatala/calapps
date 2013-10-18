@@ -11,7 +11,7 @@ applications = [{:name => 'Ninja Courses', :creator => 'William Li, Alex Sydell'
 	:URL => 'http://www.ninjacourses.com', :description => "Used to generate potential schedules for students."}, 
 	{:name => 'Berkeley Time', :creator => 'Yuxin Zhu, Noah Gilmore', 
 	:URL => 'http://www.berkeleytime.com', :description => "Used to search through different classes and look for interesting lectures or empty classrooms during the day."},
-	{:name => 'Course Flash', :creator => 'Jeff Chang', 
+	{:name => 'Course Flask', :creator => 'Jeff Chang', 
 	:URL => 'http://www.courseflask.com', :description => "Used to plan what classes to take for 4 years."}
 ]
 
