@@ -1,0 +1,21 @@
+-#  This file is app/views/movies/index.html.haml
+%h1 All Cal Applications
+
+%table#calapps
+  %thead
+    %tr
+      %th Application Title
+      %th URL
+      %th Creator(s)
+      %th Description
+      %th More Information
+  %tbody
+    - @calapps.each do |app|
+      %tr
+        %td= app.name
+        %td= link_to "link", app.URL
+        %td= app.creator
+        %td= app.description
+        %td= link_to "More about #{app.name}", calapp_path(app)
+
+= link_to 'Add a new applicaton', new_calapp_path

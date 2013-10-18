@@ -1,0 +1,20 @@
+-# in app/views/movies/show.html.haml
+
+%h2 Details about #{@calapp.name}
+
+%ul#details
+  %li
+    Created by:
+    = @calapp.creator
+  %li
+    Application URL:
+    = @calapp.URL
+
+%h3 Description:
+
+%p#description= @calapp.description
+
+= link_to 'Edit', edit_calapp_path(@calapp)
+= button_to 'Delete', calapp_path(@calapp), :method => :delete, :confirm => 'Are you sure?'
+= link_to 'Back to movie list', calapps_path
+

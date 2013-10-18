@@ -1,0 +1,17 @@
+%h1 Create New Calapp
+
+= form_tag calapps_path do
+
+  = label :calapp, :name, 'Name of Application'
+  = text_field :calapp, 'name'
+
+  = label :calapp, :URL, "Application URL"
+  = url_field :calapp, 'URL'
+
+  = label :calapp, :creator, "Creator(s)"
+  = text_field :calapp, 'creator'
+
+  = label :calapp, :creator, "Description"
+  = text_area :calapp, 'description'
+
+  = submit_tag 'Save Changes'
