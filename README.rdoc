@@ -1,7 +1,10 @@
 ==Welcome to the UC Berkeley Application Gallery
 
 Project Purpose
-  As the campus continues to make its data more open and accessible, the number of applications built by students and other developers is growing. We need an ‘app store’ for the campus to showcase these apps and to provide a valuable service to both the developers and the end users. The app gallery will be prominent on the campus API portal <developer.berkeley.edu>.
+  As the campus continues to make its data more open and accessible, the number of applications built by 
+  students and other developers is growing. We need an ‘app store’ for the campus to showcase these apps 
+  and to provide a valuable service to both the developers and the end users. The app gallery will be 
+  prominent on the campus API portal <developer.berkeley.edu>.
 
 Brief Description
   This is a Ruby on Rails web app that hopes to serve as a searchable catalog for innovative campus apps.
@@ -10,8 +13,10 @@ PivotalTracker
   PivotalTracker.come/s/projects/918678
 
 Deadlines
-  Iteration 1-1 - Due 10/20/2013 - Have basic app submission page, application page, application list page created
-  Iteration 1-2 - Due 10/27/2013 - Add authentication, add basic rating functionality, Start prototyping web view
+  Iteration 1-1 - Due 10/20/2013 - Have basic app submission page, application page, application list
+  page created
+  Iteration 1-2 - Due 10/27/2013 - Add authentication, add basic rating functionality, Start prototyping
+  web view
   Iteration 2-1 - Due 11/03/2013 - 
   Iteration 2-2 - Due 11/10/2013 - 
   Iteration 3-1 - Due 11/17/2013 - 
