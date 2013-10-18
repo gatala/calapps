@@ -5,3 +5,89 @@ Project Purpose
 
 Brief Description
   This is a Ruby on Rails web app that hopes to serve as a searchable catalog for innovative campus apps.
+
+PivotalTracker
+  PivotalTracker.come/s/projects/918678
+
+Deadlines
+  Iteration 1-1 - Due 10/20/2013 - Have basic app submission page, application page, application list page created
+  Iteration 1-2 - Due 10/27/2013 - Add authentication, add basic rating functionality, Start prototyping web view
+  Iteration 2-1 - Due 11/03/2013 - 
+  Iteration 2-2 - Due 11/10/2013 - 
+  Iteration 3-1 - Due 11/17/2013 - 
+  Iteration 3-2 - Due 11/24/2013 - 
+  Iteration 4-1 - Due 11/28/2013 - 
+
+Object Schema
+  https://www.lucidchart.com/documents/edit/4f12-2250-52461d13-831c-36ac0a008da4
+
+Design Document Notes
+• Done by first week of December
+
+• Agile style development using GitHub, PivotalTracker, 
+
+• Want to make apps from other students visible
+
+• Want to host popular services/apps on Berkeley service to provide an extended life
+
+• Let best apps survive + showcase them
+
+• Users should be able to 
+
+o Add, edit your own app
+
+o Review, rate other apps
+
+• Admins should be able to
+
+o Delete / deactivate apps
+
+o Delete reviews
+
+o Modify descriptions of apps (add/remove tags)
+
+o Highlight/feature/campus-approve apps
+
+o Approve/reject apps
+
+• Way to measure metrics
+
+o User ratings, views, downloads
+
+• Web applications along with downloadable apps
+
+• No existing code
+
+• Special tag to denote secure app
+
+• List of existing apps?
+
+o TBA
+
+• Ping links regularly and drop apps with broken links
+
+• UCB ldap – Ruby gem to determine status of someone (student/staff)
+
+• gitHub backend for admins to see progress
+
+• Use gitHub API hooks
+
+• Allow Berkeley made apps to show up in gallery right away
+
+• Put Google-based login apps on queue to be approved by Admins
+
+• Handle duplication via link to site
+
+• Claim an app as “yours” if someone else submit it first 
+
+• Check all the gems we use to make sure they are maintained
+
+• Separate requirements / desires for website in Pivotal Tracker
+
+• Get a release fast and get feedback
+
+• SimpleForm for UI in conjunction with Twitter BootStrap
+
+• RailsCast
+
+• Add clients to gitHub, PivitolTracker
