@@ -40,19 +40,19 @@ Design Document Notes
 
 * Admins should be able to
 
-** Delete / deactivate apps
+1. Delete / deactivate apps
 
-** Delete reviews
+2. Delete reviews
 
-** Modify descriptions of apps (add/remove tags)
+3. Modify descriptions of apps (add/remove tags)
 
-** Highlight/feature/campus-approve apps
+4. Highlight/feature/campus-approve apps
 
-** Approve/reject apps
+5. Approve/reject apps
 
 * Way to measure metrics
 
-** User ratings, views, downloads
+1. User ratings, views, downloads
 
 * Web applications along with downloadable apps
 
@@ -62,7 +62,7 @@ Design Document Notes
 
 * List of existing apps?
 
-** TBA
+1. TBA
 
 * Ping links regularly and drop apps with broken links
 
@@ -70,24 +70,24 @@ Design Document Notes
 
 * gitHub backend for admins to see progress
 
-• Use gitHub API hooks
+* Use gitHub API hooks
 
-• Allow Berkeley made apps to show up in gallery right away
+* Allow Berkeley made apps to show up in gallery right away
 
-• Put Google-based login apps on queue to be approved by Admins
+* Put Google-based login apps on queue to be approved by Admins
 
-• Handle duplication via link to site
+* Handle duplication via link to site
 
-• Claim an app as “yours” if someone else submit it first 
+* Claim an app as “yours” if someone else submit it first 
 
-• Check all the gems we use to make sure they are maintained
+* Check all the gems we use to make sure they are maintained
 
-• Separate requirements / desires for website in Pivotal Tracker
+* Separate requirements / desires for website in Pivotal Tracker
 
-• Get a release fast and get feedback
+* Get a release fast and get feedback
 
-• SimpleForm for UI in conjunction with Twitter BootStrap
+* SimpleForm for UI in conjunction with Twitter BootStrap
 
-• RailsCast
+* RailsCast
 
-• Add clients to gitHub, PivitolTracker
+* Add clients to gitHub, PivitolTracker
