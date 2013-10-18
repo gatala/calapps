@@ -1,13 +1,13 @@
 !!! 5
 %html
   %head
-    %title UC Berkeley Application Gallery!
+    %title UC Berkeley Application Gallery
     = stylesheet_link_tag 'application'
     = javascript_include_tag 'application'
     = csrf_meta_tags
 
   %body
-    %h1.title UC Berkeley Application Gallery!
+    %h1.title UC Berkeley Application Gallery
     #main
       - if flash[:notice]
         #notice.message= flash[:notice]
