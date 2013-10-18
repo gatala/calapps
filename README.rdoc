@@ -34,25 +34,25 @@ Design Document Notes
 
 * Users should be able to 
 
-** Add, edit your own app
+    * Add, edit your own app
 
-** Review, rate other apps
+    * Review, rate other apps
 
 * Admins should be able to
 
-1. Delete / deactivate apps
+    * Delete / deactivate apps
 
-2. Delete reviews
+    * Delete reviews
 
-3. Modify descriptions of apps (add/remove tags)
+    * Modify descriptions of apps (add/remove tags)
 
-4. Highlight/feature/campus-approve apps
+    * Highlight/feature/campus-approve apps
 
-5. Approve/reject apps
+    * Approve/reject apps
 
 * Way to measure metrics
 
-1. User ratings, views, downloads
+    * User ratings, views, downloads
 
 * Web applications along with downloadable apps
 
@@ -62,7 +62,7 @@ Design Document Notes
 
 * List of existing apps?
 
-1. TBA
+    * TBA
 
 * Ping links regularly and drop apps with broken links
 
