@@ -7,8 +7,8 @@
     = csrf_meta_tags
 
   %body
-    %h1.title
-      =link_to "UC Berkeley Application Gallery", calapps_path
+    %h1.title 
+      ="UC Berkeley Application Gallery"#, calapps_path
     #main
       - if flash[:notice]
         #notice.message= flash[:notice]
