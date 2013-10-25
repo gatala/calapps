@@ -10,6 +10,8 @@ gem 'bcrypt-ruby', '3.0.1'
 #gem 'sqlite3'
 group :development,:test do
   gem 'sqlite3'
+  gem 'factory_girl_rails', '4.2.1'
+  gem 'rspec-rails'
 end
 group :production do
   gem 'pg'
