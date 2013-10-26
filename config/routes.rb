@@ -16,6 +16,7 @@ Calapps::Application.routes.draw do
   match '/signup', to: 'users#new'
   # Sample resource route (maps HTTP verbs to controller actions automatically):
   #   resources :products
+  resources :users
   resources :calapps
   # Sample resource route with options:
   #   resources :products do
