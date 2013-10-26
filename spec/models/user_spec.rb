@@ -84,10 +84,10 @@ describe User do
   		it { should_not be_valid }
 	end
 
-=begin
+
 	describe "return value of authenticate method" do
   		before { @user.save }
-  		let(:found_user) { User.fndemail: @user.email) }
+  		let(:found_user) { User.where(email: @user.email) }
 
   		describe "with valid password" do
     		it { should eq found_user.authenticate(@user.password) }
@@ -100,7 +100,7 @@ describe User do
     		specify { expect(user_for_invalid_password).to be_false }
   		end
   	end
-=end
+
 
   	describe "with a password that's too short" do
   		before { @user.password = @user.password_confirmation = "a" * 5 }

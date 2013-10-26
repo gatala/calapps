@@ -12,6 +12,7 @@ group :development,:test do
   gem 'sqlite3'
   gem 'factory_girl_rails', '4.2.1'
   gem 'rspec-rails'
+  gem "capybara"
 end
 group :production do
   gem 'pg'
@@ -33,9 +34,6 @@ end
 
 gem 'jquery-rails'
 gem "haml", "~> 3.1"
-
-# To use ActiveModel has_secure_password
-# gem 'bcrypt-ruby', '~> 3.0.0'
 
 # To use Jbuilder templates for JSON
 # gem 'jbuilder'
