@@ -41,7 +41,4 @@ class CalappsController < ApplicationController
 		redirect_to calapps_path
 	end
 
-
-
-
 end 

@@ -12,7 +12,6 @@ group :development,:test do
   gem 'sqlite3'
   gem 'factory_girl_rails', '4.2.1'
   gem 'rspec-rails'
-  gem "capybara"
 end
 group :production do
   gem 'pg'
