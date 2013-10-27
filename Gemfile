@@ -8,10 +8,18 @@ gem 'bcrypt-ruby', '3.0.1'
 
 
 #gem 'sqlite3'
+
 group :development,:test do
   gem 'sqlite3'
   gem 'factory_girl_rails', '4.2.1'
+  gem 'database_cleaner'
+  gem 'debugger'
+  gem 'cucumber-rails', :require => false
+  gem 'capybara'
+  gem 'launchy'
   gem 'rspec-rails'
+  gem 'simplecov'
+  
 end
 group :production do
   gem 'pg'
@@ -24,6 +32,7 @@ group :assets do
   gem 'coffee-rails', '~> 3.2.1'
 
   # See https://github.com/sstephenson/execjs#readme for more supported runtimes
+  
   # gem 'therubyracer', :platforms => :ruby
 
   gem 'uglifier', '>= 1.0.3'
