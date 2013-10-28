@@ -14,25 +14,25 @@ describe Calapp do
 
 	it { should be_valid }
 
-	describe "when name is not present" do 
-	    before { @calapp.name = ""}
-	    it {should_not be_valid}
-  	end
+	# describe "when name is not present" do 
+	#     before { @calapp.name = ""}
+	#     it {should_not be_valid}
+ #  	end
 
-  	describe "when URL is not present" do 
-	    before { @calapp.URL = ""}
-	    it {should_not be_valid}
-  	end
+ #  	describe "when URL is not present" do 
+	#     before { @calapp.URL = ""}
+	#     it {should_not be_valid}
+ #  	end
 
-  	describe "when creator is not present" do 
-	    before { @calapp.creator = ""}
-	    it {should_not be_valid}
-  	end
+ #  	describe "when creator is not present" do 
+	#     before { @calapp.creator = ""}
+	#     it {should_not be_valid}
+ #  	end
 
-  	describe "when name is not present" do 
-	    before { @calapp.description = ""}
-	    it {should_not be_valid}
-  	end
+ #  	describe "when name is not present" do 
+	#     before { @calapp.description = ""}
+	#     it {should_not be_valid}
+ #  	end
 
 	
 end

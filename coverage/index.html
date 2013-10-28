@@ -21,21 +21,21 @@
       <img src="./assets/0.4.5/loading.gif" alt="loading"/>
     </div>
     <div id="wrapper" style="display:none;">
-      <div class="timestamp">Generated <abbr class="timeago" title="2013-10-28T03:24:21-07:00">2013-10-28T03:24:21-07:00</abbr></div>
+      <div class="timestamp">Generated <abbr class="timeago" title="2013-10-28T03:51:46-07:00">2013-10-28T03:51:46-07:00</abbr></div>
       <ul class="group_tabs"></ul>
 
       <div id="content">
         <div class="file_list_container" id="AllFiles">
   <h2>
     All Files
-    (<span class="red">71.11%</span>)
+    (<span class="green">95.56%</span>)
   </h2>
   <a name="AllFiles"></a>
   <div>
     <b>9</b> files in total.
     <b>45</b> relevant lines. 
-    <span class="green"><b>32</b> lines covered</span> and
-    <span class="red"><b>13</b> lines missed </span>
+    <span class="green"><b>43</b> lines covered</span> and
+    <span class="red"><b>2</b> lines missed </span>
   </div>
   <table class="file_list">
     <thead>
@@ -61,11 +61,11 @@
       
       <tr>
         <td><a href="#c9027c72ad9c59952d0cb018d75a0661745967e0" class="src_link" title="./app/controllers/calapps_controller.rb">./app/controllers/calapps_controller.rb</a></td>
-        <td class="red">47.83 %</td>
+        <td class="green">95.65 %</td>
         <td>44</td>
         <td>23</td>
-        <td>11</td>
-        <td>12</td>
+        <td>22</td>
+        <td>1</td>
       </tr>
       
       <tr>
@@ -139,14 +139,14 @@
           <div class="file_list_container" id="Controllers">
   <h2>
     Controllers
-    (<span class="red">58.06%</span>)
+    (<span class="green">93.55%</span>)
   </h2>
   <a name="Controllers"></a>
   <div>
     <b>4</b> files in total.
     <b>31</b> relevant lines. 
-    <span class="green"><b>18</b> lines covered</span> and
-    <span class="red"><b>13</b> lines missed </span>
+    <span class="green"><b>29</b> lines covered</span> and
+    <span class="red"><b>2</b> lines missed </span>
   </div>
   <table class="file_list">
     <thead>
@@ -172,11 +172,11 @@
       
       <tr>
         <td><a href="#c9027c72ad9c59952d0cb018d75a0661745967e0" class="src_link" title="./app/controllers/calapps_controller.rb">./app/controllers/calapps_controller.rb</a></td>
-        <td class="red">47.83 %</td>
+        <td class="green">95.65 %</td>
         <td>44</td>
         <td>23</td>
-        <td>11</td>
-        <td>12</td>
+        <td>22</td>
+        <td>1</td>
       </tr>
       
       <tr>
@@ -438,7 +438,7 @@
     <tr>
       <td colspan="3">
         <h3>./app/controllers/calapps_controller.rb</h3>
-        <h4><span class="red">47.83 %</span> covered</h4>
+        <h4><span class="green">95.65 %</span> covered</h4>
       </td>
     </tr>
     <tr>
@@ -489,7 +489,7 @@
     </tr>
   
     
-    <tr class="miss" data-hits="0">
+    <tr class="hit" data-hits="1">
       <td class="line_number">
         <pre>4</pre>
       </td>
@@ -497,12 +497,12 @@
         <pre>		id = params[:id]</pre>
       </td>
       <td class="hits">
-        0
+        1
       </td>
     </tr>
   
     
-    <tr class="miss" data-hits="0">
+    <tr class="hit" data-hits="1">
       <td class="line_number">
         <pre>5</pre>
       </td>
@@ -510,7 +510,7 @@
         <pre>		@calapp = Calapp.find(id)</pre>
       </td>
       <td class="hits">
-        0
+        1
       </td>
     </tr>
   
@@ -762,7 +762,7 @@
     </tr>
   
     
-    <tr class="miss" data-hits="0">
+    <tr class="hit" data-hits="1">
       <td class="line_number">
         <pre>25</pre>
       </td>
@@ -770,7 +770,7 @@
         <pre>		@calapp = Calapp.find params[:id]</pre>
       </td>
       <td class="hits">
-        0
+        1
       </td>
     </tr>
   
@@ -827,7 +827,7 @@
     </tr>
   
     
-    <tr class="miss" data-hits="0">
+    <tr class="hit" data-hits="1">
       <td class="line_number">
         <pre>30</pre>
       </td>
@@ -835,12 +835,12 @@
         <pre>		@calapp = Calapp.find params[:id]</pre>
       </td>
       <td class="hits">
-        0
+        1
       </td>
     </tr>
   
     
-    <tr class="miss" data-hits="0">
+    <tr class="hit" data-hits="1">
       <td class="line_number">
         <pre>31</pre>
       </td>
@@ -848,12 +848,12 @@
         <pre>		@calapp.update_attributes!(params[:calapp])</pre>
       </td>
       <td class="hits">
-        0
+        1
       </td>
     </tr>
   
     
-    <tr class="miss" data-hits="0">
+    <tr class="hit" data-hits="1">
       <td class="line_number">
         <pre>32</pre>
       </td>
@@ -861,12 +861,12 @@
         <pre>		flash[:notice] = &quot;#{@calapp.name} was successfully updated.&quot;</pre>
       </td>
       <td class="hits">
-        0
+        1
       </td>
     </tr>
   
     
-    <tr class="miss" data-hits="0">
+    <tr class="hit" data-hits="1">
       <td class="line_number">
         <pre>33</pre>
       </td>
@@ -874,7 +874,7 @@
         <pre>		redirect_to calapp_path(@calapp)</pre>
       </td>
       <td class="hits">
-        0
+        1
       </td>
     </tr>
   
@@ -931,7 +931,7 @@
     </tr>
   
     
-    <tr class="miss" data-hits="0">
+    <tr class="hit" data-hits="1">
       <td class="line_number">
         <pre>38</pre>
       </td>
@@ -939,12 +939,12 @@
         <pre>		@calapp = Calapp.find(params[:id])</pre>
       </td>
       <td class="hits">
-        0
+        1
       </td>
     </tr>
   
     
-    <tr class="miss" data-hits="0">
+    <tr class="hit" data-hits="1">
       <td class="line_number">
         <pre>39</pre>
       </td>
@@ -952,12 +952,12 @@
         <pre>		@calapp.destroy</pre>
       </td>
       <td class="hits">
-        0
+        1
       </td>
     </tr>
   
     
-    <tr class="miss" data-hits="0">
+    <tr class="hit" data-hits="1">
       <td class="line_number">
         <pre>40</pre>
       </td>
@@ -965,12 +965,12 @@
         <pre>		flash[:notice] = &quot;#{@calapp.name} was sucessfully deleted.&quot;</pre>
       </td>
       <td class="hits">
-        0
+        1
       </td>
     </tr>
   
     
-    <tr class="miss" data-hits="0">
+    <tr class="hit" data-hits="1">
       <td class="line_number">
         <pre>41</pre>
       </td>
@@ -978,7 +978,7 @@
         <pre>		redirect_to calapps_path</pre>
       </td>
       <td class="hits">
-        0
+        1
       </td>
     </tr>
   
@@ -1507,7 +1507,7 @@
     </tr>
   
     
-    <tr class="hit" data-hits="8">
+    <tr class="hit" data-hits="6">
       <td class="line_number">
         <pre>3</pre>
       </td>
@@ -1515,7 +1515,7 @@
         <pre>  before_save {self.email = email.downcase}</pre>
       </td>
       <td class="hits">
-        8
+        6
       </td>
     </tr>
   
