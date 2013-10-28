@@ -1,0 +1,24 @@
+%nav.navbar.navbar-inverse.navbar-fixed-top{"padding-top" => "300", :role => "navigation", :style => "background-color:black;"}
+  %ul.nav.navbar-nav{:style => "float:left;"}
+    %li.gallery
+      %a=link_to "Gallery", "calapps"
+    / %li
+    /   %a{:href => "#"} Gallery
+    / %li
+    /   %a{:href => "price.html"} Profile
+    / %li
+    /   %a{:href => "contact.html"} Contact
+  %ul.nav.navbar-nav{:style => "float:right; "}
+    %li.login
+      %a#loginlink{:href => "login.html"} Login
+
+/ Full Page Image Header Area
+#top.header
+  .vert-text{:style=> "text-align:center;"}
+    %h1 Welcome to CalApps
+    %h3 The gallery to showcase Berkeley students' innovations.
+    %h3= link_to 'View the gallery!', '/calapps'
+/ /Full Page Image Header Area
+/ Placed at the end of the document so the pages load faster
+%script{:src => "js/jquery.js"}
+%script{:src => "js/bootstrap.js"}

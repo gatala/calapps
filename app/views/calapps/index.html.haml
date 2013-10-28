@@ -1,21 +1,27 @@
--#  This file is app/views/movies/index.html.haml
-%h1 Cal Applications
-
-%table#calapps
+- model_class = Calapp
+.page-header
+  %h1=t '.title', :default => model_class.model_name.human.pluralize.titleize
+%table.table.table-striped
   %thead
     %tr
-      %th Application Title
-      //%th URL
-      %th Creator(s)
-      %th Description
-      %th More Information
+      %th= model_class.human_attribute_name(:id)
+      %th= model_class.human_attribute_name(:name)
+      %th= model_class.human_attribute_name(:URL)
+      %th= model_class.human_attribute_name(:creator)
+      %th= model_class.human_attribute_name(:description)
+      %th= model_class.human_attribute_name(:created_at)
+      %th=t '.actions', :default => t("helpers.actions")
   %tbody
-    - @calapps.each do |app|
+    - @calapps.each do |calapp|
       %tr
-        %td= link_to "#{app.name}", app.URL
-        //%td= link_to "#{app.URL}", app.URL
-        %td= app.creator
-        %td= app.description
-        %td= link_to "More about #{app.name}", calapp_path(app)
+        %td= link_to calapp.id, calapp_path(calapp)
+        %td= calapp.name
+        %td= calapp.URL
+        %td= calapp.creator
+        %td= calapp.description
+        %td= calapp.created_at
+        %td
+          = link_to t('.edit', :default => t("helpers.links.edit")), edit_calapp_path(calapp), :class => 'btn btn-mini'
+          = link_to t('.destroy', :default => t("helpers.links.destroy")), calapp_path(calapp), :method => :delete, :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) }, :class => 'btn btn-mini btn-danger'
 
-= link_to 'Add a new applicaton', new_calapp_path
+= link_to t('.new', :default => t("helpers.links.new")), new_calapp_path, :class => 'btn btn-primary'
