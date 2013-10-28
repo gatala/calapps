@@ -1,7 +1,7 @@
 ---
 Cucumber Features:
   :original_result: {}
-  :created_at: 2013-10-28 02:22:00.963251016 -07:00
+  :created_at: 2013-10-28 02:29:11.120360823 -07:00
 RSpec:
   :original_result:
     /home/saasbook/Desktop/calapps/app/controllers/application_controller.rb:
@@ -193,4 +193,4 @@ RSpec:
     - 1
     - 
     - 
-  :created_at: 2013-10-28 01:07:18.730959987 -07:00
+  :created_at: 2013-10-28 02:23:17.049458950 -07:00

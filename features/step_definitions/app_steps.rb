@@ -5,7 +5,11 @@ Given /the following applications exist/ do |calapps_table|
   calapps_table.hashes.each do |app|
     # each returned element will be a hash whose key is the table header.
     # you should arrange to add that movie to the database here.
-    Calapp.create!(app)
+    x = Calapp.new
+    x.name = app.name
+    x.creator = app.creator
+    x.description = app.description
+    x.save!
   end
   #flunk "Unimplemented"
 end
@@ -30,7 +34,7 @@ When /^I am on "(.*)"/ do page
   end
 end
 
-Then /^I should be on "(.*)"/ do page
+Then (/^I should be on "(.*)"/) do page
   if page == 'the CalApps app creation page'
     visit '/calapps/new'
   elsif page == 'the CalApps application page'
@@ -71,7 +75,7 @@ Then /^(?:|I )should see "([^\"]*)"$/ do |text|
 end
 
 Then /I should see all apps/ do
-	CalApps.each do |app|
+	Calapps.each do |app|
 		step "I should see \"#{app.title}\""
 	end
 end

@@ -6,7 +6,7 @@ Feature: View apps on CalApps
 
 Background: applications have been added to the database
 	Given the following applications exist:
-    | application title | creator(s) 				| description										 |
+    | name | creator 				| description										 |
     | Ninja Courses		| William Li, Alex Sydell 	| Used to generate potential schedules for students.|
     | Berkeley Time		| Yuxin Zhu, Noah Gilmore	| Used to search through different classes.			 |
 
