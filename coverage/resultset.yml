@@ -1,0 +1,196 @@
+---
+Cucumber Features:
+  :original_result: {}
+  :created_at: 2013-10-28 01:55:37.555072552 -07:00
+RSpec:
+  :original_result:
+    /home/saasbook/Desktop/calapps/app/controllers/application_controller.rb:
+    - 1
+    - 1
+    - 
+    /home/saasbook/Desktop/calapps/app/helpers/application_helper.rb:
+    - 1
+    - 
+    /home/saasbook/Desktop/calapps/app/helpers/users_helper.rb:
+    - 1
+    - 
+    /home/saasbook/Desktop/calapps/app/helpers/welcome_helper.rb:
+    - 1
+    - 
+    /home/saasbook/Desktop/calapps/app/controllers/calapps_controller.rb:
+    - 1
+    - 
+    - 1
+    - 0
+    - 0
+    - 
+    - 
+    - 
+    - 1
+    - 0
+    - 
+    - 
+    - 
+    - 1
+    - 
+    - 
+    - 1
+    - 0
+    - 0
+    - 0
+    - 
+    - 
+    - 
+    - 1
+    - 0
+    - 
+    - 
+    - 
+    - 1
+    - 0
+    - 0
+    - 0
+    - 0
+    - 
+    - 
+    - 
+    - 1
+    - 0
+    - 0
+    - 0
+    - 0
+    - 
+    - 
+    - 
+    /home/saasbook/Desktop/calapps/app/models/calapp.rb:
+    - 1
+    - 1
+    - 1
+    - 1
+    - 
+    /home/saasbook/Desktop/calapps/app/controllers/users_controller.rb:
+    - 1
+    - 1
+    - 
+    - 
+    - 1
+    - 0
+    - 
+    - 
+    - 
+    /home/saasbook/Desktop/calapps/app/models/user.rb:
+    - 1
+    - 
+    - 8
+    - 1
+    - 
+    - 1
+    - 1
+    - 
+    - 
+    - 
+    - 1
+    - 1
+    - 
+    /home/saasbook/Desktop/calapps/app/controllers/welcome_controller.rb:
+    - 1
+    - 1
+    - 
+    - 
+  :created_at: 2013-10-27 23:47:48.886849372 -07:00
+! '/home/saasbook/.rvm/gems/ruby-1.9.3-p448/bin/rspec ':
+  :original_result:
+    /home/saasbook/Desktop/calapps/app/controllers/application_controller.rb:
+    - 1
+    - 1
+    - 
+    /home/saasbook/Desktop/calapps/app/helpers/application_helper.rb:
+    - 1
+    - 
+    /home/saasbook/Desktop/calapps/app/helpers/users_helper.rb:
+    - 1
+    - 
+    /home/saasbook/Desktop/calapps/app/helpers/welcome_helper.rb:
+    - 1
+    - 
+    /home/saasbook/Desktop/calapps/app/controllers/calapps_controller.rb:
+    - 1
+    - 
+    - 1
+    - 0
+    - 0
+    - 
+    - 
+    - 
+    - 1
+    - 0
+    - 
+    - 
+    - 
+    - 1
+    - 
+    - 
+    - 1
+    - 1
+    - 1
+    - 1
+    - 
+    - 
+    - 
+    - 1
+    - 0
+    - 
+    - 
+    - 
+    - 1
+    - 0
+    - 0
+    - 0
+    - 0
+    - 
+    - 
+    - 
+    - 1
+    - 0
+    - 0
+    - 0
+    - 0
+    - 
+    - 
+    - 
+    /home/saasbook/Desktop/calapps/app/models/calapp.rb:
+    - 1
+    - 1
+    - 1
+    - 1
+    - 
+    /home/saasbook/Desktop/calapps/app/controllers/users_controller.rb:
+    - 1
+    - 1
+    - 
+    - 
+    - 1
+    - 0
+    - 
+    - 
+    - 
+    /home/saasbook/Desktop/calapps/app/models/user.rb:
+    - 1
+    - 
+    - 8
+    - 1
+    - 
+    - 1
+    - 1
+    - 
+    - 
+    - 
+    - 1
+    - 1
+    - 
+    /home/saasbook/Desktop/calapps/app/controllers/welcome_controller.rb:
+    - 1
+    - 1
+    - 
+    - 
+  :created_at: 2013-10-28 01:07:18.730959987 -07:00

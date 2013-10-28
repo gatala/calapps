@@ -10,23 +10,42 @@ Given /the following applications exist/ do |calapps_table|
   #flunk "Unimplemented"
 end
 
-When /^(?:|I )am on (.+)$/ do |page_name|
-  if page_name == "the CalApps app creation page"
-  	visit root_path
-  elsif page_name == "the CalApps home page"
-  	visit root_path
+# When /^(?:|I )am on (.+)$/ do |page_name|
+#   #if page_name == "the CalApps app creation page"
+#   visit '/calapps/new'
+#   #elsif page_name == "the CalApps home page"
+#   #	visit '/calapps'
+#   #elsif page_name == "the CalApps application page"
+#   #  visit '/calapps'
+#   #end
+#   #visit path_to(page_name)
+# end
+
+When /^I am on (.+)$/ do |page|
+  if page == "the CalApps app creation page"
+    visit '/calapps/new'
+  elsif page == 'the CalApps application page'
+    visit '/calapps'
   end
-  visit path_to(page_name)
 end
+
+
+# When(/^I am on the CalApps app creation page$/) do
+#   visit '/calapps/new'
+# end
+
+# When(/^I am on the CalApps application page$/) do
+#   visit '/calapps'
+# end
 
 
 When /I fill in test app details/ do 
 	CA = Calapp.new
 	CA.name = "Test App"
-	CA.url = "http://www.test.com"
+	CA.URL = "http://www.test.com"
 	CA.creator = "Fake Creator"
 	CA.description = "Description for Test App"
-	Calapp.create!(CA)
+	CA.save!
 end
 
 When /I press "(.*)"/ do |button|
@@ -42,13 +61,19 @@ Then /^(?:|I )should see "([^\"]*)"$/ do |text|
 end
 
 Then /I should see all apps/ do
-	CalApps.each do |app|
+	Calapps.each do |app|
 		step "I should see \"#{app.title}\""
 	end
 end
 
 When /^(?:|I )follow "([^\"]*)"$/ do |link|
   click_link(link)
+end
+
+Then /^I should be on (.+)$/ do |page|
+  if page == "the CalApps application page"
+    visit '/calapps'
+  end
 end
 
 Then /^(?:|I )should see \/([^\/]*)\/$/ do |regexp|
@@ -60,3 +85,4 @@ Then /^(?:|I )should see \/([^\/]*)\/$/ do |regexp|
     assert page.has_xpath?('//*', :text => regexp)
   end
 end
+
