@@ -21,10 +21,11 @@
   %body
     %div.navbar
       %div.navbar-inner
-        %a.brand=link_to 'CalApps', '#'
         %ul.nav
-          %li=link_to 'Sign in', '#'
-          %li=link_to 'Add ', new_calapp_path
+          %li
+            %a=link_to 'Gallery', 'index#'
+          %li
+            %a=link_to 'Login', new_calapp_path
     %div#main
       - if flash[:notice]
         #notice.message= flash[:notice]
