@@ -10,33 +10,43 @@ Given /the following applications exist/ do |calapps_table|
   #flunk "Unimplemented"
 end
 
-# When /^(?:|I )am on (.+)$/ do |page_name|
-#   #if page_name == "the CalApps app creation page"
-#   visit '/calapps/new'
-#   #elsif page_name == "the CalApps home page"
-#   #	visit '/calapps'
-#   #elsif page_name == "the CalApps application page"
-#   #  visit '/calapps'
-#   #end
-#   #visit path_to(page_name)
+# When /^I am on (.+)$/ do |page_name|
+#   if page_name == "the CalApps app creation page"
+#   	visit root_path
+#   elsif page_name == "the CalApps home page"
+#   	visit root_path
+#   end
+#   visit path_to(page_name)
 # end
+When /I am on the CalApps app creation page/ do
+  visit '/calapps/new'
+end
 
-When /^I am on (.+)$/ do |page|
-  if page == "the CalApps app creation page"
+When /^I am on "(.*)"/ do page
+  if page == 'the CalApps app creation page'
     visit '/calapps/new'
   elsif page == 'the CalApps application page'
     visit '/calapps'
   end
 end
 
+Then /^I should be on "(.*)"/ do page
+  if page == 'the CalApps app creation page'
+    visit '/calapps/new'
+  elsif page == 'the CalApps application page'
+    visit '/calapps'
+  end
+end
 
-# When(/^I am on the CalApps app creation page$/) do
-#   visit '/calapps/new'
-# end
+Then(/^I should be on the CalApps application page$/) do
+  visit '/calapps'
+end
 
-# When(/^I am on the CalApps application page$/) do
-#   visit '/calapps'
-# end
+When(/^I am on the CalApps application page$/) do
+  visit '/calapps/new'
+end
+
+
 
 
 When /I fill in test app details/ do 
@@ -61,19 +71,13 @@ Then /^(?:|I )should see "([^\"]*)"$/ do |text|
 end
 
 Then /I should see all apps/ do
-	Calapps.each do |app|
+	CalApps.each do |app|
 		step "I should see \"#{app.title}\""
 	end
 end
 
 When /^(?:|I )follow "([^\"]*)"$/ do |link|
   click_link(link)
-end
-
-Then /^I should be on (.+)$/ do |page|
-  if page == "the CalApps application page"
-    visit '/calapps'
-  end
 end
 
 Then /^(?:|I )should see \/([^\/]*)\/$/ do |regexp|
@@ -85,4 +89,3 @@ Then /^(?:|I )should see \/([^\/]*)\/$/ do |regexp|
     assert page.has_xpath?('//*', :text => regexp)
   end
 end
-
