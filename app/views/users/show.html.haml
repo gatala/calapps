@@ -1,4 +1,8 @@
-%h2 Details about= @user.name
+%h1 User Profile 
 
+%h2 Details about #{@user.name}
 
-%h1 = User = @user.name
+%ul#details
+  %li
+    Email:
+    = @user.email

@@ -17,17 +17,15 @@
     %nav.navbar.navbar-inverse.navbar-fixed-top{"padding-top" => "300", :role => "navigation"}
       %ul.nav.navbar-nav
         %li.active
-          %a{:href => "#"} Gallery
-        %li
-          %a{:href => "price.html"} Profile
+          %a{:href => "calapps"} Gallery
         %li
           %a{:href => "contact.html"} Contact
       %ul.nav.navbar-nav{:style => "float:right;"}
         %li.login
-          %a#loginlink{:href => "login.html"} Login
+          %a#loginlink{:href => "users/sign_in"} Login
           %li
             %li.right
-              %a#signuplink{:href => "signup.html"} Signup
+              %a#signuplink{:href => "users/new"} Signup
     / Full Page Image Header Area
     #top.header
       .vert-text
