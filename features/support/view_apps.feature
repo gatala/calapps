@@ -6,9 +6,9 @@ Feature: View apps on CalApps
 
 Background: applications have been added to the database
 	Given the following applications exist:
-    | name | creator 				| description										 |
-    | Ninja Courses		| William Li, Alex Sydell 	| Used to generate potential schedules for students.|
-    | Berkeley Time		| Yuxin Zhu, Noah Gilmore	| Used to search through different classes.			 |
+    | name 				| creator 					| description								 |
+    | Ninja Courses		| William Li, Alex Sydell 	| Used to generate schedules				 |
+    | Berkeley Time		| Yuxin Zhu, Noah Gilmore	| Used to search through different classes.	 |
 
 Scenario: Viewing list of all applications on home page
 	When I am on the CalApps application page
