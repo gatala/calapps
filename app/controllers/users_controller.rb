@@ -1,7 +1,10 @@
 class UsersController < ApplicationController
   def new
   	@user = User.new
-  	@user.save!
+  	if @user.save 
+  	else 
+  		render 'new'
+  	end
   end
 
   def show 

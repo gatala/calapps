@@ -1,2 +1,17 @@
-%h1 Users#new
-%p Find me in app/views/users/new.html.haml
+%h1 Sign up 
+
+= form_tag do
+
+  = label :user, :name, 'Name'
+  = text_field :user, 'name'
+
+  = label :user, :email, "Email"
+  = email_field :user, 'email'
+
+  = label :user, :password, "Password"
+  = password_field :user, 'password'
+
+  = label :user, :password_confirmation, "Confirm Password"
+  = password_field :user, 'password_confirmation'
+
+  = submit_tag 'Sign up!'
