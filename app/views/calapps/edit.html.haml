@@ -1,23 +1,4 @@
--# edit.html.haml using partial
-
-%h1 Edit Existing calapp
-
-= form_tag calapp_path(@calapp), :method => :put do
-
-  = label :calapp, :name, 'Name of Application'
-  = text_field :calapp, 'name'
-
-  = label :calapp, :URL, "Application URL"
-  = url_field :calapp, 'URL'
-
-  = label :calapp, :creator, "Creator(s)"
-  = text_field :calapp, 'creator'
-
-  = label :calapp, :creator, "Description"
-  = text_area :calapp, 'description'
-
-  = submit_tag 'Update Calapp Info'
-%p
-  =link_to 'Back to Application Details', calapp_path(@calapp)
-%p
-  =link_to 'Back to Application List', calapps_path
+- model_class = Calapp
+.page-header
+  %h1=t '.title', :default => [:'helpers.titles.edit', 'Edit %{model}'], :model => model_class.model_name.human.titleize
+= render :partial => "form"
