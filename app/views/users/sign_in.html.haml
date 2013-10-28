@@ -1,0 +1,11 @@
+%h1 Sign-in 
+
+=form_tag signin_path do 
+
+	= label :email, :email, 'Email'
+	= text_field :email, 'email'
+
+	= label :password, :password, 'Password'
+	= text_field :password, 'password'
+
+	=submit_tag 'Sign-in'
