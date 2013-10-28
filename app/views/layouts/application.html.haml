@@ -23,9 +23,8 @@
       %div.navbar-inner
         %ul.nav
           %li
-            %a=link_to 'Gallery', 'index#'
-          %li
-            %a=link_to 'Login', new_calapp_path
+            %a=link_to 'Gallery', '/calapps'
+
     %div#main
       - if flash[:notice]
         #notice.message= flash[:notice]
