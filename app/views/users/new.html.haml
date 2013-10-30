@@ -1,2 +1,19 @@
-%h1 Users#new
-%p Find me in app/views/users/new.html.haml
+-# new.html.haml using partial
+
+%h1 Sign Up for a Calapps Account
+
+= form_tag calapp_path(@calapp), :method => :put do
+
+  = label :user, :name, 'Username'
+  = text_field :user, 'name'
+
+  = label :user, :email, "Email"
+  = url_field :user, 'email'
+
+  = label :user, :creator, "Password"
+  = text_field :user, 'password_digest'
+
+  = submit_tag 'Create'
+
+%p
+  =link_to 'Cancel', calapps_path

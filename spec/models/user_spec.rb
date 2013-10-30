@@ -84,10 +84,9 @@ describe User do
   		it { should_not be_valid }
 	end
 
-#Needs to pass tests before we can proceed
 	describe "return value of authenticate method" do
   		before { @user.save }
-  		let(:found_user) { User.where(email: @user.email) }
+  		let(:found_user) { User.where(email: @user.email).first }
 
   		describe "with valid password" do
     		it { should eq found_user.authenticate(@user.password) }
