@@ -1,4 +1,5 @@
 require 'spec_helper'
+require 'factory_girl'
 
 describe "User pages" do
 
@@ -10,12 +11,13 @@ describe "User pages" do
 
     	it { should have_content(user.name) }
     	it { should have_title(user.name) }
-  	end
+  end
 
 	describe "signup page" do
     	before { visit signup_path }
 
     	it { should have_content('Sign up') }
     	it { should have_title(full_title('Sign up')) }
-  	end
+  end
+
 end
