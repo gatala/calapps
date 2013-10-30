@@ -1,3 +1,4 @@
+
 -# new.html.haml using partial
 
 %h1 Sign Up for a Calapps Account
@@ -10,10 +11,11 @@
   = label :user, :email, "Email"
   = url_field :user, 'email'
 
-  = label :user, :creator, "Password"
-  = text_field :user, 'password_digest'
+  / = label :user, :creator, "Password"
+  / = text_field :user, 'password_digest'
 
   = submit_tag 'Create'
 
 %p
   =link_to 'Cancel', calapps_path
+
