@@ -1,6 +1,6 @@
 Calapps::Application.routes.draw do
-  get "welcome/index"
-
+  get "welcome/contact"
+  get "welcome/about"
   get "users/new"
 
   # The priority is based upon order of creation:
@@ -22,7 +22,7 @@ Calapps::Application.routes.draw do
   resources :users
   resources :calapps
   resources :sessions
-  
+
   # Sample resource route with options:
   #   resources :products do
   #     member do

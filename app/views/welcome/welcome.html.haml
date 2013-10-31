@@ -12,7 +12,7 @@
               / Add custom CSS here
               %link{:href => "../../assets/css/stylish-portfolio.css", :rel => "stylesheet"}
                 %link{:href => "font-awesome/css/font-awesome.min.css", :rel => "stylesheet"}
-  %body
+  %bodys
     %script{:src => "http://code.jquery.com/jquery.js"}
     %script{:src => "/Developer/bootstrap/js/bootstrap.min.js"}
     %nav.navbar.navbar-inverse.navbar-fixed-top{"padding-top" => "300", :role => "navigation"}
@@ -20,9 +20,9 @@
         %li.active
           %a{:href => "#"} Gallery
         %li
-          %a{:href => "price.html"} Profile
+          %a{:href => "welcome/about"} About
         %li
-          %a{:href => "contact.html"} Contact
+          %a{:href => "welcome/contact"} Contact
       %ul.nav.navbar-nav{:style => "float:right;"}
         %li.login
           %a#loginlink{:href => "login.html"} Login
