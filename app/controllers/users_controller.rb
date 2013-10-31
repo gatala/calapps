@@ -5,10 +5,10 @@ class UsersController < ApplicationController
   	end
 
 	def create
-  		@user = User.new
+  		@user = User.new(user_params)
 		if @user.save 
   			flash[:success] = "Welcome to Cal Apps!"
-  			redirect_to user_path
+  			redirect_to @user
   		else 
   			render 'new'
   		end
@@ -39,10 +39,10 @@ class UsersController < ApplicationController
     end
 
 	private
-	def user_params
-    	params.require(:user).permit(:name, :email, :password,
-            :password_confirmation)
-    end
+		def user_params
+    		params.require(:user).permit(:name, :email, :password,
+            	:password_confirmation)
+    	end
 
     def signed_in_user
       redirect_to signin_url, notice: "Please sign in." unless signed_in?
