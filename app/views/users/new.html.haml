@@ -3,21 +3,22 @@
 
 %h1 Sign Up for an Account
 
-= form_for(@user) do |f|
-	= f.label :name
-	= f.text_field :name
+= form_tag users_path do
 
-	= f.label :email
-	= f.text_field :email
+	= label :user, :name, 'First Name, Last Name'
+	= text_field :user, 'name'
 
-	= f.label :password
-	= f.password_field :password
+	= label :user, :email, 'Email'
+	= text_field :user, 'email'
 
-	= f.label :password_confirmation, "Confirmation"
-	= f.password_field :password_confirmation
+	= label :user, :password, 'Password'
+	= password_field :user, 'password'
+
+	= label :user, :password_confirmation, "Confirmation"
+	= password_field :user, 'password_confirmation'
   	
-= f.submit "Create my account"
+%div 
+	= submit_tag 'Sign up'
 
-%p
-	=link_to 'Cancel', calapps_path
+
 
