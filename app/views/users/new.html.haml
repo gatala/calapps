@@ -7,14 +7,17 @@
 	= new_user.label :name, 'Name (e.g. John Smith)'
 	#{new_user.text_field :name}
 
+	%div
 	= new_user.label :email, 'Email Address'
 	#{new_user.text_field :email}
 
+	%div
 	= new_user.label :password, 'Password (at least 8 characters)'
 	#{new_user.password_field :password}
 
-	= new_user.label :password, 'Confirm your password'
-	#{new_user.password_field :password}
+	%div
+	= new_user.label :password_confirmation, 'Confirm your password'
+	#{new_user.password_field :password_confirmation}
 
 	= submit_tag 'Sign up'
 
