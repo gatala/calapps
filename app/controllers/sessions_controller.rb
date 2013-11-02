@@ -5,7 +5,7 @@ class SessionsController < ApplicationController
 	end 
 
 	def create 
-		user = User.find(email: params[:session][:email].downcase).first
+		user = User.where(email: params[:session][:email].downcase).first
   		if user && user.authenticate(params[:session][:password])
     		sign_in user
       		redirect_to user
