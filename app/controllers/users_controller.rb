@@ -38,6 +38,10 @@ class UsersController < ApplicationController
     	redirect_to users_url
     end
 
+    def edit 
+    	@user = User.find(params[:id])
+    end
+
 	private
 		def user_params
     		params.require(:user).permit(:name, :email, :password,
