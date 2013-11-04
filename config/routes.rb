@@ -2,7 +2,6 @@ Calapps::Application.routes.draw do
   get "welcome/contact"
   get "welcome/about"
   get "users/new"
-  get "sessions/new"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
