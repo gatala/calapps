@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 !!!
 %html{:lang => "en"}
   %head
@@ -14,53 +13,28 @@
                 %link{:href => "font-awesome/css/font-awesome.min.css", :rel => "stylesheet"}
   %bodys
     %script{:src => "http://code.jquery.com/jquery.js"}
-    %script{:src => "/Developer/bootstrap/js/bootstrap.min.js"}
-    %nav.navbar.navbar-inverse.navbar-fixed-top{"padding-top" => "300", :role => "navigation"}
-      %ul.nav.navbar-nav
-        %li.active
-          %a{:href => "#"} Gallery
-        %li
-          %a{:href => "welcome/about"} About
-        %li
-          %a{:href => "welcome/contact"} Contact
-      %ul.nav.navbar-nav{:style => "float:right;"}
-        %li.login
-          %a#loginlink{:href => "/signin"} Login
-          %li
-            %li.right
-              %a#signuplink{:href => signup_path} Signup
+
+    / %nav.navbar.navbar-inverse.navbar-fixed-top{"padding-top" => "300", :role => "navigation"}
+    /   %ul.nav.navbar-nav
+    /     %li.active
+    /       %a{:href => "#"} Gallery
+    /     %li
+    /       %a{:href => "welcome/about"} About
+    /     %li
+    /       %a{:href => "welcome/contact"} Contact
+    /   %ul.nav.navbar-nav{:style => "float:right;"}
+    /     %li.login
+    /       %a#loginlink{:href => "/signin"} Login
+    /       %li
+    /         %li.right
+    /           %a#signuplink{:href => signup_path} Signup
     / Full Page Image Header Area
     #top.header
-      .vert-text
+      .vert-text{:style=>'float:center;'}
         %h1 Welcome to CalApps
         %h3 The gallery to showcase Berkeley students' innovations.
-        %h3
+        %a= link_to "See the gallery!", '/calapps'
     / /Full Page Image Header Area
     / Placed at the end of the document so the pages load faster
     %script{:src => "js/jquery.js"}
     %script{:src => "js/bootstrap.js"}
-=======
-
-%nav.navbar.navbar-inverse.navbar-fixed-top{"padding-top" => "300", :role => "navigation"}
-  %ul.nav.navbar-nav
-    %li.active
-      %a{:href => "calapps"} Gallery
-    %li
-      %a{:href => "contact.html"} Contact
-  %ul.nav.navbar-nav{:style => "float:right;"}
-    %li.login
-      %a#loginlink{:href => "users/sign_in"} Login
-      %li
-        %li.right
-          %a#signuplink{:href => "users/new"} Signup
-/ Full Page Image Header Area
-#top.header
-  .vert-text
-    %h1 Welcome to CalApps
-    %h3 The gallery to showcase Berkeley students' innovations.
-    %h3
-/ /Full Page Image Header Area
-/ Placed at the end of the document so the pages load faster
-%script{:src => "js/jquery.js"}
-%script{:src => "js/bootstrap.js"}
->>>>>>> a3cc4a7d83278da347210003c29aacc812d76ae4
