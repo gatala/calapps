@@ -9,4 +9,4 @@
     - @users.each do |user|
       %tr
         %td= link_to "#{user.name}", user_path(user)
-        %td user.email
+        %td #{user.email}
