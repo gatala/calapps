@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
 	#before_action :signed_in_user, only: [:edit, :update]
+	#before_action :correct_user, only: [:edit, :update]
 	def new
     	@user = User.new
   	end
@@ -26,8 +27,9 @@ class UsersController < ApplicationController
   		 @user = User.find(params[:id])
     	if @user.update_attributes(user_params)
       		flash[:success] = "Profile udpated!"
-      		redirect_to @user
+      		redirect_back_or @user
     	else
+    		flash.new[:error] = 'Invalid email/password'
       		render 'edit'
     	end
   	end
@@ -50,7 +52,7 @@ class UsersController < ApplicationController
 
 
     def signed_in_user
-      redirect_to signin_url, notice: "Please sign in." unless signed_in?
+      redirect_to signin_urlnotice: "Please sign in." unless signed_in?
     end
 
     def correct_user
