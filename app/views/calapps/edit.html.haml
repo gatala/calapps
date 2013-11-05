@@ -16,7 +16,7 @@
   = label :calapp, :creator, "Description"
   = text_area :calapp, 'description'
 
-.form-actions
-  = submit_tag 'Update', :class => "btn btn-primary"
-  =link_to 'Back to App Details', calapp_path(@calapp), :class => "btn"
-  =link_to 'Back to App List', calapps_path, :class => "btn"
+  .form-actions
+    = submit_tag 'Update', :class => "btn btn-primary"
+    = link_to 'Back to App Details', calapp_path(@calapp), :class => "btn"
+    = link_to 'Back to App List', calapps_path, :class => "btn"

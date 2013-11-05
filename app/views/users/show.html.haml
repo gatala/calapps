@@ -1,9 +1,6 @@
 %h1 Details about  #{@user.name}
-
-%ul#details
-  %li
-    Email:
-    = @user.email
+Email:
+= @user.email
 
 .form-actions
   = link_to t('.back', :default => t("helpers.links.back")), '/users', :class => 'btn'

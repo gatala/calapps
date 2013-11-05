@@ -25,11 +25,11 @@
           .brand=link_to "CalApps", '/'
           %ul.nav.pull-left
             %li
-              =link_to 'Gallery', '/calapps'
+              = link_to 'Gallery', '/calapps'
             %li
-              =link_to 'About', '/welcome/about'
+              = link_to 'About', '/welcome/about'
             %li
-              =link_to 'Contact', '/welcome/contact'
+              = link_to 'Contact', '/welcome/contact'
           %ul.nav.pull-right
             - if signed_in?
               %li
@@ -41,10 +41,9 @@
                 %a#loginlink{:href => "/signin"} Login
               %li
                 %a#signuplink{:href => signup_path} Signup
-
-    - if flash[:notice]
-      #notice.message= flash[:notice]
-    - elsif flash[:warning]
-      #warning.message= flash[:warning]
     .container
+      - if flash[:notice]
+        #notice.message= flash[:notice]
+      - elsif flash[:warning]
+        #warning.message= flash[:warning]
       = yield
