@@ -1,9 +1,8 @@
 class Calapp < ActiveRecord::Base
 	#belongs_to :user
 
-	validates_uniqueness_of :name
-
-	validates :name, :presence => true, length: {:within => 3..25}
+	validates :name, :presence => true, length: {:within => 3..25}, 
+  			uniqueness: { case_sensitive: false }
 
 	validates :creator, :presence => true
 

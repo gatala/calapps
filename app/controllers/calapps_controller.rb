@@ -14,10 +14,52 @@ class CalappsController < ApplicationController
 	def new 
 	end 
 
+	# def create 
+ #        @calapp = Calapp.create!(params[:calapp])
+ #        flash[:notice] = "#{@calapp.name} was successfully created."
+ #        redirect_to calapps_path
+ #    end 
+
 	def create 
 		@calapp = Calapp.create!(params[:calapp])
-		flash[:notice] = "#{@calapp.name} was successfully created."
-		redirect_to calapps_path
+		if @calapp.save
+			flash[:notice] = "#{@calapp.name} was successfully created."
+			redirect_to calapps_path
+		else
+			error = ""
+			if @calapp.errors[:name] != []
+				error += "- Name " 
+				(0..5).each do |i|
+					if @calapp.errors[:name][i] == nil
+						break
+					end
+					error += (@calapp.errors[:name][i] + " and ")
+				end
+				error = error[0..-6] + "\n"
+			end
+			if @calapp.errors[:creator] != []
+				error += "- Creator " 
+				(0..5).each do |i|
+					if @calapp.errors[:creator][i] == nil
+						break
+					end
+					error += (@calapp.errors[:creator][i] + " and ")
+				end
+				error = error[0..-6] + "\n"
+			end
+			if @calapp.errors[:URL] != []
+				error += "- URL " 
+				(0..5).each do |i|
+					if @calapp.errors[:URL][i] == nil
+						break
+					end
+					error += (@calapp.errors[:URL][i] + " and ")
+				end
+				error = error[0..-6] + "\n"
+			end
+			flash[:notice] = error
+			render 'new'
+		end
 	end 
 
 
