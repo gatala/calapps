@@ -21,7 +21,7 @@ class CalappsController < ApplicationController
  #    end 
 
 	def create 
-		@calapp = Calapp.create!(params[:calapp])
+		@calapp = Calapp.create(params[:calapp])
 		if @calapp.save
 			flash[:notice] = "#{@calapp.name} was successfully created."
 			redirect_to calapps_path
