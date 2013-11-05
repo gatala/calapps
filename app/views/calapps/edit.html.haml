@@ -1,6 +1,6 @@
 -# edit.html.haml using partial
 
-%h1 Edit Existing calapp
+%h1 Edit Existing CalApp
 
 = form_tag calapp_path(@calapp), :method => :put do
 
@@ -16,8 +16,7 @@
   = label :calapp, :creator, "Description"
   = text_area :calapp, 'description'
 
-  = submit_tag 'Update Calapp Info'
-%p
-  =link_to 'Back to Application Details', calapp_path(@calapp)
-%p
-  =link_to 'Back to Application List', calapps_path
+.form-actions
+  = submit_tag 'Update', :class => "btn btn-primary"
+  =link_to 'Back to App Details', calapp_path(@calapp), :class => "btn"
+  =link_to 'Back to App List', calapps_path, :class => "btn"

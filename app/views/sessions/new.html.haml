@@ -1,14 +1,12 @@
-%h1 Sign in
-
-= form_for(:session, url: sessions_path) do |f|
-
-  = f.label :email
-  = f.text_field :email
-
+= form_for(:session, url: sessions_path, class: "form-signin") do |f|
+  %h2.form-signin-heading Please sign in
   %div
-  = f.label :password
-  = f.password_field :password
-
-  = f.submit "Sign in", class: "btn btn-large btn-primary"
+    = f.label :email
+    = f.text_field :email, :placeholder => "Email address"
+  %div
+    = f.label :password
+    = f.password_field :password, :placeholder => "Password"
+  %div
+    = f.submit "Sign in", class: "btn btn-primary"
 %p
   New user? #{link_to "Sign up now!", signup_path}
