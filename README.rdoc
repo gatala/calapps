@@ -99,6 +99,10 @@ Design Document Notes
 
 Next Steps 
 
+* Handle all the fringe cases with models and adding to the DB
+
+* Paperclip plugin 
+
 * Admin powers 
 
 * Need to create tags and comments and edit the entire relations between things
