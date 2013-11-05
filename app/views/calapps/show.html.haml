@@ -1,23 +1,18 @@
 -# in app/views/movies/show.html.haml
 
-%h2 Details about #{@calapp.name}
+%h2 #{@calapp.name}
 
-%ul#details
-  %li
-    Created by:
-    = @calapp.creator
-  %li
-    Application URL:
-    = @calapp.URL
+
+%div
+  Created by:
+  = @calapp.creator
+%div
+  Application URL:
+  = link_to @calapp.URL, @calapp.URL
 
 %h3 Description:
-%ul#description
-  %li 
-    = @calapp.description
-
-/ = link_to 'Edit', edit_calapp_path(@calapp)
-/ = button_to 'Delete', calapp_path(@calapp), :method => :delete, :confirm => 'Are you sure?'
-/ = link_to 'Back to Application List', calapps_path
+%div
+  = @calapp.description
 
 .form-actions
   = link_to t('.back', :default => t("helpers.links.back")), calapps_path, :class => 'btn'
