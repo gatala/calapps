@@ -96,3 +96,24 @@ Design Document Notes
 * RailsCast
 
 * Add clients to gitHub, PivitolTracker
+
+Next Steps 
+
+* Handle all the fringe cases with models and adding to the DB
+
+* Paperclip plugin 
+
+* Admin powers 
+
+* Need to create tags and comments and edit the entire relations between things
+
+* Email confirmation form 
+
+* Password recovery 
+
+* Sunspot Gem powered by SOLR 
+
+* Recommendify Gem for suggested Apps 
+
+
+
