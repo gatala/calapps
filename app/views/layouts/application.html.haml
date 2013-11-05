@@ -56,12 +56,17 @@
             -else
               %a#loginlink{:href => "/signin"} Login
               %a#signuplink{:href => signup_path} Signup
+
+        - if flash[:notice]
+          #notice.message= flash[:notice]
+        - elsif flash[:warning]
+          #warning.message= flash[:warning]
           
 
-    %div#main
-      - if flash[:notice]
-        #notice.message= flash[:notice]
-      - elsif flash[:warning]
-        #warning.message= flash[:warning]
+    / %div#main
+    /   - if flash[:notice]
+    /     #notice.message= flash[:notice]
+    /   - elsif flash[:warning]
+    /     #warning.message= flash[:warning]
 
-      = yield
+    = yield

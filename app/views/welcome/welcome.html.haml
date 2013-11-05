@@ -18,29 +18,6 @@
     / %nav.navbar.navbar-inverse.navbar-fixed-top{"padding-top" => "300", :role => "navigation"}
     /   %ul.nav.navbar-nav
     /     %li.active
-    /       %a{:href => "/calapps"} Gallery
-    /     %li
-    /       %a{:href => "welcome/about"} About
-    /     %li
-    /       %a{:href => "welcome/contact"} Contact
-    /   %ul.nav.navbar-nav{:style => "float:right;"}
-    /     %li.login
-
-          
-    /       %li
-    /         %li.right
-    /         - if signed_in?
-    /           //%a{:href => "/calapps"} Gallery
-    /           Hello #{@current_user.name}
-    /           = link_to "Sign out", signout_path, :method =>"delete"
-    /         - else
-    /           %a#loginlink{:href => "/signin"} Login
-    /           %a#signuplink{:href => signup_path} Signup
-
-
-    / %nav.navbar.navbar-inverse.navbar-fixed-top{"padding-top" => "300", :role => "navigation"}
-    /   %ul.nav.navbar-nav
-    /     %li.active
     /       %a{:href => "#"} Gallery
     /     %li
     /       %a{:href => "welcome/about"} About
@@ -55,10 +32,11 @@
 
     / Full Page Image Header Area
     #top.header
-      .vert-text{:style=>'float:center;'}
+      .vert-text{:style=> "text-align:center;"}
         %h1 Welcome to CalApps
         %h3 The gallery to showcase Berkeley students' innovations.
-        %a= link_to "See the gallery!", '/calapps'
+        %h3
+          %a= link_to "View the gallery!", '/calapps'
     / /Full Page Image Header Area
     / Placed at the end of the document so the pages load faster
     %script{:src => "js/jquery.js"}

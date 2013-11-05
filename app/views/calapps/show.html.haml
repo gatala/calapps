@@ -11,10 +11,15 @@
     = @calapp.URL
 
 %h3 Description:
+%ul#description
+  %li 
+    = @calapp.description
 
-%p#description= @calapp.description
+/ = link_to 'Edit', edit_calapp_path(@calapp)
+/ = button_to 'Delete', calapp_path(@calapp), :method => :delete, :confirm => 'Are you sure?'
+/ = link_to 'Back to Application List', calapps_path
 
-= link_to 'Edit', edit_calapp_path(@calapp)
-= button_to 'Delete', calapp_path(@calapp), :method => :delete, :confirm => 'Are you sure?'
-= link_to 'Back to Application List', calapps_path
-
+.form-actions
+  = link_to t('.back', :default => t("helpers.links.back")), calapps_path, :class => 'btn'
+  = link_to t('.edit', :default => t("helpers.links.edit")), edit_calapp_path(@calapp), :class => 'btn'
+  = link_to t('.destroy', :default => t("helpers.links.destroy")), calapp_path(@calapp), :method => "delete", :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) }, :class => 'btn btn-danger'

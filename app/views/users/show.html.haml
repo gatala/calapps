@@ -4,3 +4,7 @@
   %li
     Email:
     = @user.email
+
+.form-actions
+  = link_to t('.back', :default => t("helpers.links.back")), '/users', :class => 'btn'
+  

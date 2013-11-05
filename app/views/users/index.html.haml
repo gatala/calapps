@@ -1,6 +1,6 @@
 %h1 Calapps Users
 
-%table#users
+%table.table.table-striped
   %thead
     %tr
       %th Username
@@ -10,3 +10,4 @@
       %tr
         %td= link_to "#{user.name}", user_path(user)
         %td #{user.email}
+
