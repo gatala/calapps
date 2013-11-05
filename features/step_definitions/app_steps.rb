@@ -4,7 +4,6 @@ require 'cgi'
 Given /the following applications exist/ do |calapps_table|
   calapps_table.hashes.each do |app|
     # each returned element will be a hash whose key is the table header.
-    # you should arrange to add that movie to the database here.
     Calapp.create!(app)
   end
   #flunk "Unimplemented"
@@ -12,9 +11,9 @@ end
 
 When /^(?:|I )am on (.+)$/ do |page_name|
   if page_name == "the CalApps app creation page"
-  	visit root_path
+  	visit new_calapp_path
   elsif page_name == "the CalApps home page"
-  	visit root_path
+  	visit root_URL
   end
   visit path_to(page_name)
 end
@@ -23,7 +22,7 @@ end
 When /I fill in test app details/ do 
 	CA = Calapp.new
 	CA.name = "Test App"
-	CA.url = "http://www.test.com"
+	CA.URL = "http://www.test.com"
 	CA.creator = "Fake Creator"
 	CA.description = "Description for Test App"
 	Calapp.create!(CA)

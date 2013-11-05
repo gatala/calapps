@@ -50,9 +50,12 @@
             %a=link_to 'Contact', '/welcome/contact'
         %ul.nav{:style=>'float:right;'}
           %li
-            %a=link_to 'Login', '/signin'
-          %li
-            %a=link_to 'Signup', '/signup'
+            - if signed_in?
+              Hello #{@current_user.name}
+              = link_to "Sign out", signout_path, :method =>"delete"
+            -else
+              %a#loginlink{:href => "/signin"} Login
+              %a#signuplink{:href => signup_path} Signup
           
 
     %div#main
