@@ -1,5 +1,8 @@
 -# new.html.haml using partial
-
+.row
+	.span6.offset3
+		= form_for(@user) do |f|
+			= render 'shared/error_messages'
 = form_for @user do |new_user|
 	%h2.form-signin-heading Sign Up for an Account
 	%div
@@ -16,5 +19,4 @@
 		= new_user.password_field :password_confirmation, :placeholder => "Password"
 	%div
 		= new_user.submit "Sign Up", class: "btn btn-primary"
-
 
