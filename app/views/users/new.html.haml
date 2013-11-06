@@ -7,7 +7,7 @@
 		= new_user.text_field :name, :placeholder => "John Smith"
 	%div
 		= new_user.label :email, 'Email Address'
-		= new_user.text_field :email, :placeholder => "Email address"
+		= new_user.email_field :email, :placeholder => "Email address"
 	%div
 		= new_user.label :password, 'Password (at least 8 characters)'
 		= new_user.password_field :password, :placeholder => "Password"
