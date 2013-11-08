@@ -1,23 +1,21 @@
--# new.html.haml using partial
-%h2 Sign Up for an Account
-.row
-	.span6.offset0
-		= form_for(@user) do |f|
-			= render 'shared/error_messages'
-= form_for @user do |new_user|
-	/ %h2.form-signin-heading Sign Up for an Account
-	%div
-		= new_user.label :name, 'Name (e.g. John Smith)'
-		= new_user.text_field :name, :placeholder => "John Smith"
-	%div
-		= new_user.label :email, 'Email Address'
-		= new_user.email_field :email, :placeholder => "Email address"
-	%div
-		= new_user.label :password, 'Password (at least 8 characters)'
-		= new_user.password_field :password, :placeholder => "Password"
-	%div
-		= new_user.label :password_confirmation, 'Confirm your password'
-		= new_user.password_field :password_confirmation, :placeholder => "Password"
-	%div
-		= new_user.submit "Sign Up", class: "btn btn-primary"
+%h1 Sign Up for an Account
+
+= form_tag user_path do
+
+  = label :user, :name, 'Name'
+  = text_field :user, 'name'
+
+  = label :user, :email, "Email"
+  = email_field :user, 'email'
+
+  = label :user, :password, "Password (8 characters minimum)"
+  = password_field :user, 'password'
+
+  = label :user, :password_confirmation, "Password Confirmation"
+  = password_field :user, 'password_confirmation'
+
+  .form-actions
+    = submit_tag 'Update', :class => "btn btn-primary"
+    = link_to 'Back', user_path, :class => "btn"
+
 
