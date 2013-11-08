@@ -1,6 +1,10 @@
 class Calapp < ActiveRecord::Base
 	#belongs_to :user
 
+	attr_accessible  :name, :URL, :creator, :description, :tag_list. :created_location
+
+	acts_as_taggable 
+
 	validates :name, :presence => true, length: {:within => 3..25}, 
   			uniqueness: { case_sensitive: false }
 
