@@ -7,7 +7,11 @@ class CalappsController < ApplicationController
 
 
 	def index 
-		@calapps = Calapp.all
+		if params[:tag] 
+			@calapps = Calapp.tagged_with(params[:tag])
+		else
+			@calapps = Calapp.all
+		end
 	end 
 
 

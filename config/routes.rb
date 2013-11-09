@@ -2,6 +2,7 @@ Calapps::Application.routes.draw do
   get "welcome/contact"
   get "welcome/about"
   get "users/new"
+  get 'tags/:tag', to: 'calapps#index', as: :tag
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
