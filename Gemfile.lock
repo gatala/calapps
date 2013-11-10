@@ -153,6 +153,7 @@ DEPENDENCIES
   haml-bootstrap-rails (~> 0.3.11)
   jquery-rails
   less-rails
+  mail
   pg
   rails (= 3.2.14)
   rspec-rails
