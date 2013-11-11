@@ -13,7 +13,7 @@ class User < ActiveRecord::Base
   has_secure_password
   validates :password, length: {:within => 8..20}
 
-  #validates :is_admin, :presence => true
+  has_many :calapps
 
   def User.new_remember_token
     SecureRandom.urlsafe_base64
@@ -22,11 +22,6 @@ class User < ActiveRecord::Base
   def User.encrypt(token)
     Digest::SHA1.hexdigest(token.to_s)
   end
-
-  # def is_admin=(flag)
-  #   @user.is_admin = flag
-  # end
-
 
   private
 

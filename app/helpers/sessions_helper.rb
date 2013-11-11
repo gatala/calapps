@@ -36,4 +36,8 @@ module SessionsHelper
   def is_admin?
     signed_in? && @current_user.is_admin
   end
+
+  def is_owner?
+    signed_in? && @current_user.email == @calapp.user_email
+  end
 end

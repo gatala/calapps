@@ -20,6 +20,7 @@ class CalappsController < ApplicationController
 
 	def create 
 		@calapp = Calapp.create(params[:calapp])
+		@calapp.user_email = current_user.email
 		if @calapp.save
 			flash[:notice] = "#{@calapp.name} was successfully created."
 			redirect_to calapps_path
@@ -48,5 +49,4 @@ class CalappsController < ApplicationController
 		flash[:notice] = "#{@calapp.name} was sucessfully deleted."
 		redirect_to calapps_path
 	end
-
 end 

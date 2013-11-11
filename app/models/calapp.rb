@@ -13,4 +13,7 @@ class Calapp < ActiveRecord::Base
 	validates :URL, :presence => true, 
   			uniqueness: { case_sensitive: false }
 
+  	belongs_to :user
+  	validates :user_email, :presence => true
+
 end
