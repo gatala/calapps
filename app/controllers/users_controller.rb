@@ -2,7 +2,12 @@ class UsersController < ApplicationController
 	#before_action :signed_in_user, only: [:edit, :update]
 	#before_action :correct_user, only: [:edit, :update]
 	def new
-    	@user = User.new
+    	if not signed_in?
+        @user = User.new
+      else
+        redirect_to calapps_path
+      end
+
   	end
 
 	def create
@@ -25,8 +30,12 @@ class UsersController < ApplicationController
   	@user = User.find(params[:id])
   end 
 
-	def index 
-  		@users = User.all
+	def index
+  		if is_admin?
+        @users = User.all #only admin should be able to see all users
+      else
+        redirect_to calapps_path
+      end
   	end
 
   	def update
