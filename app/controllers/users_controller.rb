@@ -13,9 +13,9 @@ class UsersController < ApplicationController
 	def create
   	@user = User.new(user_params)
     if @user.email == 'admin@admin.com'
-      @user.is_admin= true
+      @user.is_admin = 'yes'
     else
-      @user.is_admin= false
+      @user.is_admin = 'no'
     end
 		if @user.save
       UserMailer.registration_confirmation(@user).deliver
@@ -44,8 +44,8 @@ class UsersController < ApplicationController
   	def update
   		 @user = User.find(params[:id])
     	if @user.update_attributes(user_params)
-      		flash[:success] = "Profile udpated!"
-      		redirect_back_or @user
+      	flash[:notice] = "Profile udpated!"
+      	redirect_back_or @user
     	else
     		flash[:notice] = 'No Changes Made'
       	render 'edit'
@@ -60,7 +60,7 @@ class UsersController < ApplicationController
 
     def edit 
       @user = User.find(params[:id])
-      if not signed_in? or (@user.email != current_user.email and not current_user.is_admin)
+      if not signed_in? or (@user.email != current_user.email and current_user.is_admin == 'no')
         redirect_to calapps_path
       end
     	

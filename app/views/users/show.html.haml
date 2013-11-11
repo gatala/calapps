@@ -3,9 +3,12 @@
 - if is_admin? or is_user?
 	Email:
 	= @user.email
+	
+	-if is_admin?
+		Admin:
+		= @user.is_admin
 
 .form-actions
 	- if is_admin? or is_user?
 		= link_to "Change Password", edit_user_path, :class => "btn btn-primary"
 	= link_to t('.back', :default => t("helpers.links.back")), '/users', :class => 'btn'
-  
