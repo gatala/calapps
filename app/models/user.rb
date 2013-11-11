@@ -1,7 +1,6 @@
 class User < ActiveRecord::Base
 
   before_save {self.email = email.downcase}
-  before_save { generate_token(:password_reset_token)}
 
   validates :name, :presence => true, length: {:within => 3..25}
 
