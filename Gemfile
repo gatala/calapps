@@ -5,6 +5,7 @@ gem 'bcrypt-ruby', '3.0.1'
 gem 'strong_parameters'
 gem 'acts-as-taggable-on'
 gem 'mail'
+gem "railroady"
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'

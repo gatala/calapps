@@ -8,7 +8,7 @@ class SessionsController < ApplicationController
 		user = User.where(email: params[:session][:email].downcase).first
   		if user && user.authenticate(params[:session][:password])
     		sign_in user
-      		redirect_to user
+      	redirect_to user
   		else
     		flash[:error] = "Invalid email or password."
     		render 'new'
