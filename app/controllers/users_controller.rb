@@ -28,6 +28,9 @@ class UsersController < ApplicationController
 
 	def show 
   	@user = User.find(params[:id])
+    if not signed_in?
+      redirect_to calapps_path
+    end
   end 
 
 	def index
