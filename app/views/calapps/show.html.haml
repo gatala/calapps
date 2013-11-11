@@ -24,5 +24,6 @@
 
 .form-actions
   = link_to t('.back', :default => t("helpers.links.back")), calapps_path, :class => 'btn'
-  = link_to t('.edit', :default => t("helpers.links.edit")), edit_calapp_path(@calapp), :class => 'btn btn-primary'
-  = link_to t('.destroy', :default => t("helpers.links.destroy")), calapp_path(@calapp), :method => "delete", :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) }, :class => 'btn btn-danger'
+  - if is_admin?
+    = link_to t('.edit', :default => t("helpers.links.edit")), edit_calapp_path(@calapp), :class => 'btn btn-primary'
+    = link_to t('.destroy', :default => t("helpers.links.destroy")), calapp_path(@calapp), :method => "delete", :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) }, :class => 'btn btn-danger'

@@ -7,29 +7,33 @@ module SessionsHelper
 	end
 
 	def signed_in?
-    	!current_user.nil?
-  	end
+    !current_user.nil?
+  end
 
-  	def sign_out
-  		self.current_user = nil
-  		cookies.delete(:remember_token)
-  	end
+  def sign_out
+  	self.current_user = nil
+  	cookies.delete(:remember_token)
+  end
 
 	def current_user=(user)
 		@current_user = user
 	end
 
 	def current_user
-    	remember_token = User.encrypt(cookies[:remember_token])
-   		@current_user ||= User.where(remember_token: remember_token).first
-  	end
+    remember_token = User.encrypt(cookies[:remember_token])
+   	@current_user ||= User.where(remember_token: remember_token).first
+  end
 
-  	def redirect_back_or(default)
-  		redirect_to(session[:return_to] || default)
-  		session.delete(:return_to)
-  	end
+  def redirect_back_or(default)
+  	redirect_to(session[:return_to] || default)
+  	session.delete(:return_to)
+  end
 
-  	def store_location
-  		session[:return_to] = request.url if request.get?
-  	end
+  def store_location
+  	session[:return_to] = request.url if request.get?
+  end
+
+  def is_admin?
+    @current_user.is_admin
+  end
 end
