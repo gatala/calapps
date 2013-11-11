@@ -40,4 +40,8 @@ module SessionsHelper
   def is_owner?
     signed_in? && @current_user.email == @calapp.user_email
   end
+
+  def is_user?
+    signed_in? && @current_user.email == @user.email
+  end
 end
