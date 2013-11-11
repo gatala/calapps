@@ -34,6 +34,6 @@ module SessionsHelper
   end
 
   def is_admin?
-    @current_user.is_admin
+    signed_in? && @current_user.is_admin
   end
 end

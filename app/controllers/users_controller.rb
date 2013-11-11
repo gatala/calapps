@@ -7,12 +7,12 @@ class UsersController < ApplicationController
 
 	def create
   	@user = User.new(user_params)
-    if @user.email == 'abc123@gmail.com'
-      @user.is_admin = true
+    if @user.email == 'admin@admin.com'
+      @user.is_admin= true
     else
-      @user.is_admin = false
+      @user.is_admin= false
     end
-		if @user.save 
+		if @user.save
       UserMailer.registration_confirmation(@user).deliver
   		flash[:success] = "Welcome to Cal Apps!"
   		redirect_to @user
