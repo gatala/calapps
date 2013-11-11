@@ -56,7 +56,11 @@ class UsersController < ApplicationController
     end
 
     def edit 
-    	@user = User.find(params[:id])
+      @user = User.find(params[:id])
+      if not signed_in? or (@user.email != current_user.email and not current_user.is_admin)
+        redirect_to calapps_path
+      end
+    	
     end
 
 	private
