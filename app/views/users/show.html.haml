@@ -1,9 +1,10 @@
 %h1 Details about  #{@user.name}
 
-- if is_admin? or is_user?
-	Email:
-	= @user.email
-	
+%div
+	- if is_admin? or is_user?
+		Email:
+		= @user.email
+%div
 	-if is_admin?
 		Admin:
 		= @user.is_admin
