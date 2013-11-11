@@ -5,9 +5,11 @@
       %ul
         - for message in @user.errors.full_messages
           %li= message
+
   .field
     = f.label :password
     = f.password_field :password
+    
   .field
     = f.label :password_confirmation
     = f.password_field :password_confirmation
