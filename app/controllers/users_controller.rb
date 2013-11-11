@@ -47,8 +47,8 @@ class UsersController < ApplicationController
       		flash[:success] = "Profile udpated!"
       		redirect_back_or @user
     	else
-    		flash.new[:error] = 'Invalid email/password'
-      		render 'edit'
+    		flash[:notice] = 'No Changes Made'
+      	render 'edit'
     	end
   	end
 

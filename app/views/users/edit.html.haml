@@ -13,6 +13,10 @@
 
   = label :user, :password_confirmation, "Password Confirmation"
   = password_field :user, 'password_confirmation'
+
+  /-if is_admin?
+  /= label :user, :is_admin, 'Admin Rights'
+  /= text_field :user, "is_admin"
   
 
   .form-actions
