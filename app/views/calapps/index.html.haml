@@ -4,8 +4,8 @@
 %table.table.table-striped.table-hover
   %thead
     %tr
-      %th= "Name"
-      %th= "Creator(s)"
+      %th{:class => @name_header}= link_to "Name", calapps_path(:sort => "name"), :id => "name_header"
+      %th{:class => @creator_header}= link_to "Creator(s)", calapps_path(:sort => "creator"), :id => "creator_header"
       %th= "Description"
       %th= "More Information"
   %tbody

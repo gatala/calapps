@@ -12,6 +12,13 @@ class CalappsController < ApplicationController
 		else
 			@calapps = Calapp.all
 		end
+	        @sort = params[:sort] || session[:sort] 
+	        session[:sort] = @sort
+	        @calapps = Calapp.find(:all, :order => @sort)
+	        if (!params[:sort] && session[:sort]) 
+			flash.keep
+			redirect_to calapps_path({:sort => @sort})
+	        end
 	end 
 
 
