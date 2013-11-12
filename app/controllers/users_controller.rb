@@ -9,8 +9,8 @@ class UsersController < ApplicationController
 		@user = User.new(user_params)
 	if @user.save 
       UserMailer.registration_confirmation(@user).deliver
-			flash[:success] = "Welcome to Cal Apps!"
-			redirect_to @user
+			flash[:success] = "You have succesfully registered."
+			redirect_to welcome_success_path
 		else 
 			render 'new'
 		end
