@@ -1,13 +1,13 @@
 %h1 Update Account
 
-= form_tag user_path(@user), :method => :put do
+= form_for @user do |f|
 
-  = label :user, :name, 'Name'
-  = text_field :user, 'name'
+  = f.label :name, 'Name'
+  = f.text_field :name
 
-  = label :user, :email, "Email"
-  = email_field :user, 'email'
+  = f.label :email, "Email"
+  = f.email_field :email
   
   .form-actions
-    = submit_tag 'Update', :class => "btn btn-primary"
+    = f.submit 'Update', :class => "btn btn-primary"
     = link_to 'Back', user_path, :class => "btn"

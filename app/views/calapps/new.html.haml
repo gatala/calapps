@@ -1,24 +1,24 @@
 %h1 Add a new Application
 
-= form_tag calapps_path do
+= form_for(Calapp.new) do |f|
 
-  = label :calapp, :name, 'Name of Application'
-  = text_field :calapp, 'name'
+  = f.label :name, 'Name of Application'
+  = f.text_field :name
 
-  = label :calapp, :URL, "Application URL"
-  = url_field :calapp, 'URL'
+  = f.label :URL, "Application URL"
+  = f.url_field :URL
 
-  = label :calapp, :creator, "Creator(s)"
-  = text_field :calapp, 'creator'
+  = f.label :creator, "Creator(s)"
+  = f.text_field :creator
 
-  = label :calapp, :created_location, "Event created"
-  = text_field :calapp, 'created_location'
+  = f.label :created_location, "Event created"
+  = f.text_field :created_location
 
-  = label :calapp, :description, "Description"
-  = text_area :calapp, 'description'
+  = f.label :description, "Description"
+  = f.text_area :description
 
-  = label :calapp, :tag_list, "Tags (separate by commas)"
-  = text_field :calapp, 'tag_list'
+  = f.label :tag_list, "Tags (separate by commas)"
+  = f.text_field :tag_list
   .form-actions
     = link_to 'Back', calapps_path, :class =>"btn"
-    = submit_tag 'Save Changes', :class => "btn btn-primary"
+    = f.submit 'Save Changes', :class => "btn btn-primary"

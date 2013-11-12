@@ -1,23 +1,23 @@
 %h1 Edit Existing CalApp
 
-= form_tag calapp_path(@calapp), :method => :put do
+= form_for @calapp do |f|
 
-  = label :calapp, :name, 'Name of Application'
-  = text_field :calapp, 'name'
+  = f.label :name, 'Name of Application'
+  = f.text_field :name
 
-  = label :calapp, :URL, "Application URL"
-  = url_field :calapp, 'URL'
+  = f.label :URL, "Application URL"
+  = f.url_field :URL
 
-  = label :calapp, :creator, "Creator(s)"
-  = text_field :calapp, 'creator'
+  = f.label :creator, "Creator(s)"
+  = f.text_field :creator
 
-  = label :calapp, :creator, "Description"
-  = text_area :calapp, 'description'
+  = f.label :description, "Description"
+  = f.text_area :description
 
-  = label :calapp, :tag_list, "Tags (separate by commas)"
-  = text_field :calapp, 'tag_list'
+  = f.label :tag_list, "Tags (separate by commas)"
+  = f.text_field :tag_list
 
   .form-actions
-    = submit_tag 'Update', :class => "btn btn-primary"
+    = f.submit 'Update', :class => "btn btn-primary"
     = link_to 'Back to App Details', calapp_path(@calapp), :class => "btn"
     = link_to 'Back to App List', calapps_path, :class => "btn"
