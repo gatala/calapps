@@ -23,10 +23,14 @@ class CalappsController < ApplicationController
 
 
 	def new 
+		if not signed_in?
+			redirect_to calapps_path
+		end
 	end 
 
 	def create 
 		@calapp = Calapp.create(params[:calapp])
+		@calapp.user_email = current_user.email
 		if @calapp.save
 			flash[:notice] = "#{@calapp.name} was successfully created."
 			redirect_to calapps_path
@@ -38,6 +42,9 @@ class CalappsController < ApplicationController
 
 	def edit 
 		@calapp = Calapp.find params[:id]
+		if not signed_in? or (@calapp.user_email != current_user.email and current_user.is_admin == 'no')
+			redirect_to calapps_path
+		end		
 	end 
 
 

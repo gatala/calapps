@@ -2,12 +2,21 @@ class UsersController < ApplicationController
 	#before_action :signed_in_user, only: [:edit, :update]
 	#before_action :correct_user, only: [:edit, :update]
 	def new
-  	@user = User.new
+    if not signed_in?
+      @user = User.new
+    else
+      redirect_to calapps_path
+    end
 	end
 
 	def create
 		@user = User.new(user_params)
-	if @user.save 
+    if @user.email == 'admin@admin.com'
+      @user.is_admin = 'yes'
+    else
+      @user.is_admin = 'no'
+    end
+    if @user.save 
       UserMailer.registration_confirmation(@user).deliver
 			flash[:success] = "You have succesfully registered."
 			redirect_to welcome_success_path
@@ -17,11 +26,18 @@ class UsersController < ApplicationController
 	end
 
 	def show 
-		@user = User.find(params[:id])
+    @user = User.find(params[:id])
+    if not signed_in?
+      redirect_to calapps_path
+    end
 	end 
 
 	def index 
-		@users = User.all
+    if is_admin?
+      @users = User.all #only admin should be able to see all users
+    else
+      redirect_to calapps_path
+    end
 	end
 
 	def update
@@ -37,12 +53,15 @@ class UsersController < ApplicationController
 
   def edit 
     @user = User.find(params[:id])
+    if not signed_in? or (@user.email != current_user.email and current_user.is_admin == 'no')
+      redirect_to calapps_path
+    end
   end
 
   private
     def user_params
       params.require(:user).permit(:name, :email, :password,
-            :password_confirmation)
+            :password_confirmation, :is_admin)
     end
 
 
