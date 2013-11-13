@@ -2,10 +2,31 @@
 
 = image_tag @user.image.to_s
 
+%div
 Email:
 = @user.email
 
+%div
+Public Name:
+= @user.public_name
+
+%div
+School:
+= @user.school
+
+%div
+Year:
+= @user.year
+
+%div
+Major:
+= @user.major
+
+%div
+Github:
+= @user.github
+
 .form-actions
-  = link_to "Change Password", edit_user_path, :class => "btn btn-primary"
+  = link_to "Edit Profile", edit_user_path, :class => "btn btn-primary"
   = link_to t('.back', :default => t("helpers.links.back")), '/users', :class => 'btn'
   

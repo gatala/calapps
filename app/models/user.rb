@@ -1,6 +1,7 @@
 class User < ActiveRecord::Base
 
-  attr_accessible :image, :name, :email, :password, :password_confirmation
+  attr_accessible :image, :name, :email, :password, :password_confirmation, 
+  :school, :year, :public_name, :github, :major
 
   before_save {self.email = email.downcase}
 
