@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe Calapp do 
 	before do 
-		@calapp = Calapp.new(name:"Example Calapp", URL:"example.com", creator: "Bob")
+		@calapp = Calapp.new(name:"Example Calapp", URL:"http://www.example.com", creator: "Bob", user_email: "bob@bob.com")
 	end
 		
 	subject {@calapp}

@@ -27,6 +27,8 @@ class User < ActiveRecord::Base
       end while User.exists?(column => self[column])
   end
 
+  has_many :calapps
+
   def User.new_remember_token
     SecureRandom.urlsafe_base64
   end
