@@ -33,6 +33,10 @@ GEM
     arel (3.0.2)
     bcrypt-ruby (3.0.1)
     builder (3.0.4)
+    carrierwave (0.9.0)
+      activemodel (>= 3.2.0)
+      activesupport (>= 3.2.0)
+      json (>= 1.7)
     coffee-rails (3.2.2)
       coffee-script (>= 2.2.0)
       railties (~> 3.2.0)
@@ -147,6 +151,7 @@ PLATFORMS
 DEPENDENCIES
   acts-as-taggable-on
   bcrypt-ruby (= 3.0.1)
+  carrierwave
   coffee-rails (~> 3.2.1)
   factory_girl
   factory_girl_rails (= 4.2.1)
