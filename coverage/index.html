@@ -23,26 +23,26 @@
       <img src="./assets/0.5.3/loading.gif" alt="loading"/>
     </div>
     <div id="wrapper" style="display:none;">
-      <div class="timestamp">Generated <abbr class="timeago" title="2013-11-13T22:09:34-08:00">2013-11-13T22:09:34-08:00</abbr></div>
+      <div class="timestamp">Generated <abbr class="timeago" title="2013-11-13T22:35:07-08:00">2013-11-13T22:35:07-08:00</abbr></div>
       <ul class="group_tabs"></ul>
 
       <div id="content">
         <div class="file_list_container" id="AllFiles">
   <h2>
     <span class="group_name">All Files</span>
-    (<span class="covered_percent"><span class="green">95.97%</span></span>
+    (<span class="covered_percent"><span class="green">96.24%</span></span>
      covered at
      <span class="covered_strength">
        <span class="green">
-         1.21
+         1.25
        </span>
     </span> hits/line)
   </h2>
   <a name="AllFiles"></a>
   <div>
     <b>8</b> files in total.
-    <b>124</b> relevant lines. 
-    <span class="green"><b>119</b> lines covered</span> and
+    <b>133</b> relevant lines. 
+    <span class="green"><b>128</b> lines covered</span> and
     <span class="red"><b>5</b> lines missed </span>
   </div>
   <table class="file_list">
@@ -82,11 +82,11 @@
       <tr>
         <td class="strong"><a href="#bd0c31787d1c48a45939eb1b7ab2ffc3559af537" class="src_link" title="spec/mailers/user_mailer_spec.rb">spec/mailers/user_mailer_spec.rb</a></td>
         <td class="green strong">100.0 %</td>
-        <td>5</td>
-        <td>3</td>
-        <td>3</td>
+        <td>27</td>
+        <td>12</td>
+        <td>12</td>
         <td>0</td>
-        <td>1.0</td>
+        <td>1.3</td>
       </tr>
       
       <tr>
@@ -358,8 +358,8 @@
     <h3>spec/mailers/user_mailer_spec.rb</h3>
     <h4><span class="green">100.0 %</span> covered</h4>
     <div>
-      <b>3</b> relevant lines. 
-      <span class="green"><b>3</b> lines covered</span> and
+      <b>12</b> relevant lines. 
+      <span class="green"><b>12</b> lines covered</span> and
       <span class="red"><b>0</b> lines missed.</span>
     </div>
   </div>
@@ -379,19 +379,151 @@
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="3">
-          <span class="hits">1</span>
+        <li class="never" data-hits="" data-linenumber="3">
           
-          <code class="ruby">describe UserMailer do</code>
+          
+          <code class="ruby"> </code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="4">
           <span class="hits">1</span>
           
-          <code class="ruby">  pending &quot;add some examples to (or delete) #{__FILE__}&quot;</code>
+          <code class="ruby">describe User do</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="5">
+        <li class="covered" data-hits="1" data-linenumber="5">
+          <span class="hits">1</span>
+          
+          <code class="ruby">  before(:each) do</code>
+        </li>
+      
+        <li class="covered" data-hits="2" data-linenumber="6">
+          <span class="hits">2</span>
+          
+          <code class="ruby">    @attr = {</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="7">
+          
+          
+          <code class="ruby">      :name =&gt; 'Bar',</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="8">
+          
+          
+          <code class="ruby">      :email =&gt; 'foobar@foo.com',</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="9">
+          
+          
+          <code class="ruby">      :password =&gt; 'password',</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="10">
+          
+          
+          <code class="ruby">      :password_confirmation =&gt; 'password'</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="11">
+          
+          
+          <code class="ruby">    }</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="12">
+          
+          
+          <code class="ruby">    # Active ActionMailer for tests</code>
+        </li>
+      
+        <li class="covered" data-hits="2" data-linenumber="13">
+          <span class="hits">2</span>
+          
+          <code class="ruby">    ActionMailer::Base.delivery_method = :test</code>
+        </li>
+      
+        <li class="covered" data-hits="2" data-linenumber="14">
+          <span class="hits">2</span>
+          
+          <code class="ruby">    ActionMailer::Base.perform_deliveries = true</code>
+        </li>
+      
+        <li class="covered" data-hits="2" data-linenumber="15">
+          <span class="hits">2</span>
+          
+          <code class="ruby">    ActionMailer::Base.deliveries = []</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="16">
+          
+          
+          <code class="ruby">  end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="17">
+          
+          
+          <code class="ruby"> </code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="18">
+          <span class="hits">1</span>
+          
+          <code class="ruby">  it &quot;should create a new instance given a valid attribute&quot; do</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="19">
+          <span class="hits">1</span>
+          
+          <code class="ruby">    User.create!(@attr)</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="20">
+          
+          
+          <code class="ruby">  end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="21">
+          
+          
+          <code class="ruby"> </code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="22">
+          <span class="hits">1</span>
+          
+          <code class="ruby">  it &quot;should send an email after create a new instance given a valid attribute&quot; do</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="23">
+          <span class="hits">1</span>
+          
+          <code class="ruby">    User.create!(@attr)</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="24">
+          <span class="hits">1</span>
+          
+          <code class="ruby">    ActionMailer::Base.deliveries.count == 1</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="25">
+          
+          
+          <code class="ruby">  end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="26">
+          
+          
+          <code class="ruby"> </code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="27">
           
           
           <code class="ruby">end</code>

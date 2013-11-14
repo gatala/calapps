@@ -50,8 +50,30 @@
       "/home/saasbook/Desktop/calapps/spec/mailers/user_mailer_spec.rb": [
         1,
         null,
+        null,
         1,
         1,
+        2,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        2,
+        2,
+        2,
+        null,
+        null,
+        1,
+        1,
+        null,
+        null,
+        1,
+        1,
+        1,
+        null,
+        null,
         null
       ],
       "/home/saasbook/Desktop/calapps/spec/models/calapp_spec.rb": [
@@ -255,6 +277,6 @@
         null
       ]
     },
-    "timestamp": 1384409374
+    "timestamp": 1384410907
   }
 }
