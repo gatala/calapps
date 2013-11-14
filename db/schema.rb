@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131111120107) do
+ActiveRecord::Schema.define(:version => 20131114074641) do
 
   create_table "calapps", :force => true do |t|
     t.string   "name"
@@ -22,6 +22,7 @@ ActiveRecord::Schema.define(:version => 20131111120107) do
     t.datetime "updated_at",       :null => false
     t.string   "created_location"
     t.string   "user_email"
+    t.string   "category"
   end
 
   create_table "taggings", :force => true do |t|
