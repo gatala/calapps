@@ -12,8 +12,10 @@ end
 
 When /^(?:|I )am on (.+)$/ do |page_name|
   if page_name == "the CalApps app creation page"
+    pending
   	visit new_calapp_path
   elsif page_name == "the CalApps home page"
+    pending
   	visit root_URL
   end
   visit path_to(page_name)
@@ -34,7 +36,7 @@ When /I press "(.*)"/ do |button|
 end
 
 Then /^(?:|I )should see "([^\"]*)"$/ do |text|
-  puts page
+
   if page.respond_to? :should
     page.should have_content(text)
   else
