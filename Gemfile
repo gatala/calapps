@@ -17,6 +17,7 @@ group :development,:test do
   gem 'factory_girl'
   gem 'factory_girl_rails', '4.2.1'
   gem 'rspec-rails'
+  gem 'simplecov'
 end
 group :production do
   gem 'pg'

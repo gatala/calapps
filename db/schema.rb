@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131111064635) do
+ActiveRecord::Schema.define(:version => 20131111120107) do
 
   create_table "calapps", :force => true do |t|
     t.string   "name"
@@ -21,6 +21,7 @@ ActiveRecord::Schema.define(:version => 20131111064635) do
     t.datetime "created_at",       :null => false
     t.datetime "updated_at",       :null => false
     t.string   "created_location"
+    t.string   "user_email"
   end
 
   create_table "taggings", :force => true do |t|
@@ -49,6 +50,7 @@ ActiveRecord::Schema.define(:version => 20131111064635) do
     t.string   "remember_token"
     t.string   "password_reset_token"
     t.datetime "password_reset_sent_at"
+    t.string   "is_admin"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
