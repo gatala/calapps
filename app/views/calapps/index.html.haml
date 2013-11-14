@@ -1,21 +1,170 @@
--#  This file is app/views/movies/index.html.haml
-%h1 Cal Applications
+/ -#  This file is app/views/movies/index.html.haml
+/ %h1 Cal Applications
 
-%table.table.table-striped.table-hover
-  %thead
-    %tr
-      %th{:class => @name_header}= link_to "Name", calapps_path(:sort => "name"), :id => "name_header"
-      %th{:class => @creator_header}= link_to "Creator(s)", calapps_path(:sort => "creator"), :id => "creator_header"
-      %th= "Description"
-      %th= "More Information"
-  %tbody
-    - @calapps.each do |calapp|
+/ %table.table.table-striped.table-hover
+/   %thead
+/     %tr
+/       %th= "Name"
+/       %th= "Creator(s)"
+/       %th= "Description"
+/       %th= "More Information"
+/   %tbody
+/     - @calapps.each do |calapp|
+/       %tr
+/         %td= link_to "#{calapp.name}", calapp.URL
+/         %td= calapp.creator
+/         %td= calapp.description
+/         %td
+/           = link_to "More Details", calapp_path(calapp), :class => 'btn btn-mini btn-info'
+
+/ = link_to t('.new', :default => t("helpers.links.new")), new_calapp_path, :class => 'btn btn-primary'
+
+!!!
+%html
+  %head
+    %title Bootstrap basic Template
+    %meta{:charset => "utf-8"}
+      %meta{:content => "width=device-width, initial-scale=1.0", :name => "viewport"}
+        %meta{:content => "", :name => "description"}
+          %meta{:content => "", :name => "author"}
+            / Bootstrap
+            %link{:href => "/Developer/bootstrap/css/bootstrap.min.css", :media => "screen", :rel => "stylesheet"}
+              %link{:href => "../../assets/css/3-col-portfolio/css/bootstrap.css", :rel => "stylesheet"}
+                / Custom CSS for the '3 Col Portfolio' Template
+                %link{:href => "../../assets/css/3-col-portfolio/css/3-col-portfolio.css", :rel => "stylesheet"}
+/   %body
+/     .container
+/       .row
+/         .col-lg-12
+/           %h1.page-header
+/             UC Berkeley Application Gallery
+/             %small Showcase Your Work
+/       .row
+/         .col-md-4.portfolio-item
+/           %a{:href => "#project-link"}
+/             %img.img-responsive{:src => "http://placehold.it/700x400"}/
+/           %h3
+/             %a{:href => "#project-link"} Project Name
+/           %p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae.
+/         .col-md-4.portfolio-item
+/           %a{:href => "#project-link"}
+/             %img.img-responsive{:src => "http://placehold.it/700x400"}/
+/           %h3
+/             %a{:href => "#project-link"} Project Name
+/           %p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae.
+/         .col-md-4.portfolio-item
+/           %a{:href => "#project-link"}
+/             %img.img-responsive{:src => "http://placehold.it/700x400"}/
+/           %h3
+/             %a{:href => "#project-link"} Project Name
+/           %p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae.
+/       .row
+/         .col-md-4.portfolio-item
+/           %a{:href => "#project-link"}
+/             %img.img-responsive{:src => "http://placehold.it/700x400"}/
+/           %h3
+/             %a{:href => "#project-link"} Project Name
+/           %p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae.
+/         .col-md-4.portfolio-item
+/           %a{:href => "#project-link"}
+/             %img.img-responsive{:src => "http://placehold.it/700x400"}/
+/           %h3
+/             %a{:href => "#project-link"} Project Name
+/           %p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae.
+/         .col-md-4.portfolio-item
+/           %a{:href => "#project-link"}
+/             %img.img-responsive{:src => "http://placehold.it/700x400"}/
+/           %h3
+/             %a{:href => "#project-link"} Project Name
+/           %p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae.
+/       .row
+/         .col-md-4.portfolio-item
+/           %a{:href => "#project-link"}
+/             %img.img-responsive{:src => "http://placehold.it/700x400"}/
+/           %h3
+/             %a{:href => "#project-link"} Project Name
+/           %p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae.
+/         .col-md-4.portfolio-item
+/           %a{:href => "#project-link"}
+/             %img.img-responsive{:src => "http://placehold.it/700x400"}/
+/           %h3
+/             %a{:href => "#project-link"} Project Name
+/           %p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae.
+/         .col-md-4.portfolio-item
+/           %a{:href => "#project-link"}
+/             %img.img-responsive{:src => "http://placehold.it/700x400"}/
+/           %h3
+/             %a{:href => "#project-link"} Project Name
+/           %p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae.
+/       %hr
+/         .row.text-center
+/           .col-lg-12
+/             %ul.pagination
+/               %li
+/                 %a{:href => "#"} &laquo;
+/               %li.active
+/                 %a{:href => "#"} 1
+/               %li
+/                 %a{:href => "#"} 2
+/               %li
+/                 %a{:href => "#"} 3
+/               %li
+/                 %a{:href => "#"} 4
+/               %li
+/                 %a{:href => "#"} 5
+/               %li
+/                 %a{:href => "#"} &raquo;
+/     / /.container
+/     .container
+/       %hr
+/         %footer
+/           .row
+/             .col-lg-12
+/               %p Copyright &copy; Company 2013
+/     / /.container
+/     / Bootstrap core JavaScript
+/     / Placed at the end of the document so the pages load faster
+/     %script{:src => "js/jquery.js"}
+/     %script{:src => "js/bootstrap.js"}
+/     / Put this into a custom JavaScript file to make things more organized
+/     / :javascript
+/     /   $("#menu-toggle").click(function(e) {
+/     /       e.preventDefault();
+/     /       $("#wrapper").toggleClass("active");
+/     /   });
+/     /     :css
+/     / body {
+/     /   background-color: white;
+/     / }
+/     / nav {
+/     /   background-color: rgb(30,30,30);
+/     / }
+/     / p {
+/     /   color: #E7C254
+/     / }
+/     / div id='sidebar-wrapper' {
+/     /   background-color: rgb(200,200,200);
+/     / }
+/ =======
+%body
+  %table.table.table-striped.table-hover
+    %thead
       %tr
-        %td= link_to "#{calapp.name}", calapp.URL
-        %td= calapp.creator
-        %td= calapp.description
-        %td
-          = link_to "More Details", calapp_path(calapp), :class => 'btn btn-mini btn-info'
+        %th{:class => @name_header}= link_to "Name", calapps_path(:sort => "name"), :id => "name_header"
+        %th{:class => @creator_header}= link_to "Creator(s)", calapps_path(:sort => "creator"), :id => "creator_header"
+        %th= "Description"
+        %th= "More Information"
+    %tbody
+      - @calapps.each do |calapp|
+        %tr
+          %td= link_to "#{calapp.name}", calapp.URL
+          %td= calapp.creator
+          %td= calapp.description
+          %td
+            = link_to "More Details", calapp_path(calapp), :class => 'btn btn-mini btn-info'
 
+<<<<<<< HEAD
+=======
 -if signed_in?
+>>>>>>> 3c1b32a1855ff29d8024138b156d4214a0e327c6
   = link_to t('.new', :default => t("helpers.links.new")), new_calapp_path, :class => 'btn btn-primary'
