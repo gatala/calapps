@@ -45,11 +45,12 @@ Then(/^I should not see "(.*?)"$/) do |arg1|
 end
 
 Then(/^I should see a "(.*?)" button$/) do |arg1|
-  page.should have_selector(:link_or_button, arg1)
+  page.should have_selector(:link_or_button)
 end
 
-
-
+Then(/^I should not see a "(.*?)" button$/) do |arg1|
+  page.should_not have_selector(:link_or_button)
+end
 
 When(/^I am signed in as a user and I am on the Calapps page$/) do
   #pending # express the regexp above with the code you wish you had
@@ -73,25 +74,47 @@ When(/^I am signed in as an admin and I am on the Calapps page$/) do
 end
 
 When(/^I am not signed in and I am viewing an app$/) do
-  @calapp = Calapp.create(name:"Sample app", URL: "http://www.test.com", user_email: 'test@test.com')
+  @calapp = Calapp.create!(name:"Sample app", URL: "http://www.test.com", user_email: 'test@test.com', creator: 'Sample Joe')
+  visit '/calapps/3'
 end
 
 # Then(/^I should not see "(.*?)" or "(.*?)"$/) do |arg1, arg2|
 #   pending # express the regexp above with the code you wish you had
 # end
 
-# When(/^I am signed in and I am viewing an app I didn't upload$/) do
-#   pending # express the regexp above with the code you wish you had
-# end
+When(/^I am signed in and I am viewing an app I didn't upload$/) do
+  @calapp = Calapp.create!(name:"Sample app", URL: "http://www.test.com", user_email: 'test@test.com', creator: 'Sample Joe')
+  visit signin_path
+  @user = User.create(name: "Example User", email: "user@user.com",
+                      password: "foobar", password_confirmation: "foobar")
+  fill_in "Email",    with: @user.email
+  fill_in "Password", with: @user.password
+  click_button "Sign in"
+  visit '/calapps/3'
+end
 
-# When(/^I am signed in and I am viewing an app I uploaded$/) do
-#   pending # express the regexp above with the code you wish you had
-# end
+When(/^I am signed in and I am viewing an app I uploaded$/) do
+  @calapp = Calapp.create!(name:"Sample app", URL: "http://www.test.com", user_email: 'test@test.com', creator: 'Sample Joe')
+  visit signin_path
+  @user = User.create(name: "Example User", email: "test@test.com",
+                      password: "foobar", password_confirmation: "foobar")
+  fill_in "Email",    with: @user.email
+  fill_in "Password", with: @user.password
+  click_button "Sign in"
+  visit '/calapps/3'
+end
 
 # Then(/^I should see "(.*?)" and "(.*?)"$/) do |arg1, arg2|
 #   pending # express the regexp above with the code you wish you had
 # end
 
-# When(/^I am signed in as an admin and I am viewing an app$/) do
-#   pending # express the regexp above with the code you wish you had
-# end
+When(/^I am signed in as an admin and I am viewing an app$/) do
+  @calapp = Calapp.create!(name:"Sample app", URL: "http://www.test.com", user_email: 'test@test.com', creator: 'Sample Joe')
+  visit signin_path
+  @user = User.create(name: "Example User", email: "admin@admin.com",
+                      password: "foobar", password_confirmation: "foobar")
+  fill_in "Email",    with: @user.email
+  fill_in "Password", with: @user.password
+  click_button "Sign in"
+  visit '/calapps/3'
+end
