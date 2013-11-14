@@ -10,13 +10,21 @@ User Story:
 	So that I can moderate apps
 	I want to be able to signin and create/edit/delete any app
 
+Background: applications have been added to the database
+	Given the following applications exist:
+    | name				| creator	 				| description			| URL							| user_email 				 |
+    | Ninja Courses		| William Li, Alex Sydell 	| Generate schedules.	| http://www.ninjacourses.com	| ninjacourses@something.edu |
+    | Berkeley Time		| Yuxin Zhu, Noah Gilmore	| Look for classes.	 	| http://www.berkeleytime.com	| berkeleytime@something.edu |
+
+
+
 Scenario: Viewing List of Calapps as a visitor(non-signed-in user)
 	When I am not signed in and I am on the Calapps page
 	Then I should not see "New"
 
 Scenario: Visiting List of Calapps as a signed in user
 	When I am signed in as a user and I am on the Calapps page
-	Then I should see "New"
+	Then I should see a "New" button
 
 Scenario: Visiting List of Calapps as an admin
 	When I am signed in as an admin and I am on the Calapps page
