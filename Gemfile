@@ -18,6 +18,9 @@ group :development,:test do
   gem 'factory_girl_rails', '4.2.1'
   gem 'rspec-rails'
   gem 'simplecov'
+  gem 'cucumber'
+  gem 'capybara'
+  gem 'cucumber-rails', :require => false
 end
 group :production do
   gem 'pg'
