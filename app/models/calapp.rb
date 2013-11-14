@@ -1,7 +1,7 @@
 class Calapp < ActiveRecord::Base
 	#belongs_to :user
 
-	attr_accessible  :name, :URL, :creator, :description, :tag_list, :created_location, :user_email
+	attr_accessible  :name, :URL, :creator, :description, :tag_list, :created_location, :user_email, :category
 
 	acts_as_taggable 
 
