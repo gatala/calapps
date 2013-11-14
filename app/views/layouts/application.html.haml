@@ -35,9 +35,10 @@
                   %li= link_to "Sign out", signout_path, :method =>"delete"
             -else
               %li
-                %a#signuplink{:href => signup_path} Signup
-              %li
                 %a#loginlink{:href => "/signin"} Login
+              %li
+                %a#signuplink{:href => signup_path} Create Account
+              
     .container
       - if flash[:notice]
         #notice.message= flash[:notice]

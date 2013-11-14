@@ -1,20 +1,39 @@
-%h1 Update Password
+/ %h1 Update Account
 
-= form_tag user_path(@user), :method => :put do
+/ = form_tag user_path(@user), :method => :put do
 
-  = label :user, :name, 'Name'
-  = text_field :user, 'name'
+/   = label :user, :name, 'Name'
+/   = text_field :user, 'name'
 
-  = label :user, :email, "Email"
-  = email_field :user, 'email'
-
-  = label :user, :password, "Password (8 characters minimum)"
-  = password_field :user, 'password'
-
-  = label :user, :password_confirmation, "Password Confirmation"
-  = password_field :user, 'password_confirmation'
+/   = label :user, :email, "Email"
+/   = email_field :user, 'email'
   
+/   .form-actions
+/     = submit_tag 'Update', :class => "btn btn-primary"
+/     = link_to 'Back', user_path, :class => "btn"
 
-  .form-actions
-    = submit_tag 'Update', :class => "btn btn-primary"
-    = link_to 'Back', user_path, :class => "btn"
+%h2 Update Your Account
+
+= form_for @user do
+	.form-actions
+		%div
+			= label :user, :name, 'Name (First, Last)'
+			= text_field :user, 'name'
+
+		%div
+			= label :user, :email, 'Email Address'
+			= email_field :user, 'email'
+
+		%div
+			= label :user, :password, 'Old Password'
+			= password_field :user, 'password'
+		%div
+			= label :user, :password, 'New Password'
+			= password_field :user, 'password'
+
+		%div
+			= label :user, :password, 'Confirm New Password'
+			= password_field :user, 'password'
+
+		= submit_tag "Save Changes", :class => "btn btn-primary"
+		= link_to 'Cancel', user_path, :class => 'btn'

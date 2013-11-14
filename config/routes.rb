@@ -1,7 +1,10 @@
 Calapps::Application.routes.draw do
+  get "password_resets/new"
+
   get "welcome/contact"
   get "welcome/about"
   get "users/new"
+  get 'tags/:tag', to: 'calapps#index', as: :tag
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
@@ -22,6 +25,7 @@ Calapps::Application.routes.draw do
   resources :users
   resources :calapps
   resources :sessions
+  resources :password_resets
 
   # Sample resource route with options:
   #   resources :products do
