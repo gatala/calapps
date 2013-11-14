@@ -3,6 +3,7 @@ Calapps::Application.routes.draw do
 
   get "welcome/contact"
   get "welcome/about"
+  get "welcome/success"
   get "users/new"
   get 'tags/:tag', to: 'calapps#index', as: :tag
 

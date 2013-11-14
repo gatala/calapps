@@ -1,5 +1,6 @@
 class User < ActiveRecord::Base
 
+
   before_save {self.email = email.downcase}
 
   validates :name, :presence => true, length: {:within => 3..25}
@@ -25,6 +26,8 @@ class User < ActiveRecord::Base
         self[column] = SecureRandom.urlsafe_base64
       end while User.exists?(column => self[column])
   end
+
+  has_many :calapps
 
   def User.new_remember_token
     SecureRandom.urlsafe_base64

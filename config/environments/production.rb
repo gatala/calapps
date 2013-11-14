@@ -50,6 +50,7 @@ Calapps::Application.configure do
 
   # Disable delivery errors, bad email addresses will be ignored
   # config.action_mailer.raise_delivery_errors = false
+  Rails.application.routes.default_url_options[:host] = 'calapps2.herokuapp.com' 
 
   # Enable threaded mode
   # config.threadsafe!

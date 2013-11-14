@@ -1,19 +1,22 @@
--# new.html.haml using partial
-%h2 New App
-= form_for @calapp do |new_app|
-  / %h2.form-signin-heading Sign Up for an Account
-  %div
-    = new_app.label :name, 'Name (First, Last)'
-    = new_app.text_field :name, :placeholder => "Oski Bear"
-  %div
-    = new_app.label :email, 'Email Address'
-    = new_app.email_field :email, :placeholder => "oski@gmail.com"
-  %div
-    = new_app.label :password, 'Password (at least 8 characters)'
-    = new_app.password_field :password, :placeholder => "Password"
-  %div
-    = new_app.label :password_confirmation, 'Confirm your password'
-    = new_app.password_field :password_confirmation, :placeholder => "Password"
-  %div
-    = new_app.submit "Sign Up", class: "btn btn-primary"
+= form_for(Calapp.new) do |f|
 
+  = f.label :name, 'Name of Application'
+  = f.text_field :name
+
+  = f.label :URL, "Application URL"
+  = f.url_field :URL
+
+  = f.label :creator, "Creator(s)"
+  = f.text_field :creator
+
+  = f.label :created_location, "Event created"
+  = f.text_field :created_location
+
+  = f.label :description, "Description"
+  = f.text_area :description
+
+  = f.label :tag_list, "Tags (separate by commas)"
+  = f.text_field :tag_list
+  .form-actions
+    = link_to 'Back', calapps_path, :class =>"btn"
+    = f.submit 'Save Changes', :class => "btn btn-primary"

@@ -1,39 +1,44 @@
-/ %h1 Update Account
+%h1 Update Account
 
-/ = form_tag user_path(@user), :method => :put do
+/ %h2 Update Your Account
 
-/   = label :user, :name, 'Name'
-/   = text_field :user, 'name'
+/ = form_for @user do
+/ 	.form-actions
+/ 		%div
+/ 			= label :user, :name, 'Name (First, Last)'
+/ 			= text_field :user, 'name'
 
-/   = label :user, :email, "Email"
-/   = email_field :user, 'email'
-  
-/   .form-actions
-/     = submit_tag 'Update', :class => "btn btn-primary"
-/     = link_to 'Back', user_path, :class => "btn"
+/ 		%div
+/ 			= label :user, :email, 'Email Address'
+/ 			= email_field :user, 'email'
 
-%h2 Update Your Account
+/ 		%div
+/ 			= label :user, :password, 'Old Password'
+/ 			= password_field :user, 'password'
+/ 		%div
+/ 			= label :user, :password, 'New Password'
+/ 			= password_field :user, 'password'
 
-= form_for @user do
-	.form-actions
-		%div
-			= label :user, :name, 'Name (First, Last)'
-			= text_field :user, 'name'
+/ 		%div
+/ 			= label :user, :password, 'Confirm New Password'
+/ 			= password_field :user, 'password'
 
-		%div
-			= label :user, :email, 'Email Address'
-			= email_field :user, 'email'
+/ 		= submit_tag "Save Changes", :class => "btn btn-primary"
+/ 		= link_to 'Cancel', user_path, :class => 'btn'
+/ =======
+  = label :user, :email, "Email"
+  = email_field :user, 'email'
 
-		%div
-			= label :user, :password, 'Old Password'
-			= password_field :user, 'password'
-		%div
-			= label :user, :password, 'New Password'
-			= password_field :user, 'password'
+  = label :user, :password, "Password (8 characters minimum)"
+  = password_field :user, 'password'
 
-		%div
-			= label :user, :password, 'Confirm New Password'
-			= password_field :user, 'password'
+  = label :user, :password_confirmation, "Password Confirmation"
+  = password_field :user, 'password_confirmation'
 
-		= submit_tag "Save Changes", :class => "btn btn-primary"
-		= link_to 'Cancel', user_path, :class => 'btn'
+  -if is_admin?
+    = label :user, :is_admin, 'Admin Rights (yes or no)'
+    = text_field :user, 'is_admin'
+
+  .form-actions
+    = submit_tag 'Update', :class => "btn btn-primary"
+    = link_to 'Back', user_path, :class => "btn"
