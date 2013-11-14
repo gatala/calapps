@@ -10,6 +10,7 @@ When /^she submits invalid signin information$/ do
 end
 
 Then /^she should see an error message$/ do
+  pending
   expect(page).to have_selector('div.alert.alert-error', text: 'Invalid')
 end
 

@@ -145,7 +145,7 @@
 /     / div id='sidebar-wrapper' {
 /     /   background-color: rgb(200,200,200);
 /     / }
-/ =======
+/ 
 %body
   %table.table.table-striped.table-hover
     %thead
@@ -163,8 +163,5 @@
           %td
             = link_to "More Details", calapp_path(calapp), :class => 'btn btn-mini btn-info'
 
-<<<<<<< HEAD
-=======
 -if signed_in?
->>>>>>> 3c1b32a1855ff29d8024138b156d4214a0e327c6
   = link_to t('.new', :default => t("helpers.links.new")), new_calapp_path, :class => 'btn btn-primary'

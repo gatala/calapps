@@ -18,11 +18,6 @@ group :development,:test do
   gem 'factory_girl_rails', '4.2.1'
   gem 'rspec-rails'
   gem 'simplecov'
-<<<<<<< HEAD
-  gem 'cucumber'
-  gem 'capybara'
-=======
->>>>>>> 4197f6720ace8a68ecec8cd8706414cdd2b172c1
   gem 'cucumber-rails', :require => false
   gem 'capybara'
   gem 'database_cleaner'
