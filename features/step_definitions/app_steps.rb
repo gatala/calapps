@@ -1,5 +1,6 @@
 require 'uri'
 require 'cgi'
+require 'capybara/cucumber'
 
 Given /the following applications exist/ do |calapps_table|
   calapps_table.hashes.each do |app|

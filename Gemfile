@@ -19,6 +19,8 @@ group :development,:test do
   gem 'rspec-rails'
   gem 'simplecov'
   gem 'cucumber-rails', :require => false
+  gem 'capybara'
+  gem 'database_cleaner'
 end
 group :production do
   gem 'pg'
