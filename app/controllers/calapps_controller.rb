@@ -12,19 +12,19 @@ class CalappsController < ApplicationController
 		else
 			@calapps = Calapp.all
 		end
-	        @sort = params[:sort] || session[:sort] 
-        	if (@sort == "name" or @sort == "creator")
+	        
+		@sort = params[:sort] || session[:sort]
+		safe_list = ["name", "creator"]
+		if safe_list.include? @sort
 			session[:sort] = @sort
-			@calapps = Calapp.order(@sort.to_s)
-	        if (!params[:sort] && session[:sort]) 
+       			@calapps = Calapp.order(@sort.to_s)
+		end
+ 
+        	if (!params[:sort] && session[:sort]) 
 			flash.keep
 			redirect_to calapps_path({:sort => @sort})
-	        end
-	    else 
-	    	@calapps = Calapp.all
-	    end
+        	end
 	end 
-
 
 	def new 
 		if not signed_in?
