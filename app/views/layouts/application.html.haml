@@ -19,6 +19,8 @@
       .navbar-inner
         .container
           .brand=link_to "CalApps", '/'
+          %form.navbar-form.pull-left
+            %input.search-query{:type =>"text", :placeholder =>"Search"}
           %ul.nav.pull-left
             %li
               = link_to 'Gallery', '/calapps'
