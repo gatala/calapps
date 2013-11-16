@@ -7,12 +7,14 @@ class CalappsController < ApplicationController
 
 
 	def index 
+		# This is for tags 
 		if params[:tag] 
 			@calapps = Calapp.tagged_with(params[:tag])
 		else
 			@calapps = Calapp.all
 		end
-	        
+	    
+	    #This is for alphabetizing based on application name or creator
 		@sort = params[:sort] || session[:sort]
 		safe_list = ["name", "creator"]
 		if safe_list.include? @sort
@@ -20,10 +22,10 @@ class CalappsController < ApplicationController
        			@calapps = Calapp.order(@sort.to_s)
 		end
  
-        	if (!params[:sort] && session[:sort]) 
+       	if (!params[:sort] && session[:sort]) 
 			flash.keep
 			redirect_to calapps_path({:sort => @sort})
-        	end
+        end
 	end 
 
 	def new 
