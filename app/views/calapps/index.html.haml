@@ -15,4 +15,4 @@
         %td= link_to "More Details", calapp_path(calapp), :class => 'btn btn-mini btn-info'
 
 -if signed_in?
-  = link_to new_calapp_path, :class => 'btn btn-primary'
+  = link_to "Add an Application", new_calapp_path, :class => 'btn btn-primary'
