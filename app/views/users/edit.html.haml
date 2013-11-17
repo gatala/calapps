@@ -1,12 +1,14 @@
 %h1 Update Account
-  = label :user, :email, "Email"
-  = email_field :user, 'email'
+  = form_for @user do
 
-  = label :user, :password, "Password (8 characters minimum)"
-  = password_field :user, 'password'
+	= label :user, :email, "Email"
+	= email_field :user, 'email'
 
-  = label :user, :password_confirmation, "Password Confirmation"
-  = password_field :user, 'password_confirmation'
+	= label :user, :password, "Password (8 characters minimum)"
+	= password_field :user, 'password'
+
+	= label :user, :password_confirmation, "Password Confirmation"
+	= password_field :user, 'password_confirmation'
 
   -if is_admin?
     = label :user, :is_admin, 'Admin Rights (yes or no)'
