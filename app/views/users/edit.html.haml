@@ -1,24 +1,4 @@
 %h1 Update Account
-/= form_for @user do
-
-/ <<<<<<< HEAD
-/ = form_tag user_path(@user), :method => :put do
-
-/   = label :user, :name, 'Name'
-/   = text_field :user, 'name'
-
-/   = label :user, :email, "Email"
-/   = email_field :user, 'email'
-
-/   = label :user, :password, "Password (8 characters minimum)"
-/   = password_field :user, 'password'
-
-/   = label :user, :password_confirmation, "Password Confirmation"
-/   = password_field :user, 'password_confirmation'
-
-/   -if is_admin?
-/     = label :user, :is_admin, 'Admin Rights (yes or no)'
-/     = text_field :user, 'is_admin'
 
 = form_for @user, :html => {:multipart => true} do |f|
 

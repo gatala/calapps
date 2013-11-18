@@ -1,20 +1,11 @@
 %h1 Details about  #{@user.name}
 
-/ <<<<<<< HEAD
-/ %div
-/ 	- if is_admin? or is_user?
-/ 		Email:
-/ 		= @user.email
+
 %div
 	-if is_admin?
 		Admin:
 		= @user.is_admin
 
-/ %div
-/ -if @user.image == nil
-/ 	= image_tag avatar_url(@user)
-/ -else	
-/ 	= image_tag @user.image.to_s
 = image_tag avatar_url(@user)
 
 %div
