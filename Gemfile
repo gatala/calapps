@@ -7,6 +7,7 @@ gem 'acts-as-taggable-on'
 gem 'mail'
 gem "railroady"
 gem "carrierwave"
+gem 'rmagick'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
