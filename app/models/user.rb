@@ -1,5 +1,7 @@
 class User < ActiveRecord::Base
 
+  attr_accessible :image, :name, :email, :password, :password_confirmation, 
+  :school, :year, :public_name, :github, :major
 
   before_save {self.email = email.downcase}
 
@@ -13,6 +15,7 @@ class User < ActiveRecord::Base
   has_secure_password
   validates :password, length: {:within => 8..20, allow_nil: true}
   
+  mount_uploader :image, ImageUploader
 
   def send_password_reset
     generate_token(:password_reset_token)
