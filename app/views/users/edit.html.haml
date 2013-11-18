@@ -1,5 +1,7 @@
-%h1 Update Password
+%h1 Update Account
+  = form_for @user do
 
+<<<<<<< HEAD
 / <<<<<<< HEAD
 / = form_tag user_path(@user), :method => :put do
 
@@ -46,3 +48,21 @@
   .form-actions
     = submit_tag 'Update', :class => "btn btn-primary"
     = link_to 'Back', user_path, :class => "btn"
+=======
+	= label :user, :email, "Email"
+	= email_field :user, 'email'
+
+	= label :user, :password, "Password (8 characters minimum)"
+	= password_field :user, 'password'
+
+	= label :user, :password_confirmation, "Password Confirmation"
+	= password_field :user, 'password_confirmation'
+
+-if is_admin?
+  = label :user, :is_admin, 'Admin Rights (yes or no)'
+  = text_field :user, 'is_admin'
+
+.form-actions
+  = submit_tag 'Update', :class => "btn btn-primary"
+  = link_to 'Back', user_path, :class => "btn"
+>>>>>>> 714af8f864a0adbc6b55176dd79843f254bafe5c

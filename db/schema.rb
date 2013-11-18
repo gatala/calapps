@@ -11,7 +11,11 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(:version => 20131113070415) do
+=======
+ActiveRecord::Schema.define(:version => 20131114074641) do
+>>>>>>> 714af8f864a0adbc6b55176dd79843f254bafe5c
 
   create_table "calapps", :force => true do |t|
     t.string   "name"
@@ -21,6 +25,8 @@ ActiveRecord::Schema.define(:version => 20131113070415) do
     t.datetime "created_at",       :null => false
     t.datetime "updated_at",       :null => false
     t.string   "created_location"
+    t.string   "user_email"
+    t.string   "category"
   end
 
   create_table "taggings", :force => true do |t|
@@ -49,12 +55,16 @@ ActiveRecord::Schema.define(:version => 20131113070415) do
     t.string   "remember_token"
     t.string   "password_reset_token"
     t.datetime "password_reset_sent_at"
+<<<<<<< HEAD
     t.string   "image"
     t.string   "school"
     t.integer  "year"
     t.string   "github"
     t.string   "major"
     t.string   "public_name"
+=======
+    t.string   "is_admin"
+>>>>>>> 714af8f864a0adbc6b55176dd79843f254bafe5c
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
