@@ -1,5 +1,6 @@
 require 'uri'
 require 'cgi'
+require 'capybara/cucumber'
 
 Given /the following applications exist/ do |calapps_table|
   calapps_table.hashes.each do |app|
@@ -11,8 +12,10 @@ end
 
 When /^(?:|I )am on (.+)$/ do |page_name|
   if page_name == "the CalApps app creation page"
+    pending
   	visit new_calapp_path
   elsif page_name == "the CalApps home page"
+    pending
   	visit root_URL
   end
   visit path_to(page_name)
@@ -33,6 +36,7 @@ When /I press "(.*)"/ do |button|
 end
 
 Then /^(?:|I )should see "([^\"]*)"$/ do |text|
+
   if page.respond_to? :should
     page.should have_content(text)
   else

@@ -19,6 +19,8 @@
       .navbar-inner
         .container
           .brand=link_to "CalApps", '/'
+          %form.navbar-form.pull-left
+            %input.search-query{:type =>"text", :placeholder =>"Search"}
           %ul.nav.pull-left
             %li
               = link_to 'Gallery', '/calapps'
@@ -45,3 +47,6 @@
       - elsif flash[:warning]
         #warning.message= flash[:warning]
       = yield
+/ Placed at the end of the document so the pages load faster
+%script{:src => "js/jquery.js"}
+%script{:src => "js/bootstrap.js"}

@@ -1,6 +1,4 @@
--#  This file is app/views/movies/index.html.haml
-%h1 Cal Applications
-
+-#  This file is app/views/calapps/index.html.haml
 %table.table.table-striped.table-hover
   %thead
     %tr
@@ -14,8 +12,7 @@
         %td= link_to "#{calapp.name}", calapp.URL
         %td= calapp.creator
         %td= calapp.description
-        %td
-          = link_to "More Details", calapp_path(calapp), :class => 'btn btn-mini btn-info'
+        %td= link_to "More Details", calapp_path(calapp), :class => 'btn btn-mini btn-info'
 
 -if signed_in?
-  = link_to t('.new', :default => t("helpers.links.new")), new_calapp_path, :class => 'btn btn-primary'
+  = link_to "Add an Application", new_calapp_path, :class => 'btn btn-primary'
