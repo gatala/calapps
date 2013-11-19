@@ -2,47 +2,42 @@
 
 / <<<<<<< HEAD
 / %div
-/ 	- if is_admin? or is_user?
-/ 		Email:
-/ 		= @user.email
+/   - if is_admin? or is_user?
+/     Email:
+/     = @user.email
 %div
-	-if is_admin?
-		Admin:
-		= @user.is_admin
+  -if is_admin?
+    Admin:
+    = @user.is_admin
 
 / %div
 / -if @user.image == nil
-/ 	= image_tag avatar_url(@user)
-/ -else	
-/ 	= image_tag @user.image.to_s
-= image_tag avatar_url(@user)
+/   = image_tag avatar_url(@user)
+/ -else 
+/   = image_tag @user.image.to_s
+= image_tag avatar_url(@user), :class=>'img-polaroid img-rounded'
 
-%div
-Email:
-= @user.email
+.hero-unit
+  Email:
+  = @user.email
 
-%div
-Public Name:
-= @user.public_name
+  Public Name:
+  = @user.public_name
 
-%div
-School:
-= @user.school
+  School:
+  = @user.school
 
-%div
-Year:
-= @user.year
+  Year:
+  = @user.year
 
-%div
-Major:
-= @user.major
+  Major:
+  = @user.major
 
-%div
-Github:
-= @user.github
+  Github:
+  = @user.github
 
 .form-actions
-- if is_admin? or is_user?
-	= link_to "Edit Profile", edit_user_path, :class => "btn btn-primary"
-	= link_to t('.back', :default => t("helpers.links.back")), '/users', :class => 'btn'
+  - if is_admin? or is_user?
+    = link_to "Edit Profile", edit_user_path, :class => "btn btn-primary"
+    = link_to t('.back', :default => t("helpers.links.back")), '/users', :class => 'btn'
   
