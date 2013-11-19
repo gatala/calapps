@@ -10,11 +10,12 @@
     /[if lt IE 9]
     = javascript_include_tag "//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.6.1/html5shiv.js"
     = stylesheet_link_tag "application", :media => "all"
+    = stylesheet_link_tag "welcome"
     = favicon_link_tag 'favicon.ico', :rel => 'shortcut icon'
     = javascript_include_tag "application"
 
-
-  %body{:style => "padding-top: 60px;" }
+  - homepage = @homepage ? 'homepage': ''
+  %body{:style => "padding-top: 60px;", :class => homepage }
     .navbar.navbar-fixed-top.navbar
       .navbar-inner
         .container
@@ -47,6 +48,3 @@
       - elsif flash[:warning]
         #warning.message= flash[:warning]
       = yield
-/ Placed at the end of the document so the pages load faster
-%script{:src => "js/jquery.js"}
-%script{:src => "js/bootstrap.js"}
