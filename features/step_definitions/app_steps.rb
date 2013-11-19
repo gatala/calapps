@@ -1,6 +1,6 @@
 require 'uri'
 require 'cgi'
-require 'capybara/cucumber'
+#require 'capybara/cucumber'
 
 Given /the following applications exist/ do |calapps_table|
   calapps_table.hashes.each do |app|
@@ -61,5 +61,13 @@ Then /^(?:|I )should see \/([^\/]*)\/$/ do |regexp|
     page.should have_xpath('//*', :text => regexp)
   else
     assert page.has_xpath?('//*', :text => regexp)
+  end
+end
+
+Then(/^I should not see "(.*?)"$/) do |arg1|
+  if page.respond_to? :should
+    assert find('body').should have_no_content(arg1)
+  else
+    assert find('body').has_no_content?(arg1)
   end
 end
