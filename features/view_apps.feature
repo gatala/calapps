@@ -11,5 +11,5 @@ Background: applications have been added to the database
     | Berkeley Time		| Yuxin Zhu, Noah Gilmore	| Look for classes.	 	| http://www.berkeleytime.com	| berkeleytime@something.edu |
 
 Scenario: Viewing list of all applications on home page
-	When I am on the CalApps home page
-	Then I should see all apps
+	When I am on the CalApps directory
+	Then I should see "Ninja Courses"
