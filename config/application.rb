@@ -61,5 +61,19 @@ module Calapps
 
     # Version of your assets, change this if you want to expire all your assets
     config.assets.version = '1.0'
+
+    config.action_mailer.smtp_settings = {
+        :address              => "smtp.gmail.com",
+        :port                 => 587,
+        :domain               => "calapps2.herokuapp.com",
+        :user_name            => "cs169badjr@gmail.com",
+        :password             => "saasbook",
+        :authentication       => :plain,
+        :enable_starttls_auto => true
+    }
+
+    config.action_mailer.default_url_options = {
+        :host => "calapps2.herokuapp.com"
+    }
   end
 end
