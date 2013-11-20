@@ -32,11 +32,13 @@ Scenario: Visiting List of Calapps as an admin
 
 Scenario: Looking at a Calapp as a visitor (non-signed in user)
 	When I am not signed in and I am viewing an app
-	Then I should not see "Edit" or "Delete" 
+	Then I should not see "Edit" 
+	And I should not see "Delete" 
 
 Scenario: Looking at a Calapp as a non-creator user
 	When I am signed in and I am viewing an app I didn't upload
-	Then I should not see "Edit" or "Delete" 
+	Then I should not see "Edit"
+	And I should not see "Delete" 
 
 Scenario: Looking at a Calapp as a creator
 	When I am signed in and I am viewing an app I uploaded

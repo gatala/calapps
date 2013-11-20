@@ -1,6 +1,11 @@
+.container
+  - if flash[:error]
+    .alert.alert-error
+      Invalid username/password combination
+
 = form_for(:session, url: sessions_path, class: "form-signin") do |f|
   %h2.form-signin-heading Please sign in
-  %div
+  %div                                                      
     = f.label :email
     = f.email_field :email, :placeholder => "oski@gmail.com"
   %div

@@ -52,6 +52,12 @@ ActiveRecord::Schema.define(:version => 20131114074641) do
     t.string   "password_reset_token"
     t.datetime "password_reset_sent_at"
     t.string   "is_admin"
+    t.string   "image"
+    t.string   "school"
+    t.integer  "year"
+    t.string   "github"
+    t.string   "major"
+    t.string   "public_name"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

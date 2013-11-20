@@ -1,34 +1,32 @@
 require 'uri'
 require 'cgi'
-require 'capybara/cucumber'
+#require 'capybara/cucumber'
 
 Given /the following applications exist/ do |calapps_table|
   calapps_table.hashes.each do |app|
     # each returned element will be a hash whose key is the table header.
     Calapp.create!(app)
   end
-  #flunk "Unimplemented"
 end
 
-When /^(?:|I )am on (.+)$/ do |page_name|
-  if page_name == "the CalApps app creation page"
-    pending
-  	visit new_calapp_path
-  elsif page_name == "the CalApps home page"
-    pending
-  	visit root_URL
-  end
-  visit path_to(page_name)
+When(/^I am on the CalApps directory$/) do
+  visit '/calapps'
 end
+
+Then(/^I should see my app$/) do
+  find('body').should have_content('Test App')
+end
+
 
 
 When /I fill in test app details/ do 
-	CA = Calapp.new
-	CA.name = "Test App"
-	CA.URL = "http://www.test.com"
-	CA.creator = "Fake Creator"
-	CA.description = "Description for Test App"
-	Calapp.create!(CA)
+	@CA = Calapp.new(:name => 'Test App', :URL => 'http://www.test.com', :creator => 'Fake Creator', 
+    :user_email => 'creator@creator.com', :description => 'Description for Test App')
+  fill_in "calapp_name",    with: @CA.name
+  fill_in "calapp_URL", with: @CA.URL
+  fill_in "calapp_creator",    with: @CA.creator
+  #fill_in "user_email", with: @CA.user_email
+  fill_in "calapp_description", with: @CA.description
 end
 
 When /I press "(.*)"/ do |button|
@@ -36,16 +34,15 @@ When /I press "(.*)"/ do |button|
 end
 
 Then /^(?:|I )should see "([^\"]*)"$/ do |text|
-
   if page.respond_to? :should
-    page.should have_content(text)
+    find('body').should have_content(text)
   else
-    assert page.has_content?(text)
+    find('body').has_content?(text)
   end
 end
 
 Then /I should see all apps/ do
-	CalApps.each do |app|
+	Calapps.each do |app|
 		step "I should see \"#{app.title}\""
 	end
 end
@@ -61,5 +58,13 @@ Then /^(?:|I )should see \/([^\/]*)\/$/ do |regexp|
     page.should have_xpath('//*', :text => regexp)
   else
     assert page.has_xpath?('//*', :text => regexp)
+  end
+end
+
+Then(/^I should not see "(.*?)"$/) do |arg1|
+  if page.respond_to? :should
+    assert find('body').should have_no_content(arg1)
+  else
+    assert find('body').has_no_content?(arg1)
   end
 end

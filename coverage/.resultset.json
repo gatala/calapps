@@ -30,23 +30,6 @@
         null,
         null
       ],
-      "/home/saasbook/Desktop/calapps/spec/helpers/password_resets_helper_spec.rb": [
-        1,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        1,
-        1,
-        null
-      ],
       "/home/saasbook/Desktop/calapps/spec/mailers/user_mailer_spec.rb": [
         1,
         null,
@@ -252,19 +235,6 @@
         null,
         null
       ],
-      "/home/saasbook/Desktop/calapps/spec/requests/authentication_pages_spec.rb": [
-        1,
-        null,
-        1,
-        1,
-        1,
-        null,
-        1,
-        0,
-        null,
-        null,
-        null
-      ],
       "/home/saasbook/Desktop/calapps/spec/requests/user_pages_spec.rb": [
         1,
         null,
@@ -281,32 +251,8 @@
         null,
         null,
         null
-      ],
-      "/home/saasbook/Desktop/calapps/spec/requests/welcomes_spec.rb": [
-        1,
-        null,
-        1,
-        1,
-        1,
-        null,
-        1,
-        0,
-        null,
-        null,
-        null
-      ],
-      "/home/saasbook/Desktop/calapps/spec/views/password_resets/new.html.haml_spec.rb": [
-        1,
-        null,
-        1,
-        1,
-        null
       ]
     },
-<<<<<<< HEAD
-    "timestamp": 1384413840
-=======
-    "timestamp": 1384414948
->>>>>>> b936b32855dfa0ec2674f350825bfdcb04a7afe5
+    "timestamp": 1384836326
   }
 }
