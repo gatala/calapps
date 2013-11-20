@@ -65,8 +65,8 @@ module Calapps
     config.action_mailer.smtp_settings = {
         :address              => "smtp.gmail.com",
         :port                 => 587,
-        :domain               => "calapps2.herokuapp.com",
-        :user_name            => "cs169badjr@gmail.com",
+        :domain               => "gmail.com",
+        :user_name            => "cs169",
         :password             => "saasbook",
         :authentication       => :plain,
         :enable_starttls_auto => true
