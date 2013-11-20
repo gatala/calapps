@@ -20,6 +20,8 @@ Calapps::Application.routes.draw do
   match '/signup',  to: 'users#new',            via: 'get'
   match '/signin',  to: 'sessions#new',         via: 'get'
   match '/signout', :to => 'sessions#destroy',     via: :delete
+  match 'contact' => 'contact#new', :as => 'contact', :via => :get
+match 'contact' => 'contact#create', :as => 'contact', :via => :post
 
   # Sample resource route (maps HTTP verbs to controller actions automatically):
   #   resources :products
