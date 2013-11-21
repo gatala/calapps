@@ -22,6 +22,10 @@
   Tags: 
   = raw @calapp.tag_list.map { |t| link_to t, tag_path(t) }.join(', ')
 
+%div
+  Category:
+  = @calapp.category
+
 .form-actions
   = link_to t('.back', :default => t("helpers.links.back")), calapps_path, :class => 'btn'
   - if is_admin? or is_owner?
