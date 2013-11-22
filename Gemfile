@@ -8,6 +8,7 @@ gem 'mail'
 gem "railroady"
 gem "carrierwave"
 gem 'rmagick'
+gem 'mail_form'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
