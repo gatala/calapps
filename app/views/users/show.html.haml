@@ -33,7 +33,7 @@ Github:
 = @user.github
 
 .form-actions
-- if is_admin? or is_user?
-	= link_to "Edit Profile", edit_user_path, :class => "btn btn-primary"
-	= link_to t('.back', :default => t("helpers.links.back")), '/users', :class => 'btn'
+	- if is_admin? or is_user?
+		= link_to "Edit Profile", edit_user_path, :class => "btn btn-primary"
+		= link_to t('.back', :default => t("helpers.links.back")), '/users', :class => 'btn'
   
