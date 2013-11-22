@@ -1,9 +1,11 @@
 %ul.thumbnails
   - @calapps.each do |calapp|
-    %li.span4
-      =link_to calapp.URL, :class => "thumbnail" do
+    %li.span3
+      =link_to calapp_path(calapp), :class => "thumbnail" do
         =holder_tag '200x200'
         .caption
           %h3= calapp.name
-          %p= calapp.description
+          %p
+            %em= calapp.creator
+          %p#details= calapp.description
 

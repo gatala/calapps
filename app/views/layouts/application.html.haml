@@ -16,45 +16,50 @@
 
   - homepage = @homepage ? 'homepage': ''
   %body{:class => homepage }
-    .navbar.navbar-fixed-top.navbar
-      .navbar-inner
-        .container
-          .brand=link_to "CalApps", '/'
-          %form.navbar-form.pull-left
-            %input.search-query{:type =>"text", :placeholder =>"Search"}
-          %ul.nav.pull-left
-            %li
-              = link_to 'Gallery', '/calapps'
-            %li
-              = link_to 'About', '/welcome/about'
-            %li
-              = link_to 'Contact', '/contact'
-          %ul.nav.pull-right
-            - if signed_in?
-              %li.dropdown
-                %a{:class => "dropdown-toggle", :data => {:toggle => "dropdown"}, :href => "#"} #{@current_user.name}
-                %ul{:class => "dropdown-menu", :role => "menu", :"aria-labelledby" => "dLabel"}
-                  %li= link_to "Profile", @current_user
-                  %li= link_to "Sign out", signout_path, :method =>"delete"
-            -else
+    #wrap
+      .navbar.navbar-fixed-top.navbar
+        .navbar-inner
+          .container
+            .brand=link_to "CalApps", '/'
+            %form.navbar-form.pull-left
+              %input.search-query{:type =>"text", :placeholder =>"Search"}
+            %ul.nav.pull-left
               %li
-                %a#loginlink{:href => "/signin"} Login
+                = link_to 'Gallery', '/calapps'
               %li
-                %a#signuplink{:href => signup_path} Create Account
-              
-    .container
-      - if flash[:notice]
-        #notice.message= flash[:notice]
-      - elsif flash[:warning]
-        #warning.message= flash[:warning]
-      = yield
-    %footer.footer
+                = link_to 'About', '/welcome/about'
+              %li
+                = link_to 'Contact', '/contact'
+            %ul.nav.pull-right
+              - if signed_in?
+                %li.dropdown
+                  %a{:class => "dropdown-toggle", :data => {:toggle => "dropdown"}, :href => "#"} #{@current_user.name}
+                  %ul{:class => "dropdown-menu", :role => "menu", :"aria-labelledby" => "dLabel"}
+                    %li= link_to "Profile", @current_user
+                    %li= link_to "Sign out", signout_path, :method =>"delete"
+              -else
+                %li
+                  %a#loginlink{:href => "/signin"} Login
+                %li
+                  %a#signuplink{:href => signup_path} Create Account
+                
       .container
-        %ul.footer-links
-          %li
-            = link_to 'Gallery', '/calapps'
-          %li
-            = link_to 'About', '/welcome/about'
-          %li
-            = link_to 'Contact', '/contact'
+        - if flash[:notice]
+          #notice.message= flash[:notice]
+        - elsif flash[:warning]
+          #warning.message= flash[:warning]
+        = yield
+      .push
+    %footer#footer
+      .container
+        %ul.breadcrumb
+          %li= link_to 'Home', '/'
+          %li /
+          %li= link_to 'Gallery', '/calapps'
+          %li /
+          %li= link_to 'About', '/welcome/about'
+          %li /
+          %li= link_to 'Contact', '/contact'
+          %li /
+          %li= link_to 'Github', 'https://github.com/CS169-badjr/calapps'
 
