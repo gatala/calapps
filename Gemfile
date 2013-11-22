@@ -38,8 +38,9 @@ group :assets do
 
   gem 'uglifier', '>= 1.0.3'
   gem 'twitter-bootstrap-rails'
+  gem 'less-rails-fontawesome'
   gem "haml-bootstrap-rails", "~> 0.3.11"
-  gem 'font-awesome-less'
+  gem "holder_rails"
 end
 
 gem 'jquery-rails'
