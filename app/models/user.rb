@@ -20,7 +20,7 @@ class User < ActiveRecord::Base
   #VALID_PASSWORD_REGEX = /[a-zA-Z\d]*/
   has_secure_password
   validates :password, 
-            length: {:within => 8..20, allow_nil: true},
+            length: {:within => 8..20, allow_nil: true}
             #format: {with: VALID_PASSWORD_REGEX}
   
   mount_uploader :image, ImageUploader

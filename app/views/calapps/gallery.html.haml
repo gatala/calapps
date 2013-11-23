@@ -7,5 +7,5 @@
           %h3= calapp.name
           %p
             %em= calapp.creator
-          %p#details= calapp.description
+          %p#details= truncate(calapp.description, :length => 80, :separator => ' ')
 

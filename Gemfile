@@ -9,6 +9,7 @@ gem "railroady"
 gem "carrierwave"
 gem 'rmagick'
 gem 'mail_form'
+gem "holder_rails"
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
@@ -40,7 +41,7 @@ group :assets do
   gem 'twitter-bootstrap-rails'
   gem 'less-rails-fontawesome'
   gem "haml-bootstrap-rails", "~> 0.3.11"
-  gem "holder_rails"
+  #gem "holder_rails"
 end
 
 gem 'jquery-rails'
