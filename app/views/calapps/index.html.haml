@@ -11,8 +11,7 @@
       %tr
         %td= link_to "#{calapp.name}", calapp.URL
         %td= calapp.creator
-        %td= truncate(calapp.description, :length => 80, :separator => ' ')
-        %td= calapp.updated_at
+        %td= calapp.description
         %td= link_to "More Details", calapp_path(calapp), :class => 'btn btn-mini btn-info'
 
 .form-actions
