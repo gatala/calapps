@@ -12,4 +12,5 @@
     .field
       = form.label :body
       = form.text_area :body
-  %fieldset.actions= form.submit "Submit"
+  .form-actions
+    %fieldset.actions= form.submit "Submit", :class => "btn btn-primary"

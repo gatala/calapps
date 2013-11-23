@@ -26,6 +26,14 @@
   Category:
   = @calapp.category
 
+%div
+  = tweet_button(:text => "Check Out #{@calapp.name}!", :count => "horizontal")
+  = like_button(576067885779630)
+  %br
+  = pinit_button
+  = google_plus_button
+  
+
 .form-actions
   = link_to t('.back', :default => t("helpers.links.back")), calapps_path, :class => 'btn'
   - if is_admin? or is_owner?
