@@ -68,12 +68,12 @@ When(/^I am signed in as an admin and I am on the Calapps page$/) do
 end
 
 When(/^I am not signed in and I am viewing an app$/) do
-  @calapp = Calapp.create!(name:"Sample app", URL: "http://www.test.com", user_email: 'test@test.com', creator: 'Sample Joe')
+  @calapp = Calapp.create!(name:"Sample app", URL: "http://www.test.com", user_email: 'test@test.com', creator: 'Sample Joe', category: 'Academic')
   visit '/calapps/3'
 end
 
 When(/^I am signed in and I am viewing an app I didn't upload$/) do
-  @calapp = Calapp.create!(name:"Sample app", URL: "http://www.test.com", user_email: 'test@test.com', creator: 'Sample Joe')
+  @calapp = Calapp.create!(name:"Sample app", URL: "http://www.test.com", user_email: 'test@test.com', creator: 'Sample Joe', category: 'Academic') 
   visit signin_path
   @user = User.create(name: "Example User", email: "user@user.com",
                       password: "12341234", password_confirmation: "12341234")
@@ -84,7 +84,7 @@ When(/^I am signed in and I am viewing an app I didn't upload$/) do
 end
 
 When(/^I am signed in and I am viewing an app I uploaded$/) do
-  @calapp = Calapp.create!(name:"Sample app", URL: "http://www.test.com", user_email: 'test@test.com', creator: 'Sample Joe')
+  @calapp = Calapp.create!(name:"Sample app", URL: "http://www.test.com", user_email: 'test@test.com', creator: 'Sample Joe', category: 'Academic')
   visit signin_path
   @user = User.create(name: "Example User", email: "test@test.com",
                       password: "12341234", password_confirmation: "12341234")
@@ -95,7 +95,7 @@ When(/^I am signed in and I am viewing an app I uploaded$/) do
 end
 
 When(/^I am signed in as an admin and I am viewing an app$/) do
-  @calapp = Calapp.create!(name:"Sample app", URL: "http://www.test.com", user_email: 'test@test.com', creator: 'Sample Joe')
+  @calapp = Calapp.create!(name:"Sample app", URL: "http://www.test.com", user_email: 'test@test.com', creator: 'Sample Joe', category: 'Academic')
   visit signin_path
   @user = User.create(name: "Example User", email: "admin@admin.com",
                       password: "12341234", password_confirmation: "12341234")

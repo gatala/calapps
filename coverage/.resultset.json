@@ -16,6 +16,13 @@
         null,
         null
       ],
+      "/home/saasbook/Desktop/calapps/spec/controllers/contact_controller_spec.rb": [
+        1,
+        null,
+        1,
+        null,
+        null
+      ],
       "/home/saasbook/Desktop/calapps/spec/controllers/password_resets_controller_spec.rb": [
         1,
         null,
@@ -28,6 +35,30 @@
         null,
         null,
         null,
+        null
+      ],
+      "/home/saasbook/Desktop/calapps/spec/helpers/contact_helper_spec.rb": [
+        1,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        1,
+        1,
+        null
+      ],
+      "/home/saasbook/Desktop/calapps/spec/mailers/notifications_mailer_spec.rb": [
+        1,
+        null,
+        1,
+        1,
         null
       ],
       "/home/saasbook/Desktop/calapps/spec/mailers/user_mailer_spec.rb": [
@@ -253,6 +284,6 @@
         null
       ]
     },
-    "timestamp": 1384836326
+    "timestamp": 1385340908
   }
 }

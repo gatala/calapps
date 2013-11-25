@@ -6,9 +6,9 @@ Feature: View apps on CalApps
 
 Background: applications have been added to the database
 	Given the following applications exist:
-    | name				| creator	 				| description			| URL							| user_email 				 |
-    | Ninja Courses		| William Li, Alex Sydell 	| Generate schedules.	| http://www.ninjacourses.com	| ninjacourses@something.edu |
-    | Berkeley Time		| Yuxin Zhu, Noah Gilmore	| Look for classes.	 	| http://www.berkeleytime.com	| berkeleytime@something.edu |
+    | name	| creator| description| URL	| user_email | category |
+    | Ninja Courses		| William Li, Alex Sydell 	| Generate schedules.	| http://www.ninjacourses.com	| ninjacourses@something.edu | Academic |
+    | Berkeley Time		| Yuxin Zhu, Noah Gilmore	| Look for classes.	 	| http://www.berkeleytime.com	| berkeleytime@something.edu | Academic |
 
 Scenario: Viewing list of all applications on home page
 	When I am on the CalApps directory

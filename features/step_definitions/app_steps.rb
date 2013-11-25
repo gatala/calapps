@@ -21,12 +21,14 @@ end
 
 When /I fill in test app details/ do 
 	@CA = Calapp.new(:name => 'Test App', :URL => 'http://www.test.com', :creator => 'Fake Creator', 
-    :user_email => 'creator@creator.com', :description => 'Description for Test App')
+    :user_email => 'creator@creator.com', :description => 'Description for Test App', :category => "Academic")
   fill_in "calapp_name",    with: @CA.name
   fill_in "calapp_URL", with: @CA.URL
   fill_in "calapp_creator",    with: @CA.creator
   #fill_in "user_email", with: @CA.user_email
   fill_in "calapp_description", with: @CA.description
+  #fill_in "calapp_category", with: @CA.category
+  select("Academic", :from => "calapp_category")
 end
 
 When /I press "(.*)"/ do |button|

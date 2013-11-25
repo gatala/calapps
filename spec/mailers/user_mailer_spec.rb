@@ -4,10 +4,10 @@ require "spec_helper"
 describe User do
   before(:each) do
     @attr = {
-      :name => 'Bar',
+      :name => 'Billy Joe Bob',
       :email => 'foobar@foo.com',
-      :password => 'password',
-      :password_confirmation => 'password'
+      :password => '12341234',
+      :password_confirmation => '12341234'
     }
     # Active ActionMailer for tests
     ActionMailer::Base.delivery_method = :test
