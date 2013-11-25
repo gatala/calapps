@@ -10,6 +10,7 @@ gem "carrierwave"
 gem 'rmagick'
 gem 'mail_form'
 gem "holder_rails"
+gem "social-buttons", git: "git://github.com/kristianmandrup/social-buttons.git"
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
@@ -42,7 +43,7 @@ group :assets do
   gem 'less-rails-fontawesome'
   gem "haml-bootstrap-rails", "~> 0.3.11"
   #gem "holder_rails"
-  gem "social-buttons", git: "git://github.com/kristianmandrup/social-buttons.git"
+  #gem "social-buttons", git: "git://github.com/kristianmandrup/social-buttons.git"
 end
 
 gem 'jquery-rails'
