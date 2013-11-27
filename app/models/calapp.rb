@@ -10,7 +10,7 @@ class Calapp < ActiveRecord::Base
 
 	validates :creator, :presence => true
 
-	validates :category, :presence => true, inclusion: { in: %w(Academic Career Collaboration Commerce Food Health Miscellaneous Multipurpose),
+	validates :category, :presence => true, inclusion: { in: %w(Academic Career Collaboration Commerce Food Health Miscellaneous Multipurpose Mobile),
     message: "%{value} is not a valid category" }
 
 	validates :URL, :presence => true, 
