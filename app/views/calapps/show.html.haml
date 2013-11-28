@@ -2,6 +2,7 @@
 
 %h2 #{@calapp.name}
 
+= image_tag @calapp.image_url(:thumb) if @calapp.image?
 
 %div
   Created by:

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131125015232) do
+ActiveRecord::Schema.define(:version => 20131128064836) do
 
   create_table "calapps", :force => true do |t|
     t.string   "name"
@@ -23,6 +23,7 @@ ActiveRecord::Schema.define(:version => 20131125015232) do
     t.string   "created_location"
     t.string   "user_email"
     t.string   "category"
+    t.string   "image"
   end
 
   create_table "reviews", :force => true do |t|
