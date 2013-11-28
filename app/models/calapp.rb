@@ -1,7 +1,7 @@
 class Calapp < ActiveRecord::Base
 	#belongs_to :user
 
-	attr_accessible  :name, :URL, :creator, :description, :tag_list, :created_location, :user_email, :category, :thumbnail
+	attr_accessible  :name, :URL, :creator, :description, :tag_list, :created_location, :user_email, :category, :image
 
 	#For tagging
 	acts_as_taggable 
@@ -22,7 +22,7 @@ class Calapp < ActiveRecord::Base
   			uniqueness: { case_sensitive: false }
 
   	#For the uploading of the thumbnail
-  	mount_uploader :thumbnail, ImageUploader
+  	mount_uploader :image, ImageUploader
 
 end
 
