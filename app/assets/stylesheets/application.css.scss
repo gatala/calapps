@@ -1,9 +1,2 @@
 @import "foundation_and_overrides";
 /* Add imports of custom sass/scss files here */
-
-#details{
-  width: 250px;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis; // This is where the magic happens
-}
