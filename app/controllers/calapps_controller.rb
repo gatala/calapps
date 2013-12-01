@@ -5,7 +5,12 @@ class CalappsController < ApplicationController
 		@calapp = Calapp.find(id)
 	end 
 
+	#This is solely for the use of the gallery page
+	def gallery 
+		@calapps = Calapp.all 
+	end
 
+	#This is for admin view only. 
 	def index 
 		# This is for tags 
 		if params[:tag] 
@@ -15,8 +20,10 @@ class CalappsController < ApplicationController
 		end
 	    
 	    #This is for alphabetizing based on application name or creator
+	    # we should consider having the original list updated by "last updated or last posted"
+		#still needs to be fixed/ session collides with the ability to use the search engine
 		@sort = params[:sort] || session[:sort]
-		safe_list = ["name", "creator"]
+		safe_list = ["name", "creator", "updated_at"]
 		if safe_list.include? @sort
 			session[:sort] = @sort
        			@calapps = Calapp.order(@sort.to_s)

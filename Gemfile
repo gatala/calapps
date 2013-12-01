@@ -6,8 +6,12 @@ gem 'strong_parameters'
 gem 'acts-as-taggable-on'
 gem 'mail'
 gem "railroady"
+gem 'jquery-fileupload-rails'
 gem "carrierwave"
 gem 'rmagick'
+gem 'mail_form'
+gem "holder_rails"
+gem "social-buttons", git: "git://github.com/kristianmandrup/social-buttons.git"
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
@@ -31,15 +35,16 @@ end
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
-  gem 'less-rails'
   gem 'coffee-rails', '~> 3.2.1'
   gem 'therubyracer', :platforms => :ruby
 
   gem 'uglifier', '>= 1.0.3'
-  gem 'twitter-bootstrap-rails'
   gem "haml-bootstrap-rails", "~> 0.3.11"
+  #gem "holder_rails"
+  #gem "social-buttons", git: "git://github.com/kristianmandrup/social-buttons.git"
 end
 
+gem 'foundation-rails'
 gem 'jquery-rails'
 gem "haml", "~> 3.1"
 

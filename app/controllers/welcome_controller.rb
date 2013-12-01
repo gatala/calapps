@@ -1,5 +1,6 @@
 class WelcomeController < ApplicationController
 	def welcome
+		@homepage = true
 	end
 
 	def contact 

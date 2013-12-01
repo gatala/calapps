@@ -9,34 +9,34 @@
           #{msg}
 
 
-%h1 Update Account
+
 
 
 
 = form_for @user, :html => {:multipart => true} do |f|
+  %fieldset
+    %legend Update Account
+    = f.label :image, "Upload Profile"
+    = f.file_field :image
 
-  = f.label :image, "Upload Profile"
-  = f.file_field :image
+    = f.label :public_name, "Public Name"
+    = f.text_field :public_name
+    
+    = f.label :school, "School"
+    = f.text_field :school
 
-  = f.label :public_name, "Public Name"
-  = f.text_field :public_name
-  
-  = f.label :school, "School"
-  = f.text_field :school
+    = f.label :year, "Class Year"
+    = f.collection_select :year, User::YEARS, :to_s, :to_s, :include_blank => true
 
-  = f.label :year, "Year"
-  = f.number_field :year
+    = f.label :major, "Major"
+    = f.text_field :major
 
-  = f.label :major, "Major"
-  = f.text_field :major
+    = f.label :github, "Github"
+    = f.text_field :github
 
-  = f.label :github, "Github"
-  = f.text_field :github
+    -if is_admin?
+      = f.label :is_admin, 'Admin Rights (yes or no)'
+      = f.text_field :is_admin
 
-  -if is_admin?
-    = label :user, :is_admin, 'Admin Rights (yes or no)'
-    = text_field :user, 'is_admin'
-
-  .form-actions
-    = submit_tag 'Update', :class => "btn btn-primary"
-    = link_to 'Back', user_path, :class => "btn"
+  = submit_tag 'Update', :class => "button success"
+  = link_to 'Back', user_path, :class => "button secondary"

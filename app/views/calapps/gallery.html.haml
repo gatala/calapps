@@ -1,0 +1,15 @@
+%h1 Gallery
+
+%ul.small-block-grid-3
+  - @calapps.each do |calapp|
+    %li
+      =link_to calapp_path(calapp), :class => "th" do
+        =holder_tag '270x270'
+        .caption
+          %h3= calapp.name
+          %p
+            %em= calapp.creator
+          %p#details= truncate(calapp.description, :length => 120, :separator => ' ')
+
+-if signed_in?
+  = link_to "Add an Application", new_calapp_path, :class => 'button'
