@@ -1,5 +1,8 @@
 class User < ActiveRecord::Base
 
+  #array for grade year in Views:users:edit
+  base_year = Time.new.year
+  YEARS = (base_year..base_year + 4).to_a + ["Graduate Student", "Faculty/Staff"]
   attr_accessible :image, :name, :email, :password, :password_confirmation, 
   :school, :year, :public_name, :github, :major
 
