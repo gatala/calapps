@@ -4,17 +4,18 @@
     = form_for(@user) do |f|
       = render 'shared/error_messages'
 = form_for @user do |new_user|
-
-  = new_user.label :name, 'Name (e.g. Oski Bear)'
-  = new_user.text_field :name, :placeholder => "Oski Bear"
+  %fieldset
+    %legend Sign Up
+    = new_user.label :name, 'Name (e.g. Oski Bear)'
+    = new_user.text_field :name, :placeholder => "Oski Bear"
+    %div
+      = new_user.label :email, 'Email Address'
+      = new_user.email_field :email, :placeholder => "Email address"
+    %div
+      = new_user.label :password, 'Password (at least 8 characters)'
+      = new_user.password_field :password, :placeholder => "Password"
+    %div
+      = new_user.label :password_confirmation, 'Confirm your password'
+      = new_user.password_field :password_confirmation, :placeholder => "Password"
   %div
-    = new_user.label :email, 'Email Address'
-    = new_user.email_field :email, :placeholder => "Email address"
-  %div
-    = new_user.label :password, 'Password (at least 8 characters)'
-    = new_user.password_field :password, :placeholder => "Password"
-  %div
-    = new_user.label :password_confirmation, 'Confirm your password'
-    = new_user.password_field :password_confirmation, :placeholder => "Password"
-  %div
-    = new_user.submit "Sign Up", class: "btn btn-primary"
+    = new_user.submit "Sign Up", class: "button success"

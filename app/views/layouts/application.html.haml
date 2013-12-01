@@ -8,58 +8,69 @@
     / Le HTML5 shim, for IE6-8 support of HTML elements
     /[if lt IE 9]
     = javascript_include_tag "//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.6.1/html5shiv.js"
-    = stylesheet_link_tag "application", :media => "all"
+    = stylesheet_link_tag "application"
     = stylesheet_link_tag "welcome"
     = favicon_link_tag 'favicon.ico', :rel => 'shortcut icon'
-    = javascript_include_tag "application"
+    = javascript_include_tag "vendor/modernizr"
     = javascript_include_tag "holder"
 
   - homepage = @homepage ? 'homepage': ''
-  %body{:class => homepage }
-    #wrap
-      .navbar.navbar-fixed-top.navbar
-        .navbar-inner
-          .container
-            .brand=link_to "CalApps", '/'
-            %form.navbar-form.pull-left
-              %input.search-query{:type =>"text", :placeholder =>"Search"}
-            %ul.nav.pull-left
+  %body{:class => homepage}
+    .fixed
+      %nav.top-bar{:data=>{:topbar => true}}
+        %ul.title-area
+          %li.name
+            %h1=link_to "CalApps", '/'
+        %section.top-bar-section
+          %ul.left
+            %li.has-form
+              .row.collapse
+                .large-8.small-9.columns
+                  %input{:type => "text", :placeholder => "Find"}
+                .large-4.small-3.columns
+                  %a.alert.button.expand{:href => "#"} Search
+            %li.divider
+            %li
+              = link_to 'Gallery', '/calapps'
+            %li.divider
+            %li
+              = link_to 'About', '/welcome/about'
+            %li.divider
+            %li
+              = link_to 'Contact', '/contact'
+            %li.divider
+          %ul.right
+            - if signed_in?
+              %li.has-dropdown.not-click
+                %a{:href => "#"} #{@current_user.name}
+                %ul.dropdown
+                  %li= link_to "Profile", @current_user
+                  %li= link_to "Sign out", signout_path, :method =>"delete"
+            -else
               %li
-                = link_to 'Gallery', '/calapps'
+                %a#loginlink{:href => "/signin"} Login
               %li
-                = link_to 'About', '/welcome/about'
-              %li
-                = link_to 'Contact', '/contact'
-            %ul.nav.pull-right
-              - if signed_in?
-                %li.dropdown
-                  %a{:class => "dropdown-toggle", :data => {:toggle => "dropdown"}, :href => "#"} #{@current_user.name}
-                  %ul{:class => "dropdown-menu", :role => "menu", :"aria-labelledby" => "dLabel"}
-                    %li= link_to "Profile", @current_user
-                    %li= link_to "Sign out", signout_path, :method =>"delete"
-              -else
-                %li
-                  %a#loginlink{:href => "/signin"} Login
-                %li
-                  %a#signuplink{:href => signup_path} Create Account
-                
-      .container
+                %a#signuplink{:href => signup_path} Create Account
+          
+          
+    .row
+      .large-12.columns
         - if flash[:notice]
           #notice.message= flash[:notice]
         - elsif flash[:warning]
           #warning.message= flash[:warning]
         = yield
-      .push
-    %footer#footer
-      .container
-        %ul.breadcrumb
-          %li= link_to 'Home', '/'
-          %li /
-          %li= link_to 'Gallery', '/calapps'
-          %li /
-          %li= link_to 'About', '/welcome/about'
-          %li /
-          %li= link_to 'Contact', '/contact'
-          %li /
-          %li= link_to 'Github', 'https://github.com/CS169-badjr/calapps'
+      = javascript_include_tag "application"
+    / %footer#footer
+    /   .container
+    /     %ul.breadcrumb
+    /       %li= link_to 'Home', '/'
+    /       %li /
+    /       %li= link_to 'Gallery', '/calapps'
+    /       %li /
+    /       %li= link_to 'About', '/welcome/about'
+    /       %li /
+    /       %li= link_to 'Contact', '/contact'
+    /       %li /
+    /       %li= link_to 'Github', 'https://github.com/CS169-badjr/calapps'
 

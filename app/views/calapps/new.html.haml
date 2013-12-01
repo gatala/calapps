@@ -6,32 +6,32 @@
       - @calapp.errors.full_messages.each do |msg|
         %li
           #{msg}
-      
+     
 = form_for Calapp.new, :html => {:multipart => true} do |f|
+  %fieldset
+    %legend Add Application
+    = f.label :name, 'Name of Application'
+    = f.text_field :name
 
-  = f.label :name, 'Name of Application'
-  = f.text_field :name
+    = f.label :image, "Upload Thumbnail"
+    = f.file_field :image
 
-  = f.label :image, "Upload Thumbnail"
-  = f.file_field :image
+    = f.label :URL, "Application URL"
+    = f.url_field :URL
 
-  = f.label :URL, "Application URL"
-  = f.url_field :URL
+    = f.label :creator, "Creator(s)"
+    = f.text_field :creator
 
-  = f.label :creator, "Creator(s)"
-  = f.text_field :creator
+    = f.label :created_location, "Event created"
+    = f.text_field :created_location
 
-  = f.label :created_location, "Event created"
-  = f.text_field :created_location
+    = f.label :category, "Category"
+    = f.select :category, [['Academic','Academic'],['Career','Career'],['Collaboration','Collaboration'], ["Commerce", "Commerce"],["Food", "Food"], ["Health", "Health"],["Miscellaneous", "Miscellaneous"], ["Multipurpose", "Multipurpose"], ["Mobile", "Mobile"]], :include_blank => true
 
-  = f.label :category, "Category"
-  = f.select :category, [['Academic','Academic'],['Career','Career'],['Collaboration','Collaboration'], ["Commerce", "Commerce"],["Food", "Food"], ["Health", "Health"],["Miscellaneous", "Miscellaneous"], ["Multipurpose", "Multipurpose"], ["Mobile", "Mobile"]], :include_blank => true
+    = f.label :description, "Description"
+    = f.text_area :description
 
-  = f.label :description, "Description"
-  = f.text_area :description
-
-  = f.label :tag_list, "Tags (separate by commas)"
-  = f.text_field :tag_list
-  .form-actions
-    = link_to 'Back', calapps_path, :class =>"btn"
-    = f.submit 'Save Changes', :class => "btn btn-primary", :url => calapp_path(f)
+    = f.label :tag_list, "Tags (separate by commas)"
+    = f.text_field :tag_list
+  = link_to 'Back', calapps_path, :class =>"button secondary"
+  = f.submit 'Save Changes', :class => "button success", :url => calapp_path(f)

@@ -35,18 +35,16 @@ end
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
-  gem 'less-rails'
   gem 'coffee-rails', '~> 3.2.1'
   gem 'therubyracer', :platforms => :ruby
 
   gem 'uglifier', '>= 1.0.3'
-  gem 'twitter-bootstrap-rails'
-  gem 'less-rails-fontawesome'
   gem "haml-bootstrap-rails", "~> 0.3.11"
   #gem "holder_rails"
   #gem "social-buttons", git: "git://github.com/kristianmandrup/social-buttons.git"
 end
 
+gem 'foundation-rails'
 gem 'jquery-rails'
 gem "haml", "~> 3.1"
 

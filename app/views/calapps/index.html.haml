@@ -1,5 +1,5 @@
 -#  This file is app/views/calapps/index.html.haml
-%table.table.table-striped.table-hover
+%table
   %thead
     %tr
       %th{:class => @name_header}= link_to "Name", calapps_path(:sort => "name"), :id => "name_header"
@@ -14,8 +14,6 @@
         %td= calapp.creator
         %td= truncate(calapp.description, :length => 80, :separator => ' ')
         %td= calapp.updated_at.localtime
-        %td= link_to "More Details", calapp_path(calapp), :class => 'btn btn-mini btn-info'
-
-.form-actions
-  -if signed_in?
-    = link_to "Add an Application", new_calapp_path, :class => 'btn btn-primary'
+        %td= link_to "More Details", calapp_path(calapp), :class => 'button tiny'
+-if signed_in?
+  = link_to "Add an Application", new_calapp_path, :class => 'button'
