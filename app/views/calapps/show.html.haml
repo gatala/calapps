@@ -2,7 +2,7 @@
 
 %h2 #{@calapp.name}
 
-= image_tag @calapp.image_url(:thumb) if @calapp.image?
+= image_tag thumbnail_url(@calapp)
 /= image_tag avatar_url(@calapp)
 
 %fieldset
