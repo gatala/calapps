@@ -3,38 +3,44 @@
 %h2 #{@calapp.name}
 
 = image_tag @calapp.image_url(:thumb) if @calapp.image?
+/= image_tag avatar_url(@calapp)
 
-%div
-  Created by:
+%fieldset
+  %legend Information
+  Created by
   = @calapp.creator
-%div
-  Application URL:
-  = link_to @calapp.URL, @calapp.URL
+  %div
+    = link_to @calapp.URL, @calapp.URL
+%hr
+/ %div
+/   Event created at:
+/   = @calapp.created_location
 
-%div
-  Event created at:
-  = @calapp.created_location
-
-%h3 Description:
+%h4 Description:
 %div
   = @calapp.description
-
+%hr
 %div 
-  Tags: 
-  = raw @calapp.tag_list.map { |t| link_to t, tag_path(t) }.join(', ')
-
+  %h4 Tags: 
+  - @calapp.tag_list.each do |t|
+    %span.secondary.round.label
+      = link_to t, tag_path(t)
+    /%span.secondary.round.label
+    /= raw @calapp.tag_list.map { |t| link_to t, tag_path(t) }.join(', ')
+%hr
 %div
   Category:
   = @calapp.category
+%hr
+%ul.button-group
+  = tweet_button(:text => "Check Out #{@calapp.name}!", :count => "horizontal");
 
-%div
-  = tweet_button(:text => "Check Out #{@calapp.name}!", :count => "horizontal")
-%div
   = like_button(576067885779630)
-%div
-  = pinit_button
-.g-plusone{"data-annotation".to_sym => "inline", "data-width".to_sym => "300"}
 
+  = pinit_button
+  .g-plusone{"data-annotation".to_sym => "inline", "data-width".to_sym => "300"}
+
+%hr
 %div
   = link_to t('.back', :default => t("helpers.links.back")), calapps_path, :class => 'button secondary'
   - if is_admin? or is_owner?

@@ -30,6 +30,6 @@
 
 
 %div
-	- if is_admin? or is_user?
-		= link_to "Edit Profile", edit_user_path, :class => "button"
-		= link_to t('.back', :default => t("helpers.links.back")), '/users', :class => 'button secondary'
+  - if is_admin? or is_user?
+    = link_to "Edit Profile", edit_user_path, :class => "button"
+    = link_to t('.back', :default => t("helpers.links.back")), '/users', :class => 'button secondary'
