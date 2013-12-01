@@ -11,7 +11,7 @@ class UsersController < ApplicationController
 
 	def create
 		@user = User.new(user_params)
-    if @user.email == 'admin@admin.com'
+    if @user.email == 'admin@admin.com' or @user.email == 'cs169-badjr@gmail.com'
       @user.is_admin = 'yes'
     else
       @user.is_admin = 'no'
@@ -46,8 +46,8 @@ class UsersController < ApplicationController
     		flash[:success] = "Profile udpated!"
     		redirect_back_or @user
   	else
-  		flash.new[:error] = 'Invalid email/password'
-    		render 'edit'
+      flash[:error] = 'error'
+      render 'edit'
   	end
 	end
 

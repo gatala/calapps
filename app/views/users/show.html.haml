@@ -1,21 +1,29 @@
 %h1 Details about  #{@user.name}
 
+<<<<<<< HEAD
 / <<<<<<< HEAD
 / %div
 /   - if is_admin? or is_user?
 /     Email:
 /     = @user.email
+=======
+
+>>>>>>> e219b638622bdc30ec5a858f36d7da4b7a7b6335
 %div
   -if is_admin?
     Admin:
     = @user.is_admin
 
+<<<<<<< HEAD
 / %div
 / -if @user.image == nil
 /   = image_tag avatar_url(@user)
 / -else 
 /   = image_tag @user.image.to_s
 = image_tag avatar_url(@user), :class=>'img-polaroid img-rounded'
+=======
+= image_tag avatar_url(@user)
+>>>>>>> e219b638622bdc30ec5a858f36d7da4b7a7b6335
 
 .hero-unit
   Email:

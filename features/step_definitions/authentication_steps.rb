@@ -10,13 +10,12 @@ When /^she submits invalid signin information$/ do
 end
 
 Then /^she should see an error message$/ do
-  pending
   expect(page).to have_selector('div.alert.alert-error', text: 'Invalid')
 end
 
 Given /^the user has an account$/ do
-  @user = User.create(name: "Example User", email: "user@example.com",
-                      password: "foobar", password_confirmation: "foobar")
+  @user = User.create!(name: "Example User", email: "user@example.com",
+                      password: "12341234", password_confirmation: "12341234")
 end
 
 When /^the user submits valid signin information$/ do
@@ -26,25 +25,17 @@ When /^the user submits valid signin information$/ do
 end
 
 Then /^she should see her profile page$/ do
-  pending
-  expect(page).to have_title(@user.name)
+  visit '/users/1'
+  find('body').should have_content(@user.name)
+  #expect(page).to have_title(@user.name)
 end
 
 Then /^she should see a signout link$/ do
-  pending
   expect(page).to have_link('Sign out', href: signout_path)
 end
 
 When(/^I am not signed in and I am on the Calapps page$/) do
   visit '/calapps'
-end
-
-Then(/^I should not see "(.*?)"$/) do |arg1|
-   if page.respond_to? :should
-    page.should have_no_content(arg1)
-  else
-    assert page.has_no_content?(arg1)
-  end
 end
 
 Then(/^I should see a "(.*?)" button$/) do |arg1|
@@ -59,7 +50,7 @@ When(/^I am signed in as a user and I am on the Calapps page$/) do
   #pending # express the regexp above with the code you wish you had
   visit signin_path
   @user = User.create(name: "Example User", email: "user@example.com",
-                      password: "foobar", password_confirmation: "foobar")
+                      password: "12341234", password_confirmation: "12341234")
   fill_in "Email",    with: @user.email
   fill_in "Password", with: @user.password
   click_button "Sign in"
@@ -69,7 +60,7 @@ end
 When(/^I am signed in as an admin and I am on the Calapps page$/) do
   visit signin_path
   @user = User.create(name: "Example Admin", email: "admin@admin.com",
-                      password: "foobar", password_confirmation: "foobar")
+                      password: "12341234", password_confirmation: "12341234")
   fill_in "Email",    with: @user.email
   fill_in "Password", with: @user.password
   click_button "Sign in"
@@ -81,15 +72,11 @@ When(/^I am not signed in and I am viewing an app$/) do
   visit '/calapps/3'
 end
 
-# Then(/^I should not see "(.*?)" or "(.*?)"$/) do |arg1, arg2|
-#   pending # express the regexp above with the code you wish you had
-# end
-
 When(/^I am signed in and I am viewing an app I didn't upload$/) do
   @calapp = Calapp.create!(name:"Sample app", URL: "http://www.test.com", user_email: 'test@test.com', creator: 'Sample Joe')
   visit signin_path
   @user = User.create(name: "Example User", email: "user@user.com",
-                      password: "foobar", password_confirmation: "foobar")
+                      password: "12341234", password_confirmation: "12341234")
   fill_in "Email",    with: @user.email
   fill_in "Password", with: @user.password
   click_button "Sign in"
@@ -100,24 +87,57 @@ When(/^I am signed in and I am viewing an app I uploaded$/) do
   @calapp = Calapp.create!(name:"Sample app", URL: "http://www.test.com", user_email: 'test@test.com', creator: 'Sample Joe')
   visit signin_path
   @user = User.create(name: "Example User", email: "test@test.com",
-                      password: "foobar", password_confirmation: "foobar")
+                      password: "12341234", password_confirmation: "12341234")
   fill_in "Email",    with: @user.email
   fill_in "Password", with: @user.password
   click_button "Sign in"
   visit '/calapps/3'
 end
 
-# Then(/^I should see "(.*?)" and "(.*?)"$/) do |arg1, arg2|
-#   pending # express the regexp above with the code you wish you had
-# end
-
 When(/^I am signed in as an admin and I am viewing an app$/) do
   @calapp = Calapp.create!(name:"Sample app", URL: "http://www.test.com", user_email: 'test@test.com', creator: 'Sample Joe')
   visit signin_path
   @user = User.create(name: "Example User", email: "admin@admin.com",
-                      password: "foobar", password_confirmation: "foobar")
+                      password: "12341234", password_confirmation: "12341234")
   fill_in "Email",    with: @user.email
   fill_in "Password", with: @user.password
   click_button "Sign in"
   visit '/calapps/3'
+end
+
+
+When(/^I am on the CalApps app creation page and am signed in$/) do
+  visit signin_path
+  @user = User.create(name: "Example User", email: "user@user.com",
+                      password: "12341234", password_confirmation: "12341234")
+  fill_in "Email",    with: @user.email
+  fill_in "Password", with: @user.password
+  click_button "Sign in"
+  visit '/calapps/new'
+end
+
+Given(/^I visit my profile page$/) do
+  visit signin_path
+  @user = User.create!(name: "Example User", email: "user@user.com",
+                      password: "12341234", password_confirmation: "12341234")
+  fill_in "Email",    with: @user.email
+  fill_in "Password", with: @user.password
+  click_button "Sign in"
+  visit '/users/1'
+end
+
+When(/^I upload a picture$/) do
+  attach_file('user_image', File.join(Rails.root, 'public', 'assets', 'sample-profile-pic.jpg'))
+end
+
+# Then(/^I should see my picture$/) do
+#   page.should have_xpath("//img[@src=\"/public/images/#{image}\"]")
+# end
+
+When(/^I upload a non\-picture$/) do
+  attach_file('user_image', File.join(Rails.root, 'public', '404.html'))
+end
+
+Then(/^I should see an error$/) do
+  expect(page).to have_selector('div.alert.alert-error')
 end

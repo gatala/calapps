@@ -1,5 +1,10 @@
 %h1 Edit Existing CalApp
 
+.row
+  .span6.offset0
+    = form_for(@calapp) do |f|
+      = render 'shared/error_messages'
+
 = form_for @calapp do |f|
 
   = f.label :name, 'Name of Application'
@@ -16,6 +21,10 @@
 
   = f.label :tag_list, "Tags (separate by commas)"
   = f.text_field :tag_list
+
+  -if is_admin?
+    = f.label :user_email, "Owner email"
+    = f.text_field :user_email
 
   .form-actions
     = f.submit 'Update', :class => "btn btn-primary"

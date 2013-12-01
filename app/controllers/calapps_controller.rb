@@ -41,6 +41,7 @@ class CalappsController < ApplicationController
 			flash[:notice] = "#{@calapp.name} was successfully created."
 			redirect_to calapps_path
 		else
+			flash[:error] = 'error'
 			render 'new'
 		end
 	end 
