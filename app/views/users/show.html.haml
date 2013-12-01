@@ -7,26 +7,34 @@
 
 = image_tag avatar_url(@user)
 
-.hero-unit
-  Email:
-  = @user.email
+%fieldset
+  %legend User Information
+  %div
+    - if @user.email
+      %b Email:
+      = @user.email
 
-  Public Name:
-  = @user.public_name
+  %div
+    - if @user.public_name
+      %b Public Name:
+      = @user.public_name
+  %div
+    - if @user.school
+      %b School:
+      = @user.school
 
-  School:
-  = @user.school
-
-
-%div
-  Class Year:
-  = @user.year
-
-  Major:
-  = @user.major
-
-  Github:
-  = @user.github
+  %div
+    - if @user.year
+      %b Class Year: 
+      = @user.year
+  %div
+    - if @user.major
+      %b Major:
+      = @user.major
+  %div
+    - if @user.github 
+      %b Github:
+      = @user.github
 
 
 
