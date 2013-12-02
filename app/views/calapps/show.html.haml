@@ -3,7 +3,6 @@
 %h2 #{@calapp.name}
 
 = image_tag thumbnail_url(@calapp)
-/= image_tag avatar_url(@calapp)
 
 %fieldset
   %legend Information
@@ -12,9 +11,6 @@
   %div
     = link_to @calapp.URL, @calapp.URL
 %hr
-/ %div
-/   Event created at:
-/   = @calapp.created_location
 
 %h4 Description:
 %div
