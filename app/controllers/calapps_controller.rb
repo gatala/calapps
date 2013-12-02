@@ -10,6 +10,11 @@ class CalappsController < ApplicationController
 		@calapps = Calapp.all 
 	end
 
+	#This is solely for the use of the alphabetized version of the gallery page. 
+	def alphabetize 
+		@calapps = Calapp.all.group_by{|c| c.name[0]}
+	end
+
 	#This is for admin view only. 
 	def index 
 		# This is for tags 

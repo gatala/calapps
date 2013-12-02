@@ -23,6 +23,7 @@ Calapps::Application.routes.draw do
   match 'contact' => 'contact#new', :as => 'contact', :via => :get
   match 'contact' => 'contact#create', :as => 'contact', :via => :post
   match '/gallery', to: 'calapps#gallery', via: 'get'
+  match '/list', to: 'calapps#alphabetize', via: 'get'
 
   # Sample resource route (maps HTTP verbs to controller actions automatically):
   #   resources :products

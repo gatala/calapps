@@ -1,0 +1,7 @@
+- @calapps.keys.sort.each do |starting_letter|
+  %div
+  = starting_letter
+  %div
+  - @calapps[starting_letter].each do |calapp|
+    %div
+    = calapp.name
