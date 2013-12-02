@@ -17,3 +17,8 @@ Scenario: Searching for a specific app
 	When I search for "Ninja Courses"
 	Then I should see "Ninja Courses"
 	And I should not see "Berkeley Time"
+
+Scenario: Searching for a non-existent app (sad path)
+	When I am on the CalApps directory
+	When I search for "Non-existent App"
+	Then I should see an error
