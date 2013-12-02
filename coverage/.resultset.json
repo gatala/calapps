@@ -150,6 +150,13 @@
         null,
         null
       ],
+      "/home/saasbook/Desktop/calapps/spec/models/reviews_spec.rb": [
+        1,
+        null,
+        1,
+        1,
+        null
+      ],
       "/home/saasbook/Desktop/calapps/spec/models/user_spec.rb": [
         1,
         null,
@@ -284,6 +291,6 @@
         null
       ]
     },
-    "timestamp": 1385340908
+    "timestamp": 1385944330
   }
 }

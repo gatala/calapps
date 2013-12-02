@@ -141,3 +141,7 @@ end
 Then(/^I should see an error$/) do
   expect(page).to have_selector('div.alert.alert-error')
 end
+
+When(/^I search for "(.*?)"$/) do |arg1|
+  pending # express the regexp above with the code you wish you had
+end
