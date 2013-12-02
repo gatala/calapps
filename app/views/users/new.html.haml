@@ -18,5 +18,7 @@
     %div
       = new_user.label :password_confirmation, 'Confirm your password'
       = new_user.password_field :password_confirmation, :placeholder => "Password"
+    %div
+      = show_simple_captcha
   %div
     = new_user.submit "Sign Up", class: "button success"
