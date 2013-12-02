@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131128064836) do
+ActiveRecord::Schema.define(:version => 20131202042938) do
 
   create_table "calapps", :force => true do |t|
     t.string   "name"
@@ -24,6 +24,7 @@ ActiveRecord::Schema.define(:version => 20131128064836) do
     t.string   "user_email"
     t.string   "category"
     t.string   "image"
+    t.string   "screenshot"
   end
 
   create_table "reviews", :force => true do |t|
@@ -35,6 +36,13 @@ ActiveRecord::Schema.define(:version => 20131128064836) do
     t.datetime "review_timestamp"
     t.datetime "created_at",       :null => false
     t.datetime "updated_at",       :null => false
+  end
+
+  create_table "screenshots", :force => true do |t|
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+    t.string   "title"
+    t.text     "description"
   end
 
   create_table "taggings", :force => true do |t|
