@@ -1,8 +1,9 @@
+.alert-box{:data=>{:alert => true}}
+  = form_for(@user) do |f|
+    = render 'shared/error_messages'
+  %a.close{:href => "#"} &times;
 %h1 Sign Up for an Account
-.row
-  .span6.offset0
-    = form_for(@user) do |f|
-      = render 'shared/error_messages'
+
 = form_for @user do |new_user|
   %fieldset
     %legend Sign Up

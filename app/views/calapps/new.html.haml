@@ -1,11 +1,11 @@
-.container
-  - if flash[:error]
-    .alert.alert-error
-      The form contains #{pluralize(@calapp.errors.count, "error")}.
+- if flash[:error]
+  .alert-box{:data=>{:alert => true}}
+    The form contains #{pluralize(@calapp.errors.count, "error")}.
     %ul
       - @calapp.errors.full_messages.each do |msg|
         %li
           #{msg}
+    %a.close{:href => "#"} &times;
      
 = form_for Calapp.new, :html => {:multipart => true} do |f|
   %fieldset

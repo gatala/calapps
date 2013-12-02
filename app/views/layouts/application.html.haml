@@ -56,9 +56,13 @@
     .row
       .large-12.columns
         - if flash[:notice]
-          #notice.message= flash[:notice]
+          .alert-box{:data=>{:alert => true}}
+            #notice.message= flash[:notice]
+            %a.close{:href => "#"} &times;
         - elsif flash[:warning]
-          #warning.message= flash[:warning]
+          .alert-box{:data=>{:alert => true}}
+            #warning.message= flash[:warning]
+            %a.close{:href => "#"} &times;
         = yield
       = javascript_include_tag "application"
 

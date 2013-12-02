@@ -1,7 +1,7 @@
-.container
-  - if flash[:error]
-    .alert.alert-error
-      Invalid username/password combination
+- if flash[:error]
+  .alert-box{:data=>{:alert => true}}
+    Invalid username/password combination
+    %a.close{:href => "#"} &times;
 %h1 Please sign in
 
 = form_for(:session, url: sessions_path, class: "form-signin") do |f|
