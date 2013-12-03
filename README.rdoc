@@ -101,19 +101,18 @@ Next Steps
 
 * Handle all the fringe cases with models and adding to the DB
 
-* Paperclip plugin 
+* Carrierwave plugin and jQuery multiple photo upload 
 
-* Admin powers 
+* Admin powers (need to finish) 
+  - flag and delete applications 
 
-* Need to create tags and comments and edit the entire relations between things
+* Comments and edit the entire relations between things
 
-* Email confirmation form 
+* Make the SOLR Search more powerful 
+  - add an advanced search option with time frame (week, day, month)
+  - include autocomplete using Autocomplete gem
 
-* Password recovery 
-
-* Sunspot Gem powered by SOLR 
-
-* Recommendify Gem for suggested Apps 
+* Recommendify Gem for suggested Apps (last things to look at)
 
 
 
