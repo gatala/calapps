@@ -1,43 +1,31 @@
 %h1 #{@user.name}
 
-%div
-  -if is_admin?
-    Admin:
-    = @user.is_admin
-
 = image_tag avatar_url(@user)
 
 %fieldset
   %legend User Information
   %div
+    %b Admin:
+    = @user.is_admin
+  %div
     - if @user.email
       %b Email:
       = @user.email
-
   %div
-    - if @user.public_name
-      %b Public Name:
-      = @user.public_name
+    %b Public Name:
+    = @user.public_name
   %div
-    - if @user.school
-      %b School:
-      = @user.school
-
+    %b School:
+    = @user.school
   %div
-    - if @user.year
-      %b Class Year: 
-      = @user.year
+    %b Class Year: 
+    = @user.year
   %div
-    - if @user.major
-      %b Major:
-      = @user.major
+    %b Major:
+    = @user.major
   %div
-    - if @user.github 
-      %b Github:
-      = @user.github
-
-
-
+    %b Github:
+    = @user.github
 %div
   - if is_admin? or is_user?
     = link_to "Edit Profile", edit_user_path, :class => "button"
