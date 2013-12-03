@@ -16,9 +16,9 @@ SimpleCaptcha.setup do |sc|
   # 'charcoal_grey',
   # 'almost_invisible'
   # 'random'
-  sc.image_style = 'all_black'
+  sc.image_style = 'random'
 
   # default: low
   # possible values: 'low', 'medium', 'high', 'random'
-  sc.distortion = 'high'
+  sc.distortion = 'random'
 end
