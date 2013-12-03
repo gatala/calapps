@@ -1,9 +1,10 @@
 Calapps::Application.routes.draw do
   get "password_resets/new"
 
-  get "welcome/contact"
+  #get "welcome/contact"
   get "welcome/about"
   get "welcome/success"
+  get "welcome/construction"
   get "users/new"
   get 'tags/:tag', to: 'calapps#index', as: :tag
 

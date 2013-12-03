@@ -11,4 +11,7 @@ class WelcomeController < ApplicationController
 
 	def success
 	end
+
+	def construction
+	end
 end
