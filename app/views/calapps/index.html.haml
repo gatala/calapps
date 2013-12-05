@@ -1,6 +1,10 @@
 -#  This file is app/views/calapps/index.html.haml
 %h1 Gallery Listview
-= link_to "Switch View", "/gallery", :class => "button small"
+%a.button.dropdown{:href=>"#", :data=>{:dropdown=>"drop"}} Actions
+%ul#drop.f-dropdown{:data=>{"dropdown-content".to_sym=>true}}
+  %li= link_to "Switch View", "/gallery"
+  -if signed_in?
+    %li= link_to "Add an Application", new_calapp_path
 %table
   %thead
     %tr
@@ -17,5 +21,3 @@
         %td= truncate(calapp.description, :length => 80, :separator => ' ')
         %td= calapp.updated_at.localtime
         %td= link_to "More Details", calapp_path(calapp), :class => 'button tiny'
--if signed_in?
-  = link_to "Add an Application", new_calapp_path, :class => 'button'
