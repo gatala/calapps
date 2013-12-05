@@ -51,7 +51,7 @@ class CalappsController < ApplicationController
 		@calapp.user_email = current_user.email
 		if @calapp.save
 			flash[:notice] = "#{@calapp.name} was successfully created."
-			redirect_to calapps_path
+			redirect_to @calapp
 		else
 			flash[:error] = 'error'
 			render 'new'
