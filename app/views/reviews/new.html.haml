@@ -1,0 +1,15 @@
+/ .container
+/   - if flash[:error]
+/     .alert.alert-error
+/       The form contains #{pluralize(@calapp.errors.count, "error")}.
+/     %ul
+/       - @calapp.errors.full_messages.each do |msg|
+/         %li
+/           #{msg}
+
+=form_for @review do |new_review|
+	%fieldset
+		%legend New Review
+		=new_review.select :review_rating, [['1','1'],['2','2'],['3','3'],['4','4'],['5','5']], :include_blank => true
+		=new_review.label :review_text, 'Comment Here'
+		=new_review.text_field :review_text, :placeholder => 'Your Comment Here'

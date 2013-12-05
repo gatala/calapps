@@ -31,6 +31,6 @@ class Calapp < ActiveRecord::Base
     mount_uploader :screenshot3, ImageUploader
     mount_uploader :screenshot4, ImageUploader
     mount_uploader :screenshot5, ImageUploader
-
+    
 end
 
