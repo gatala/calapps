@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131205050900) do
+ActiveRecord::Schema.define(:version => 20131205191750) do
 
   create_table "calapps", :force => true do |t|
     t.string   "name"
@@ -33,13 +33,12 @@ ActiveRecord::Schema.define(:version => 20131205050900) do
 
   create_table "reviews", :force => true do |t|
     t.integer  "app_id"
-    t.integer  "review_user"
+    t.string   "review_user"
     t.string   "review_text"
     t.integer  "review_rating"
     t.boolean  "review_flag"
-    t.datetime "review_timestamp"
-    t.datetime "created_at",       :null => false
-    t.datetime "updated_at",       :null => false
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
   end
 
   create_table "simple_captcha_data", :force => true do |t|
