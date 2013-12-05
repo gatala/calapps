@@ -12,4 +12,5 @@
 		%legend New Review
 		=new_review.select :review_rating, [['1','1'],['2','2'],['3','3'],['4','4'],['5','5']], :include_blank => true
 		=new_review.label :review_text, 'Comment Here'
-		=new_review.text_field :review_text, :placeholder => 'Your Comment Here'
+		=new_review.text_area :review_text, :placeholder => 'Your Comment Here'
+	= new_review.submit 'Save Changes', :class => "button success"

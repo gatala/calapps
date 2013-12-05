@@ -6,11 +6,11 @@ class ReviewsController < ApplicationController
 	end 
 
 	def new 
+		@review = Review.new
 		if not signed_in?
 			#redirect_to calapp_path(current_app) #NEED SESSION HELPER 'CURRENT_APP'
+			flash[:error] = "Need to sign in to access reviews!"
 			redirect_to signin_path
-		else 
-			redirect_to new_review_path
 		end
 	end 
 
