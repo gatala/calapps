@@ -11,15 +11,25 @@
   %div
     = link_to @calapp.URL, @calapp.URL
 %hr
+%h4 Screenshots:
+%ul.clearing-thumbs{:data => {:clearing => true}}
+  -if screenshot1_url(@calapp).present?
+    %li
+      = image_tag screenshot1_url(@calapp)
+  -if screenshot2_url(@calapp).present?
+    %li
+      = image_tag screenshot2_url(@calapp)
+  -if screenshot3_url(@calapp).present?
+    %li
+      = image_tag screenshot3_url(@calapp)
+  -if screenshot4_url(@calapp).present?
+    %li
+      = image_tag screenshot4_url(@calapp)
+  -if screenshot5_url(@calapp).present?
+    %li
+      = image_tag screenshot5_url(@calapp)
 
-= image_tag screenshot1_url(@calapp)
-= image_tag screenshot2_url(@calapp)
-= image_tag screenshot3_url(@calapp)
-= image_tag screenshot4_url(@calapp)
-= image_tag screenshot5_url(@calapp)
-
-
-
+%hr
 
 %h4 Description:
 %div
