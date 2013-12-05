@@ -24,19 +24,11 @@ ActiveRecord::Schema.define(:version => 20131205050900) do
     t.string   "user_email"
     t.string   "category"
     t.string   "image"
-    t.string   "screenshot"
     t.string   "screenshot1"
     t.string   "screenshot2"
     t.string   "screenshot3"
     t.string   "screenshot4"
     t.string   "screenshot5"
-  end
-
-  create_table "pictures", :force => true do |t|
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-    t.string   "screenshot"
-    t.string   "name"
   end
 
   create_table "reviews", :force => true do |t|
@@ -48,13 +40,6 @@ ActiveRecord::Schema.define(:version => 20131205050900) do
     t.datetime "review_timestamp"
     t.datetime "created_at",       :null => false
     t.datetime "updated_at",       :null => false
-  end
-
-  create_table "screenshots", :force => true do |t|
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
-    t.string   "title"
-    t.text     "description"
   end
 
   create_table "simple_captcha_data", :force => true do |t|
