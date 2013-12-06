@@ -37,8 +37,6 @@ Calapps::Application.routes.draw do
   resources :sessions
   resources :password_resets
   
-  
-  
   # Sample resource route with options:
   #   resources :products do
   #     member do

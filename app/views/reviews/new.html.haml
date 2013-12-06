@@ -1,16 +1,20 @@
-/ .container
-/   - if flash[:error]
-/     .alert.alert-error
-/       The form contains #{pluralize(@calapp.errors.count, "error")}.
+/ - if flash[:error]
+/   .alert-box{:data=>{:alert => true}}
+/     The form contains #{pluralize(@review.errors.count, "error")}.
 /     %ul
-/       - @calapp.errors.full_messages.each do |msg|
+/       - @review.errors.full_messages.each do |msg|
 /         %li
 /           #{msg}
+/     %a.close{:href => "#"} &times;
 
+<<<<<<< HEAD
 =form_for Review.new do |new_review|
+=======
+= form_for @review, :url => { :action => "create" } do |new_review|
+>>>>>>> Comments work
 	%fieldset
 		%legend New Review
-		=new_review.select :review_rating, [['1','1'],['2','2'],['3','3'],['4','4'],['5','5']], :include_blank => true
-		=new_review.label :review_text, 'Comment Here'
-		=new_review.text_area :review_text, :placeholder => 'Your Comment Here'
+		= new_review.select :review_rating, [['1','1'],['2','2'],['3','3'],['4','4'],['5','5']], :include_blank => true
+		= new_review.label :review_text, 'Comment Here'
+		= new_review.text_area :review_text, :placeholder => 'Your Comment Here'
 	= new_review.submit 'Save Changes', :class => "button success"

@@ -25,13 +25,18 @@ module SessionsHelper
   end
 
   def current_app
-    # This doesn't work because it requires you to store a cookie the persists, but this isn't
-    # what we want, we want to do something with params[:id], but i haven't had a chance to
-    # figure that out.
-    #remember_token = Calapp.encrypt(cookies[:remember_token])
-    #@current_app ||= Calapp.where(remember_token: remember_token).first
-    
-    #params[]
+    tmp = false
+    id = 1
+    request.url.split('/').each do |word|
+      if tmp == true
+        id = word
+        break
+      end
+      if word == 'calapps'
+        tmp = true
+      end
+    end
+    return id
   end
 
   def redirect_back_or(default)
