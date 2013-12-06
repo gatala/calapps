@@ -16,8 +16,9 @@ class ReviewsController < ApplicationController
 
 	def create 
 		@review = Review.create(params[:review])
-		@review.review_user = current_user.email
-		@review.app_id = current_app.id
+		@review.user = current_user.email
+		@review.calapp = current_app.id
+
 		if @review.save
 			flash[:notice] = "Review was successfully created."
 			redirect_to calapp_path(current_app)
