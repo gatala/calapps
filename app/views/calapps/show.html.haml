@@ -48,6 +48,14 @@
   = @calapp.category
 %hr
 
+%div
+  - @calapp.reviews.each do |t|
+    %li
+      =t.review_text
+      =", Rating"
+      =t.review_rating
+%hr
+
 = link_to 'New Review', new_calapp_review_path(@calapp), :class => "button secondary"
 
 %ul.button-group

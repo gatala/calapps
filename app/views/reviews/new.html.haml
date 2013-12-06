@@ -7,11 +7,7 @@
 /           #{msg}
 /     %a.close{:href => "#"} &times;
 
-<<<<<<< HEAD
-=form_for Review.new do |new_review|
-=======
 = form_for @review, :url => { :action => "create" } do |new_review|
->>>>>>> Comments work
 	%fieldset
 		%legend New Review
 		= new_review.select :review_rating, [['1','1'],['2','2'],['3','3'],['4','4'],['5','5']], :include_blank => true

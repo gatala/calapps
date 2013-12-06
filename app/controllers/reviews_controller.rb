@@ -11,17 +11,13 @@ class ReviewsController < ApplicationController
 		# 	flash[:error] = "Need to sign in to access reviews!"
 		# 	redirect_to signin_path
 		# end
-<<<<<<< HEAD
-		#@review = Review.new
-=======
-		@review = Review.new
->>>>>>> Comments work
+ 		@review = Review.new
 	end 
 
 	def create 
 		@review = Review.create(params[:review])	
 		#@calapp = @review.calapp
-		@review.user_id = current_user.id
+		#@review.user_id = current_user.id
 		@review.calapp_id = current_app
 		#@review.app_id = calapp_id
 
