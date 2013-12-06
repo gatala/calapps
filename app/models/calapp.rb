@@ -23,14 +23,14 @@ class Calapp < ActiveRecord::Base
 	validates :URL, :presence => true, 
   			uniqueness: { case_sensitive: false }
 
-  	#For the uploading of the thumbnail
-  	mount_uploader :image, ImageUploader
+  #For the uploading of the thumbnail
+  mount_uploader :image, ImageUploader
 
-    mount_uploader :screenshot1, ImageUploader
-    mount_uploader :screenshot2, ImageUploader
-    mount_uploader :screenshot3, ImageUploader
-    mount_uploader :screenshot4, ImageUploader
-    mount_uploader :screenshot5, ImageUploader
+  mount_uploader :screenshot1, ImageUploader
+  mount_uploader :screenshot2, ImageUploader
+  mount_uploader :screenshot3, ImageUploader
+  mount_uploader :screenshot4, ImageUploader
+  mount_uploader :screenshot5, ImageUploader
     
 end
 
