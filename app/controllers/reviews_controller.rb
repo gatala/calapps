@@ -6,18 +6,17 @@ class ReviewsController < ApplicationController
 	end 
 
 	def new 
-		@review = Review.new
-		if not signed_in?
-			#redirect_to calapp_path(current_app) #NEED SESSION HELPER 'CURRENT_APP'
-			flash[:error] = "Need to sign in to access reviews!"
-			redirect_to signin_path
-		end
+		# if not signed_in?
+		# 	#redirect_to calapp_path(current_app) #NEED SESSION HELPER 'CURRENT_APP'
+		# 	flash[:error] = "Need to sign in to access reviews!"
+		# 	redirect_to signin_path
+		# end
 	end 
 
 	def create 
 		@review = Review.create(params[:review])
 		@review.user = current_user.email
-		@review.calapp = current_app.id
+		@review.calapp = @calapp.id
 
 		if @review.save
 			flash[:notice] = "Review was successfully created."

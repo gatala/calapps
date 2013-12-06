@@ -26,13 +26,18 @@ Calapps::Application.routes.draw do
   match '/gallery', to: 'calapps#gallery', via: 'get'
   match '/list', to: 'calapps#alphabetize', via: 'get'
 
+  #match 'calapp/about/:id' => 'calapps#show', :as => :calapp
+
   # Sample resource route (maps HTTP verbs to controller actions automatically):
   #   resources :products
   resources :users
-  resources :calapps
+  resources :calapps do 
+    resources :reviews, :only => [:create]
+  end
   resources :sessions
   resources :password_resets
-  resources :reviews
+  
+  
   
   # Sample resource route with options:
   #   resources :products do
