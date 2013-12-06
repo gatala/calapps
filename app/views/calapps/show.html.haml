@@ -48,7 +48,7 @@
   = @calapp.category
 %hr
 
-= link_to 'New Review', calapp_path(@calapp), :class => "button secondary"
+= link_to 'New Review', new_calapp_review_path(@calapp), :class => "button secondary"
 
 %ul.button-group
   = tweet_button(:text => "Check Out #{@calapp.name}!", :count => "horizontal");

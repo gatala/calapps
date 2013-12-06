@@ -7,7 +7,7 @@
 /         %li
 /           #{msg}
 
-=form_for @review do |new_review|
+=form_for Review.new do |new_review|
 	%fieldset
 		%legend New Review
 		=new_review.select :review_rating, [['1','1'],['2','2'],['3','3'],['4','4'],['5','5']], :include_blank => true

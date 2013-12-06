@@ -32,7 +32,7 @@ Calapps::Application.routes.draw do
   #   resources :products
   resources :users
   resources :calapps do 
-    resources :reviews, :only => [:create]
+    resources :reviews, :only => [:create, :new]
   end
   resources :sessions
   resources :password_resets

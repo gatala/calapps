@@ -11,6 +11,7 @@ class ReviewsController < ApplicationController
 		# 	flash[:error] = "Need to sign in to access reviews!"
 		# 	redirect_to signin_path
 		# end
+		#@review = Review.new
 	end 
 
 	def create 
