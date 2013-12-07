@@ -8,6 +8,7 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 
+
 applications = applications = [
 	{:name => 'Ninja Courses', :creator => 'William Li, Alex Sydell', 
 	:URL => 'http://www.ninjacourses.com', :description => "Used to generate potential schedules for students.", 
@@ -41,6 +42,7 @@ applications = applications = [
 	:category => "Commerce"}
 ]
 
+user1 = User.create!(:name => "Admin Admin", :email => "admin@test.com", :password => "saasbook", :password_confirmation => "saasbook")
 
 applications.each do |app|
 	Calapp.create!(app)
