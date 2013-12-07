@@ -42,7 +42,7 @@ applications = applications = [
 	:category => "Commerce"}
 ]
 
-user1 = User.create!(:name => "Admin Admin", :email => "admin@test.com", :password => "saasbook", :password_confirmation => "saasbook")
+user1 = User.create!(:name => "Admin Admin", :email => "admin@admin.com", :password => "saasbook", :password_confirmation => "saasbook")
 
 applications.each do |app|
 	Calapp.create!(app)
