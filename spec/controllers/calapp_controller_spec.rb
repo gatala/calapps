@@ -20,7 +20,7 @@ describe CalappsController do
 
 		it 'updating calapp' do
 			mock = mock('Test Calapp')
-			mock.stub!(:update_attributes!)
+			mock.stub!(:update_attributes)
 			mock.stub!(:name)
 			mock.stub!(:creator)
 			mock2 = mock('Test Calapp')

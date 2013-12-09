@@ -37,7 +37,31 @@
         null,
         null
       ],
+      "/home/saasbook/Desktop/calapps/spec/controllers/reviews_controller_spec.rb": [
+        1,
+        null,
+        1,
+        null,
+        null
+      ],
       "/home/saasbook/Desktop/calapps/spec/helpers/contact_helper_spec.rb": [
+        1,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        1,
+        1,
+        null
+      ],
+      "/home/saasbook/Desktop/calapps/spec/helpers/reviews_helper_spec.rb": [
         1,
         null,
         null,
@@ -150,7 +174,7 @@
         null,
         null
       ],
-      "/home/saasbook/Desktop/calapps/spec/models/reviews_spec.rb": [
+      "/home/saasbook/Desktop/calapps/spec/models/review_spec.rb": [
         1,
         null,
         1,
@@ -291,6 +315,6 @@
         null
       ]
     },
-    "timestamp": 1385944330
+    "timestamp": 1386627186
   }
 }
