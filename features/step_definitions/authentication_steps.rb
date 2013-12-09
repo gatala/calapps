@@ -180,10 +180,11 @@ When(/^I should see my rating$/) do
 end
 
 When(/^I leave an empty rating$/) do
-  
+  #do nothing
 end
 
 
 When(/^I search for "(.*?)"$/) do |arg1|
-  pending # express the regexp above with the code you wish you had
+  pending
+  fill_in("large-8 small-9 columns", :with => arg1)
 end
