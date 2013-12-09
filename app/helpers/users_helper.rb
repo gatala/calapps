@@ -4,7 +4,7 @@ module UsersHelper
 			user.image
 		else
 			gravatar_id = Digest::MD5.hexdigest(user.email.downcase)
-			user.image = 'http://gravatar.com/avatar/#{gravatar_id}.png'
+			user.image = 'http://www.advancingjustice-alc.org/sites/asian-law-caucus/files/styles/publication-landing/public/default_images/aj-aai-publication-default-thumbnail_0.gif?itok=8wySC9YR'
 		end
 	end
 end

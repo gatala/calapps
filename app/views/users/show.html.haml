@@ -1,5 +1,5 @@
-%h1 #{@user.name}
-
+%h2 #{@user.name}
+= stylesheet_link_tag 'profile'
 = image_tag avatar_url(@user)
 
 %fieldset
@@ -26,6 +26,7 @@
   %div
     %b Github:
     = @user.github
+%hr
 %div
   - if is_admin? or is_user?
     = link_to "Edit Profile", edit_user_path, :class => "button"
