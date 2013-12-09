@@ -3,7 +3,7 @@ Feature: Signing in
   Scenario: Unsuccessful signin
     Given a user visits the signin page
     When she submits invalid signin information
-    Then she should see an error message
+    Then she should see "Invalid username/password combination"
 
   Scenario: Successful signin
     Given a user visits the signin page
