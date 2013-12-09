@@ -19,8 +19,19 @@ Background: applications have been added to the database
 
 Scenario: Rating an App
 	When I am on the CalApps directory
-	When I follow "Ninja Courses"
-	Then I should be able to click to leave a rating
+	When I follow "More Details"
+	When I follow "New Review"
+	When I leave a rating
+	When I press "Save Changes"
+	When I should see my rating
+
+Scenario: Rating an App (Sad Path)
+	When I am on the CalApps directory
+	When I follow "More Details"
+	When I follow "New Review"
+	When I leave an empty rating
+	When I press "Save Changes"
+	When I should see "Review rating can't be blank"
 
 Scenario: Reviewing an App
 	When I am on the CalApps directory
@@ -38,7 +49,7 @@ Scenario: Reviewing an App (Sad Path)
 	Then I should see "Review rating can't be blank"
 
 
-Scenario: Viewing ratings
+Scenario: Viewing ratings/reviews
 	When I am on the CalApps directory
 	When I follow "More Details"
 	Then I should see "Reviews"

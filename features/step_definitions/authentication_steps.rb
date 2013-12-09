@@ -166,9 +166,23 @@ When(/^I upload a non\-picture file for the thumbnail$/) do
   attach_file('calapp_screenshot1', File.join(Rails.root, 'public', '404.html'))
 end
 
-Then(/^I should be able to click to leave a rating$/) do
-  pending # express the regexp above with the code you wish you had
+When(/^I leave a rating$/) do
+  select("4", :from => "review[review_rating]") 
 end
+
+When(/^I should see my rating$/) do
+  rating = "4"
+  if page.respond_to? :should
+    find('body').should have_content(rating)
+  else
+    find('body').has_content?(rating)
+  end
+end
+
+When(/^I leave an empty rating$/) do
+  
+end
+
 
 When(/^I search for "(.*?)"$/) do |arg1|
   pending # express the regexp above with the code you wish you had
