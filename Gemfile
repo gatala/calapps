@@ -5,7 +5,7 @@ gem 'bcrypt-ruby', '3.0.1'
 gem 'strong_parameters'
 gem 'acts-as-taggable-on'
 gem 'mail'
-gem "railroady"
+#gem "railroady"
 gem 'jquery-fileupload-rails'
 gem "carrierwave"
 gem 'rmagick'

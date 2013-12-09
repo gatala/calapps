@@ -1,7 +1,10 @@
 class Calapp < ActiveRecord::Base
 	#belongs_to :user
+  has_many :reviews
 
-	attr_accessible  :name, :URL, :creator, :description, :tag_list, :created_location, :user_email, :category, :image
+	attr_accessible  :name, :URL, :creator, :description, :tag_list, :created_location, 
+    :user_email, :category, :image, :screenshot1, :screenshot2, :screenshot3, :screenshot4, 
+    :screenshot5
 
 	#For tagging
 	acts_as_taggable 
@@ -21,8 +24,14 @@ class Calapp < ActiveRecord::Base
 	validates :URL, :presence => true, 
   			uniqueness: { case_sensitive: false }
 
-  	#For the uploading of the thumbnail
-  	mount_uploader :image, ImageUploader
+  #For the uploading of the thumbnail
+  mount_uploader :image, ImageUploader
 
+  mount_uploader :screenshot1, ImageUploader
+  mount_uploader :screenshot2, ImageUploader
+  mount_uploader :screenshot3, ImageUploader
+  mount_uploader :screenshot4, ImageUploader
+  mount_uploader :screenshot5, ImageUploader
+    
 end
 

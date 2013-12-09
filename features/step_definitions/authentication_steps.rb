@@ -130,10 +130,6 @@ When(/^I upload a picture$/) do
   attach_file('user_image', File.join(Rails.root, 'public', 'assets', 'sample-profile-pic.jpg'))
 end
 
-# Then(/^I should see my picture$/) do
-#   page.should have_xpath("//img[@src=\"/public/images/#{image}\"]")
-# end
-
 When(/^I upload a non\-picture$/) do
   attach_file('user_image', File.join(Rails.root, 'public', '404.html'))
 end
@@ -142,6 +138,53 @@ Then(/^I should see an error$/) do
   expect(page).to have_selector('div.alert.alert-error')
 end
 
+When(/^I fill in a test review$/) do
+  select("4", :from => "review[review_rating]") 
+  fill_in "Comment Here", with: "Test Comment"
+end
+
+Then(/^I should see my review$/) do
+  review = 'Test Comment'
+  if page.respond_to? :should
+    find('body').should have_content(review)
+  else
+    find('body').has_content?(review)
+  end
+  rating = "4"
+  if page.respond_to? :should
+    find('body').should have_content(rating)
+  else
+    find('body').has_content?(rating)
+  end
+end
+
+When(/^I upload a thumbnail picture$/) do
+  attach_file('calapp_screenshot1', File.join(Rails.root, 'public', 'assets', 'sample-profile-pic.jpg'))
+end
+
+When(/^I upload a non\-picture file for the thumbnail$/) do
+  attach_file('calapp_screenshot1', File.join(Rails.root, 'public', '404.html'))
+end
+
+When(/^I leave a rating$/) do
+  select("4", :from => "review[review_rating]") 
+end
+
+When(/^I should see my rating$/) do
+  rating = "4"
+  if page.respond_to? :should
+    find('body').should have_content(rating)
+  else
+    find('body').has_content?(rating)
+  end
+end
+
+When(/^I leave an empty rating$/) do
+  #do nothing
+end
+
+
 When(/^I search for "(.*?)"$/) do |arg1|
-  pending # express the regexp above with the code you wish you had
+  pending
+  fill_in("large-8 small-9 columns", :with => arg1)
 end

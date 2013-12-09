@@ -16,6 +16,25 @@
   Category:
   = @calapp.category
 %hr
+%h4 Screenshots:
+%ul.clearing-thumbs{:data => {:clearing => true}}
+  -if screenshot1_url(@calapp).present?
+    %li
+      = image_tag screenshot1_url(@calapp)
+  -if screenshot2_url(@calapp).present?
+    %li
+      = image_tag screenshot2_url(@calapp)
+  -if screenshot3_url(@calapp).present?
+    %li
+      = image_tag screenshot3_url(@calapp)
+  -if screenshot4_url(@calapp).present?
+    %li
+      = image_tag screenshot4_url(@calapp)
+  -if screenshot5_url(@calapp).present?
+    %li
+      = image_tag screenshot5_url(@calapp)
+
+%hr
 
 %h4 Description:
 %div
@@ -35,6 +54,18 @@
       = link_to t, tag_path(t)
 
 %hr
+
+%div
+  %h4 Reviews:
+  - @calapp.reviews.each do |t|
+    %li
+      =t.review_text
+      =", Rating"
+      =t.review_rating
+%hr
+
+= link_to 'New Review', new_calapp_review_path(@calapp), :class => "button secondary"
+
 %ul.button-group
   = tweet_button(:text => "Check Out #{@calapp.name}!", :count => "horizontal");
 
