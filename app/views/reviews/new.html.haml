@@ -1,0 +1,16 @@
+/ - if flash[:error]
+/   .alert-box{:data=>{:alert => true}}
+/     The form contains #{pluralize(@review.errors.count, "error")}.
+/     %ul
+/       - @review.errors.full_messages.each do |msg|
+/         %li
+/           #{msg}
+/     %a.close{:href => "#"} &times;
+
+= form_for @review, :url => { :action => "create" } do |new_review|
+	%fieldset
+		%legend New Review
+		= new_review.select :review_rating, [['1','1'],['2','2'],['3','3'],['4','4'],['5','5']], :include_blank => true
+		= new_review.label :review_text, 'Comment Here'
+		= new_review.text_area :review_text, :placeholder => 'Your Comment Here'
+	= new_review.submit 'Save Changes', :class => "button success"

@@ -14,23 +14,42 @@ Background: applications have been added to the database
 	Given the following applications exist:
     | name	| creator| description| URL	| user_email | category |
     | Ninja Courses		| William Li, Alex Sydell 	| Generate schedules.	| http://www.ninjacourses.com	| ninjacourses@something.edu | Academic |
-    | Berkeley Time		| Yuxin Zhu, Noah Gilmore	| Look for classes.	 	| http://www.berkeleytime.com	| berkeleytime@something.edu | Academic |
+    
 
 
 Scenario: Rating an App
 	When I am on the CalApps directory
-	When I follow "Ninja Courses"
-	Then I should be able to click to leave a rating
+	When I follow "More Details"
+	When I follow "New Review"
+	When I leave a rating
+	When I press "Save Changes"
+	When I should see my rating
+
+Scenario: Rating an App (Sad Path)
+	When I am on the CalApps directory
+	When I follow "More Details"
+	When I follow "New Review"
+	When I leave an empty rating
+	When I press "Save Changes"
+	When I should see "Review rating can't be blank"
 
 Scenario: Reviewing an App
 	When I am on the CalApps directory
-	When I follow "Ninja Courses"
-	When I follow "Review this App"
+	When I follow "More Details"
+	When I follow "New Review"
 	When I fill in a test review
 	When I press "Save Changes"
 	Then I should see my review
 
-Scenario: Viewing ratings
+Scenario: Reviewing an App (Sad Path)
 	When I am on the CalApps directory
-	When I follow "Ninja Courses"
-	Then I should see a rating
+	When I follow "More Details"
+	When I follow "New Review"
+	When I press "Save Changes"
+	Then I should see "Review rating can't be blank"
+
+
+Scenario: Viewing ratings/reviews
+	When I am on the CalApps directory
+	When I follow "More Details"
+	Then I should see "Reviews"

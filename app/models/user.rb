@@ -42,6 +42,7 @@ class User < ActiveRecord::Base
   end
 
   has_many :calapps
+  has_many :reviews
 
   def User.new_remember_token
     SecureRandom.urlsafe_base64

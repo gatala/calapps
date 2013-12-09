@@ -1,6 +1,9 @@
 %h1 Gallery Gridview
-
-= link_to "Switch View", "/calapps", :class => "button small"
+%a.button.dropdown.small{:href=>"#", :data=>{:dropdown=>"drop"}} Actions
+%ul#drop.f-dropdown{:data=>{"dropdown-content".to_sym=>true}}
+  %li= link_to "Switch View", "/calapps"
+  -if signed_in?
+    %li= link_to "Add an Application", new_calapp_path
 
 %ul.small-block-grid-4
   - @calapps.each do |calapp|
@@ -11,7 +14,3 @@
           %h3= calapp.name
           %p
             %em= calapp.creator
-          %p#details= truncate(calapp.description, :length => 120, :separator => ' ')
-
--if signed_in?
-  = link_to "Add an Application", new_calapp_path, :class => 'button'
