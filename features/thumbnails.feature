@@ -16,8 +16,14 @@ Scenario: Uploading and Viewing a Thumbnail
 	When I upload a thumbnail picture
 	When I press "Save Changes"
 	Then I should see my app
-	And I should not see an error
+	And I should not see "error"
 
+Scenario: Uploading and Viewing a Thumbnail (sad path)
+	When I am on the CalApps app creation page and am signed in
+	When I fill in test app details 
+	When I upload a non-picture file for the thumbnail
+	When I press "Save Changes"
+	Then I should see "maybe it is not an image?"
 
 
 

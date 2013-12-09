@@ -69,10 +69,17 @@ class CalappsController < ApplicationController
 
 	def update
 		@calapp = Calapp.find params[:id]
-		@calapp.update_attributes!(params[:calapp])
-		flash[:notice] = "#{@calapp.name} was successfully updated."
-		redirect_to calapp_path(@calapp)
-	end 
+		#@calapp.update_attributes!(params[:calapp])
+		#flash[:notice] = "#{@calapp.name} was successfully updated."
+		#redirect_to calapp_path(@calapp)
+		if @calapp.update_attributes(params[:calapp])
+    		flash[:notice] = "#{@calapp.name} was successfully updated."
+    		redirect_back_or @calapp
+	  	else
+	      flash[:error] = 'error'
+	      render 'edit'
+		end
+	end
 
 
 	def destroy

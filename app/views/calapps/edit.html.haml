@@ -1,6 +1,15 @@
 = form_for(@calapp) do |f|
   = render 'shared/error_messages'
 
+/ .container
+/   - if flash[:error]
+/     .alert.alert-error
+/       The form contains #{pluralize(@calapp.errors.count, "error")}.
+/     %ul
+/       - @calapp.errors.full_messages.each do |msg|
+/         %li
+/           #{msg}
+
 = form_for @calapp do |f|
   %fieldset
     %legend Edit Existing CalApp

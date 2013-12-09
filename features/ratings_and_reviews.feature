@@ -30,7 +30,15 @@ Scenario: Reviewing an App
 	When I press "Save Changes"
 	Then I should see my review
 
+Scenario: Reviewing an App (Sad Path)
+	When I am on the CalApps directory
+	When I follow "More Details"
+	When I follow "New Review"
+	When I press "Save Changes"
+	Then I should see "Review rating can't be blank"
+
+
 Scenario: Viewing ratings
 	When I am on the CalApps directory
-	When I follow "Ninja Courses"
-	Then I should see a rating
+	When I follow "More Details"
+	Then I should see "Reviews"
