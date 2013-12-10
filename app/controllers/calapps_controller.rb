@@ -11,7 +11,7 @@ class CalappsController < ApplicationController
     end
 
     #This is solely for the use of the alphabetized version of the gallery page. 
-    def alphabetize 
+    def alphabetize
         @calapps = Calapp.all.group_by{|c| c.name[0]}
     end
 
