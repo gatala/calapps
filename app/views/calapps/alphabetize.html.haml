@@ -1,7 +1,25 @@
+/ %hr
+/ %div{:data => {"magellan-expedition".to_sym => "fixed"}}
+/   %dl.sub-nav
+/   - @calapps.keys.sort.each do |starting_letter|
+/     %dd{:data => {"magellan-arrival".to_sym => "build"}}
+/       %a{:href=>"##{starting_letter}"}Starts With #{starting_letter}
+/ %hr
+    
+/ %li{:data => {"magellan-arrival".to_sym => "build"}}
+/ %a{:href=>"##{starting_letter}"}=starting_letter
 - @calapps.keys.sort.each do |starting_letter|
-  %div
-  = starting_letter
-  %div
-  - @calapps[starting_letter].each do |calapp|
-    %div
-    = calapp.name
+  / %a{:name => "#{starting_letter}"}
+  %hr
+  / %h3{:data=>{"magellan-destination".to_sym => "#{starting_letter}"}}=starting_letter
+  %h3=starting_letter
+  %hr
+  %ul.small-block-grid-4
+    - @calapps[starting_letter].each do |calapp|
+      %li
+        =link_to calapp_path(calapp), :class => "th" do
+          = image_tag thumbnail_url(calapp)
+          .caption
+            %h3= calapp.name
+            %p
+              %em= calapp.creator
