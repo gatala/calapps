@@ -21,7 +21,6 @@
 
 #Sass Cache
 .sass-cache/
-*.scssc
 
 #Temporary
 /public/uploads/tmp
