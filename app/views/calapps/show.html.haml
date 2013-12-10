@@ -1,5 +1,8 @@
 %hr
 %hr
+-# in app/views/movies/show.html.haml
+/= stylesheet_link_tag 'profile'
+
 %h2 #{@calapp.name}
 
 = image_tag thumbnail_url(@calapp)
@@ -10,6 +13,9 @@
   = @calapp.creator
   %div
     = link_to @calapp.URL, @calapp.URL
+  %hr
+  Category:
+  = @calapp.category
 %hr
 %h4 Screenshots:
 %ul.clearing-thumbs{:data => {:clearing => true}}
@@ -35,17 +41,14 @@
 %div
   = @calapp.description
 %hr
+
+
 %div 
   %h4 Tags: 
   - @calapp.tag_list.each do |t|
     %span.secondary.round.label
       = link_to t, tag_path(t)
-    /%span.secondary.round.label
-    /= raw @calapp.tag_list.map { |t| link_to t, tag_path(t) }.join(', ')
-%hr
-%div
-  Category:
-  = @calapp.category
+
 %hr
 
 %div

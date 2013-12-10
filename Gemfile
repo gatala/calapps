@@ -13,6 +13,7 @@ gem 'mail_form'
 gem "holder_rails"
 gem "social-buttons", git: "git://github.com/kristianmandrup/social-buttons.git"
 gem "galetahub-simple_captcha", :require => "simple_captcha"
+gem "font-awesome-rails"
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
