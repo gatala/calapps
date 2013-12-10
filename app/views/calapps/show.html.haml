@@ -58,7 +58,7 @@
     %li
       .panel.callout
         %h5="Average Rating:"
-        %p= sprintf "%.1f", avg(@calapp)
+        %p=  avg(@calapp)
   %ul.small-block-grid-3
     - @calapp.reviews.each do |t|
       %li

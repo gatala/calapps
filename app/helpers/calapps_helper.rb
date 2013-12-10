@@ -57,7 +57,7 @@ module CalappsHelper
         if total == 0
         	return 'No Reviews Yet, Be the first!'
         end
-        return sum/total
+        return "%.1f" % (sum/total).to_s
     end
 
 end
