@@ -1,12 +1,3 @@
-/ - if flash[:error]
-/   .alert-box{:data=>{:alert => true}}
-/     The form contains #{pluralize(@review.errors.count, "error")}.
-/     %ul
-/       - @review.errors.full_messages.each do |msg|
-/         %li
-/           #{msg}
-/     %a.close{:href => "#"} &times;
-
 = form_for @review, :url => { :action => "create" } do |new_review|
 	%fieldset
 		%legend New Review
