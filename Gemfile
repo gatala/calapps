@@ -42,8 +42,7 @@ group :assets do
 
   gem 'uglifier', '>= 1.0.3'
   gem "haml-bootstrap-rails", "~> 0.3.11"
-  #gem "holder_rails"
-  #gem "social-buttons", git: "git://github.com/kristianmandrup/social-buttons.git"
+  gem 'foundation-icons-sass-rails'
 end
 
 gem 'foundation-rails'
