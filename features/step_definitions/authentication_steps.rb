@@ -139,8 +139,8 @@ Then(/^I should see an error$/) do
 end
 
 When(/^I fill in a test review$/) do
-  select("4", :from => "review[review_rating]") 
-  fill_in "Comment Here", with: "Test Comment"
+  choose("review_review_rating_4") 
+  fill_in "Your Comment Here", with: "Test Comment"
 end
 
 Then(/^I should see my review$/) do
@@ -167,7 +167,7 @@ When(/^I upload a non\-picture file for the thumbnail$/) do
 end
 
 When(/^I leave a rating$/) do
-  select("4", :from => "review[review_rating]") 
+  choose("review_review_rating_4") 
 end
 
 When(/^I should see my rating$/) do
