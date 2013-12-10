@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131206003726) do
+ActiveRecord::Schema.define(:version => 20131210014920) do
 
   create_table "calapps", :force => true do |t|
     t.string   "name"
@@ -32,8 +32,6 @@ ActiveRecord::Schema.define(:version => 20131206003726) do
   end
 
   create_table "reviews", :force => true do |t|
-    t.integer  "app_id"
-    t.string   "review_user"
     t.string   "review_text"
     t.integer  "review_rating"
     t.boolean  "review_flag"
