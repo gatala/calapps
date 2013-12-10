@@ -4,7 +4,7 @@ class User < ActiveRecord::Base
   base_year = Time.new.year
   YEARS = (base_year..base_year + 4).to_a + ["Graduate Student", "Faculty/Staff"]
   attr_accessible :image, :name, :email, :password, :password_confirmation, 
-  :school, :year, :public_name, :github, :major
+  :school, :year, :public_name, :github, :major, :is_admin
 
   before_save {self.email = email.downcase}
 
