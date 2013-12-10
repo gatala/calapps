@@ -54,6 +54,8 @@
 
 %div
   %h4 Reviews:
+  ="Average Rating:"
+  = avg(@calapp)
   - @calapp.reviews.each do |t|
     %p
       ='"'

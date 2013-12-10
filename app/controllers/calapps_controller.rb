@@ -88,5 +88,4 @@ class CalappsController < ApplicationController
         flash[:notice] = "#{@calapp.name} was sucessfully deleted."
         redirect_to calapps_path
     end
-
 end 
