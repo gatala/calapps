@@ -20,4 +20,5 @@
 /solr/data
 
 #Sass Cache
-/.sass-cache/
+.sass-cache/
+*.scssc

@@ -56,10 +56,12 @@
   %h4 Reviews:
   - @calapp.reviews.each do |t|
     %p
-      %i.fa-star
+      ='"'
       =t.review_text
-      =", Rating"
-      =t.review_rating
+      ='"'
+      =", "
+      -(1..t.review_rating).each do |i|
+        %i.fi-star
 %hr
 
 -if Review.where(user_id: current_user.id, calapp_id: current_app).first
