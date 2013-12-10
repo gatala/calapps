@@ -186,5 +186,6 @@ end
 
 When(/^I search for "(.*?)"$/) do |arg1|
   pending
-  fill_in("large-8 small-9 columns", :with => arg1)
+  fill_in("search", :with => arg1)
+  click_button("Search")
 end
