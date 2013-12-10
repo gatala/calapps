@@ -64,7 +64,7 @@
       %li
         .panel
           %p
-            = t.updated_at.strftime("%b %-d, %Y")
+            %i= t.updated_at.strftime("%b %-d, %Y")
           %p
             ='"'
             =t.review_text
