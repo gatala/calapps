@@ -1,36 +1,31 @@
 = form_for @review, :url => { :action => "create" } do |new_review|
 	%fieldset
 		%legend New Review
+		= new_review.label :review_rating, "Review"
 		= new_review.radio_button :review_rating, '1'
-		= label :review_rating, ''
 		%i.fi-star
 		%br
 		= new_review.radio_button :review_rating, '2'
-		= label :review_rating, ''
 		%i.fi-star
 		%i.fi-star
 		%br
 		= new_review.radio_button :review_rating, '3'
-		= label :review_rating, ''
 		%i.fi-star
 		%i.fi-star
 		%i.fi-star
 		%br
 		= new_review.radio_button :review_rating, '4'
-		= label :review_rating, ''
-		%i.fi-star
 		%i.fi-star
 		%i.fi-star
 		%i.fi-star
 		%br
 		= new_review.radio_button :review_rating, '5'
-		= label :review_rating, ''
 		%i.fi-star
 		%i.fi-star
 		%i.fi-star
 		%i.fi-star
 		%i.fi-star
 		%br
-		= new_review.label :review_text, 'Comment Here'
+		= new_review.label :review_text, 'Comments'
 		= new_review.text_area :review_text, :placeholder => 'Your Comment Here'
 	= new_review.submit 'Save Changes', :class => "button success"
