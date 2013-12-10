@@ -54,7 +54,7 @@
 %div
   %h4 Reviews:
   ="Average Rating:"
-  = avg(@calapp)
+  = sprintf "%.1f", avg(@calapp)
   %ul.small-block-grid-3
     - @calapp.reviews.each do |t|
       %li
