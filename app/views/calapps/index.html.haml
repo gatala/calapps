@@ -19,5 +19,5 @@
         %td= link_to "#{calapp.name}", calapp.URL
         %td= calapp.creator
         %td= truncate(calapp.description, :length => 80, :separator => ' ')
-        %td= calapp.updated_at.localtime
+        %td= calapp.updated_at.strftime("%b %-d, %Y")
         %td= link_to "More Details", calapp_path(calapp), :class => 'button tiny'
