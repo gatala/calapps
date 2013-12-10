@@ -17,24 +17,29 @@ Background: applications have been added to the database
     
 
 
-Scenario: Rating an App
-	When I am on the CalApps directory
+Scenario: Rating an App (Signed In)
+	When I am signed in and on the CalApps directory
 	When I follow "More Details"
 	When I follow "New Review"
 	When I leave a rating
 	When I press "Save Changes"
-	When I should see my rating
+	Then I should see my rating
+
+Scenario: Rating an App (Not Signed In - Shouldn't be able to rate/review)
+	When I am on the CalApps directory
+	When I follow "More Details"
+	Then I should not see "New Review"
 
 Scenario: Rating an App (Sad Path)
-	When I am on the CalApps directory
+	When I am signed in and on the CalApps directory
 	When I follow "More Details"
 	When I follow "New Review"
 	When I leave an empty rating
 	When I press "Save Changes"
-	When I should see "Review rating can't be blank"
+	Then I should see "Review rating can't be blank"
 
 Scenario: Reviewing an App
-	When I am on the CalApps directory
+	When I am signed in and on the CalApps directory
 	When I follow "More Details"
 	When I follow "New Review"
 	When I fill in a test review
@@ -42,7 +47,7 @@ Scenario: Reviewing an App
 	Then I should see my review
 
 Scenario: Reviewing an App (Sad Path)
-	When I am on the CalApps directory
+	When I am signed in and on the CalApps directory
 	When I follow "More Details"
 	When I follow "New Review"
 	When I press "Save Changes"
