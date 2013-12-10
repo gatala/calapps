@@ -189,3 +189,13 @@ When(/^I search for "(.*?)"$/) do |arg1|
   fill_in("search", :with => arg1)
   click_button("Search")
 end
+
+When(/^I am signed in and on the CalApps directory$/) do
+  visit signin_path
+  @user = User.create(name: "Example User", email: "user@user.com",
+                      password: "12341234", password_confirmation: "12341234")
+  fill_in "Email",    with: @user.email
+  fill_in "Password", with: @user.password
+  click_button "Sign in"
+  visit '/calapps/'
+end

@@ -46,4 +46,18 @@ module CalappsHelper
 			calapp.screenshot5 = ''
 		end
 	end
+
+    def avg (app)
+        sum = 0.0
+        total = 0
+        app.reviews.each do |r|
+            sum += r.review_rating
+            total += 1
+        end
+        if total == 0
+        	return 'No Reviews Yet, Be the first!'
+        end
+        return sum/total
+    end
+
 end
