@@ -1,17 +1,12 @@
-/ %hr
-/ %div{:data => {"magellan-expedition".to_sym => "fixed"}}
-/   %dl.sub-nav
-/   - @calapps.keys.sort.each do |starting_letter|
-/     %dd{:data => {"magellan-arrival".to_sym => "build"}}
-/       %a{:href=>"##{starting_letter}"}Starts With #{starting_letter}
-/ %hr
-    
-/ %li{:data => {"magellan-arrival".to_sym => "build"}}
-/ %a{:href=>"##{starting_letter}"}=starting_letter
+%h1 Alphabetized View
+%a.button.dropdown.small{:href=>"#", :data=>{:dropdown=>"drop"}} Actions
+%ul#drop.f-dropdown{:data=>{"dropdown-content".to_sym=>true}}
+  %li= link_to "List View", "/calapps"
+  %li= link_to "Grid View", "/gallery"
+  -if signed_in?
+    %li= link_to "Add an Application", new_calapp_path
 - @calapps.keys.sort.each do |starting_letter|
-  / %a{:name => "#{starting_letter}"}
   %hr
-  / %h3{:data=>{"magellan-destination".to_sym => "#{starting_letter}"}}=starting_letter
   %h3=starting_letter
   %hr
   %ul.small-block-grid-4

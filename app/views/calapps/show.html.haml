@@ -64,15 +64,23 @@
       %li
         .panel
           %p
-            %i= t.updated_at.strftime("%b %-d, %Y")
+            -if defined? t.user.name
+              %span
+                %b=t.user.name
+                =" | "
+                %i= t.updated_at.strftime("%b %-d, %Y")
+            -else
+              %span
+                %b="Anonymous"
+                =" | "
+                %i= t.updated_at.strftime("%b %-d, %Y")
+          %p
+            -(1..t.review_rating).each do |i|
+              %i.fi-star
           %p
             ='"'
             =t.review_text
             ='"'
-          %p
-            -(1..t.review_rating).each do |i|
-              %i.fi-star
-          = t.user.name
 
 -if signed_in?
   -if Review.where(user_id: current_user.id, calapp_id: current_app).first

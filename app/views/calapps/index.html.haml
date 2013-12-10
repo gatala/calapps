@@ -2,7 +2,8 @@
 %h1 Gallery Listview
 %a.button.dropdown{:href=>"#", :data=>{:dropdown=>"drop"}} Actions
 %ul#drop.f-dropdown{:data=>{"dropdown-content".to_sym=>true}}
-  %li= link_to "Switch View", "/gallery"
+  %li= link_to "Grid View", "/gallery"
+  %li= link_to "Alphabetized View", "/list"
   -if signed_in?
     %li= link_to "Add an Application", new_calapp_path
 %table
