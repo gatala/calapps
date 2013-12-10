@@ -1,10 +1,9 @@
-%hr
-%hr
-= flash[:notice]
--# in app/views/movies/show.html.haml
-/= stylesheet_link_tag 'profile'
+- if flash[:notice]
+  .alert-box{:data=>{:alert => true}}
+    #notice.message= flash[:notice]
+    %a.close{:href => "#"} &times;
 
-%h2 #{@calapp.name}
+%h1 #{@calapp.name}
 
 = image_tag thumbnail_url(@calapp)
 
@@ -54,20 +53,22 @@
 
 %div
   %h4 Reviews:
-  - @calapp.reviews.each do |t|
-    %p
-      ='"'
-      =t.review_text
-      ='"'
-      =", "
-      -(1..t.review_rating).each do |i|
-        %i.fi-star
+  %ul.small-block-grid-3
+    - @calapp.reviews.each do |t|
+      %li
+        ='"'
+        =t.review_text
+        ='"'
+        =", "
+        -(1..t.review_rating).each do |i|
+          %i.fi-star
+        / -user = User.find t.user_id
+        / =user.name
 %hr
 
 -if Review.where(user_id: current_user.id, calapp_id: current_app).first
-  = link_to t('.destroy', :default => t("helpers.links.destroy")), calapp_review_path(@calapp), :method => "delete", :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) }, :class => 'button alert'
--else
-  = link_to 'New Review', new_calapp_review_path(@calapp), :class => "button secondary"
+  = link_to "Delete", calapp_review_path(@calapp), :method => "delete", :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) }, :class => 'button alert'
+= link_to 'New Review', new_calapp_review_path(@calapp), :class => "button secondary"
   
 
 %ul.button-group
