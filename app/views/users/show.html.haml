@@ -5,8 +5,9 @@
 %fieldset
   %legend User Information
   %div
-    %b Admin:
-    = @user.is_admin
+    - if is_admin? 
+      %b Admin
+
   %div
     - if @user.email
       %b Email:

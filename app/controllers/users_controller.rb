@@ -12,9 +12,9 @@ class UsersController < ApplicationController
 	def create
 		@user = User.new(user_params)
     if @user.email == 'admin@admin.com' or @user.email == 'cs169-badjr@gmail.com'
-      @user.is_admin = 'yes'
+      @user.is_admin = true
     else
-      @user.is_admin = 'no'
+      @user.is_admin = false
     end
     if @user.save #and simple_captcha_valid?
       UserMailer.registration_confirmation(@user).deliver
