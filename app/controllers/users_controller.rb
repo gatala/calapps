@@ -12,9 +12,9 @@ class UsersController < ApplicationController
 	def create
 		@user = User.new(user_params)
     if @user.email == 'admin@admin.com' or @user.email == 'cs169-badjr@gmail.com'
-      @user.is_admin = true
+      @user.admin = true
     else
-      @user.is_admin = false
+      @user.admin = false
     end
     if @user.save #and simple_captcha_valid?
       UserMailer.registration_confirmation(@user).deliver
@@ -33,7 +33,7 @@ class UsersController < ApplicationController
 	end 
 
 	def index 
-    if is_admin?
+    if @user.admin
       @users = User.all #only admin should be able to see all users
     else
       redirect_to calapps_path
@@ -53,7 +53,7 @@ class UsersController < ApplicationController
 
   def edit 
     @user = User.find(params[:id])
-    if not signed_in? or (@user.email != current_user.email and current_user.is_admin == 'no')
+    if not signed_in? or (@user.email != current_user.email and current_user.admin == false)
       redirect_to calapps_path
     end
   end
@@ -61,7 +61,7 @@ class UsersController < ApplicationController
   private
     def user_params
       params.require(:user).permit(:name, :email, :password,
-            :password_confirmation, :image, :school, :year, :public_name, :github, :major, :is_admin)
+            :password_confirmation, :image, :school, :year, :public_name, :github, :major, :admin)
     end
 
 
