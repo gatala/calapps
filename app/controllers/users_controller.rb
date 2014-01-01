@@ -11,11 +11,6 @@ class UsersController < ApplicationController
 
 	def create
 		@user = User.new(user_params)
-    if @user.email == 'admin@admin.com' or @user.email == 'cs169-badjr@gmail.com'
-      @user.admin = true
-    else
-      @user.admin = false
-    end
     if @user.save #and simple_captcha_valid?
       UserMailer.registration_confirmation(@user).deliver
 			flash[:success] = "You have succesfully registered."
