@@ -11,7 +11,7 @@ class UsersController < ApplicationController
 
 	def create
 		@user = User.new(user_params)
-    if @user.save #and simple_captcha_valid?
+    if @user.save and simple_captcha_valid?
       UserMailer.registration_confirmation(@user).deliver
 			flash[:success] = "You have succesfully registered."
 			redirect_to welcome_success_path

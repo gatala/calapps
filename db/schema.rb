@@ -76,7 +76,6 @@ ActiveRecord::Schema.define(:version => 20131220001254) do
     t.string   "remember_token"
     t.string   "password_reset_token"
     t.datetime "password_reset_sent_at"
-    t.string   "is_admin"
     t.string   "image"
     t.string   "school"
     t.integer  "year"
