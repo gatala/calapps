@@ -6,6 +6,8 @@
   -if signed_in?
     %li= link_to "Add an Application", new_calapp_path
 
+
+
 %ul.small-block-grid-4
   - @calapps.each do |calapp|
     %li
@@ -16,7 +18,4 @@
           %p
             %em= calapp.creator
 
-%p 
-  =link_to "Academic", '/category/Academic'
-%p  
-  =link_to "Career", '/category/Career'
+

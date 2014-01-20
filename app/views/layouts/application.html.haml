@@ -33,11 +33,36 @@
             %li
               = link_to 'Gallery', '/gallery'
             %li.divider
-            %li
-              = link_to 'About', '/welcome/about'
-            %li.divider
-            %li
-              = link_to 'Contact', '/contact'
+            %li.has-dropdown.not-click
+              %a{:href=> "#"} Categories
+              %ul.dropdown
+                %li
+                  %a{href: "/category/Academic"} Academic
+                %li
+                  %a{href: "/category/Career"} Career
+                %li
+                  %a{href: "/category/Collaboration"} Collaboration
+                %li
+                  %a{href: "/category/Career"} Career
+                %li
+                  %a{href: "/category/Commerce"} Commerce
+                %li
+                  %a{href: "/category/Food"} Food
+                %li
+                  %a{href: "/category/Health"} Health
+                %li
+                  %a{href: "/category/Miscellaneous"} Miscellaneous
+
+                %li
+                  %a{href: "/category/Multipurpose"} Multipurpose
+                %li
+                  %a{href: "/category/Mobile"} Mobile
+              %li.divider
+              %li
+                = link_to 'About', '/welcome/about'
+              %li.divider
+              %li
+                = link_to 'Contact', '/contact'
             %li.divider
           %ul.right
             - if signed_in?
@@ -51,8 +76,6 @@
                 %a#loginlink{:href => "/signin"} Login
               %li
                 %a#signuplink{:href => signup_path} Create Account
-          
-          
     .row
       .large-12.columns
         - if flash[:notice]
@@ -65,4 +88,7 @@
             %a.close{:href => "#"} &times;
         = yield
       = javascript_include_tag "application"
+
+
+
 
