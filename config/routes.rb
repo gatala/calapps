@@ -7,6 +7,7 @@ Calapps::Application.routes.draw do
   get "welcome/construction"
   get "users/new"
   get 'tags/:tag', to: 'calapps#index', as: :tag
+  #get '/category/Academic' to: 'calapps#category' as: :tag
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
@@ -25,6 +26,7 @@ Calapps::Application.routes.draw do
   match '/contact' => 'contact#create', :as => 'contact', :via => :post
   match '/gallery', to: 'calapps#gallery', via: 'get'
   match '/list', to: 'calapps#alphabetize', via: 'get'
+  match '/category/:category', to: 'calapps#category', via: 'get'
 
   #match 'calapp/about/:id' => 'calapps#show', :as => :calapp
 

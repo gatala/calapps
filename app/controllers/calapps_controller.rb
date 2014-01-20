@@ -15,6 +15,13 @@ class CalappsController < ApplicationController
         @calapps = Calapp.all.group_by{|c| c.name[0]}
     end
 
+    #This is used for category view
+    def category
+        category = params[:category]
+        @category = category
+        @calapps = Calapp.where(category: category)
+    end
+
     #This is for admin view only. 
     def index 
         # This is for tags 
