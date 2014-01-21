@@ -19,10 +19,40 @@
     .fixed
       %nav.top-bar{:data=>{:topbar => true}}
         %ul.title-area
-          %li.name
-            %h1=link_to "CalApps", '/'
+          / %li.name
+          /   %h1=link_to "CalApps", '/'
         %section.top-bar-section
           %ul.left
+            %li.has-dropdown.not-click
+              %ul.title-area
+                %a{href: "/"} CalApps
+              %ul.dropdown
+                %li
+                  %u
+                    %h5
+                      %a{href: "#"} Categories: 
+                %li
+                  %a{href: "/category/Academic"} Academic
+                %li
+                  %a{href: "/category/Career"} Career
+                %li
+                  %a{href: "/category/Collaboration"} Collaboration
+                %li
+                  %a{href: "/category/Career"} Career
+                %li
+                  %a{href: "/category/Commerce"} Commerce
+                %li
+                  %a{href: "/category/Food"} Food
+                %li
+                  %a{href: "/category/Health"} Health
+                %li
+                  %a{href: "/category/Miscellaneous"} Miscellaneous
+
+                %li
+                  %a{href: "/category/Multipurpose"} Multipurpose
+                %li
+                  %a{href: "/category/Mobile"} Mobile
+              %li.divider
             %li.has-form
               .row.collapse
                 .large-8.small-9.columns
