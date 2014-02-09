@@ -1,0 +1,23 @@
+1.git pull https://github.com/gatala/calapps.git
+	Pull the repo from github
+2.bundle install
+   During this phase, you may have problem with installing ‘gem RMagick -v 2.13.2’
+   You can refer to the following posts for solutions:
+     (1)http://stackoverflow.com/questions/6688557/cant-install-rmagick-2-13-1-cant-find-magick-config
+     (2) http://blog.paulopoiati.com/2013/01/28/installing-rmagick-in-mac-os-x-mountain-lion-with-homebrew/
+
+3. rake db:migrate
+
+4. rake assets:precompile
+
+5. git add .
+
+6.git commit -m “”
+
+7. heroku login
+
+8. git push heroku master
+
+9. heroku run rake db:migrate
+
+10. heroku open
