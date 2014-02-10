@@ -41,7 +41,7 @@ class User < ActiveRecord::Base
       end while User.exists?(column => self[column])
   end
 
-  has_many :calapps
+  has_many :calapps, through: reviews
   has_many :reviews
 
   def User.new_remember_token
