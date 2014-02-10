@@ -7,7 +7,14 @@ class CalappsController < ApplicationController
 
     #This is solely for the use of the gallery page
     def gallery 
-        @calapps = Calapp.all 
+        @calapps = Calapp.order(:name) 
+
+        session[:search_query] = params[:search_query]
+
+        if ! [nil, ""].include?(session[:search_query])
+            query = "%"+session[:search_query].upcase+"%"
+            @calapps = @calapps.where("upper(name) like ? or upper(description) like ? or upper(creator) like ?", query, query, query)
+        end
     end
 
     #This is solely for the use of the alphabetized version of the gallery page. 

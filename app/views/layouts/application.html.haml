@@ -54,11 +54,12 @@
                   %a{href: "/category/Mobile"} Mobile
               %li.divider
             %li.has-form
-              .row.collapse
-                .large-8.small-9.columns
-                  %input{:type => "text", :placeholder => "Find", :style => "height: 30px;"}
-                .large-4.small-3.columns
-                  %a.alert.button.expand{:href => "#"} Search
+              = form_tag "/gallery", :method => :get do
+                .row.collapse
+                  .large-8.small-9.columns
+                    %input{:type => "text", :placeholder => "Find", :style => "height: 30px;", :name => "search_query", :value => session[:search_query]}
+                  .large-4.small-3.columns
+                    %input.alert.button.expand{:type => "submit", :value => "Search"}
             %li.divider
             %li
               = link_to 'Gallery', '/gallery'
