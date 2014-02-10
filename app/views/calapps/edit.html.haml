@@ -57,6 +57,9 @@
       = f.label :user_email, "Owner email"
       = f.text_field :user_email
 
+      = f.label :approved, "Approved?"
+      = f.select :approved, {"Yes" => true, "No" => false}
+
   = link_to 'Back to App Details', calapp_path(@calapp), :class => "button secondary"
   = link_to 'Back to App List', calapps_path, :class => "button secondary"
   = f.submit 'Update', :class => "button success"

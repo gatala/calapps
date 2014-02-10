@@ -6,8 +6,9 @@ class CalappsController < ApplicationController
     end 
 
     #This is solely for the use of the gallery page
-    def gallery 
-        @calapps = Calapp.order(:name) 
+    def gallery
+        @calapps = params[:pending] ? Calapp.pending.order(:name) : Calapp.approved.order(:name)
+        @pending = params[:pending]
 
         session[:search_query] = params[:search_query]
 
@@ -19,23 +20,26 @@ class CalappsController < ApplicationController
 
     #This is solely for the use of the alphabetized version of the gallery page. 
     def alphabetize
-        @calapps = Calapp.all.group_by{|c| c.name[0]}
+        @calapps = params[:pending] ? Calapp.pending : Calapp.approved
+        @pending = params[:pending]
+        @calapps = @calapps.group_by{|c| c.name[0]}
     end
 
     #This is used for category view
     def category
         category = params[:category]
         @category = category
-        @calapps = Calapp.where(category: category)
+        @calapps = Calapp.approved.where(category: category)
     end
 
     #This is for admin view only. 
-    def index 
+    def index
+        @calapps = params[:pending] ? Calapp.pending : Calapp.approved
+        @pending = params[:pending]
+
         # This is for tags 
-        if params[:tag] 
-            @calapps = Calapp.tagged_with(params[:tag])
-        else
-            @calapps = Calapp.all
+        if params[:tag]
+            @calapps = @calapps.tagged_with(params[:tag])
         end
         
         #This is for alphabetizing based on application name or creator
@@ -45,12 +49,12 @@ class CalappsController < ApplicationController
         safe_list = ["name", "creator", "updated_at"]
         if safe_list.include? @sort
             session[:sort] = @sort
-                @calapps = Calapp.order(@sort.to_s)
+                @calapps = @calapps.order(@sort.to_s)
         end
  
         if (!params[:sort] && session[:sort]) 
             flash.keep
-            redirect_to calapps_path({:sort => @sort})
+            redirect_to calapps_path({:sort => @sort, :pending => @pending})
         end
     end 
 
@@ -66,8 +70,12 @@ class CalappsController < ApplicationController
     def create 
         @calapp = Calapp.new(params[:calapp])
         @calapp.user_email = current_user.email
+        if berkeley_user? or is_admin?
+            @calapp.approved = true
+        end
         if @calapp.save
-            redirect_to '/gallery', notice: "#{@calapp.name} was successfully created."
+            flash[:notice] = (berkeley_user? or is_admin?) ? "#{@calapp.name} was successfully created." : "#{@calapp.name} submitted for approval."
+            redirect_to '/gallery'
         else
             flash[:error] = 'error'
             render action: 'new'
@@ -88,6 +96,8 @@ class CalappsController < ApplicationController
         #@calapp.update_attributes!(params[:calapp])
         #flash[:notice] = "#{@calapp.name} was successfully updated."
         #redirect_to calapp_path(@calapp)
+        @calapp.approved = params[:calapp][:approved]
+        params[:calapp].delete(:approved)
         if @calapp.update_attributes(params[:calapp])
             flash[:notice] = "#{@calapp.name} was successfully updated."
             redirect_back_or @calapp

@@ -11,15 +11,15 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131220001254) do
+ActiveRecord::Schema.define(:version => 20140210195230) do
 
   create_table "calapps", :force => true do |t|
     t.string   "name"
     t.string   "URL"
     t.string   "creator"
     t.text     "description"
-    t.datetime "created_at",       :null => false
-    t.datetime "updated_at",       :null => false
+    t.datetime "created_at",                          :null => false
+    t.datetime "updated_at",                          :null => false
     t.string   "created_location"
     t.string   "user_email"
     t.string   "category"
@@ -29,6 +29,7 @@ ActiveRecord::Schema.define(:version => 20131220001254) do
     t.string   "screenshot3"
     t.string   "screenshot4"
     t.string   "screenshot5"
+    t.boolean  "approved",         :default => false
   end
 
   create_table "reviews", :force => true do |t|

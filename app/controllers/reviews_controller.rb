@@ -9,6 +9,9 @@ class ReviewsController < ApplicationController
 		if not signed_in?
 			flash[:notice] = "Need to sign in to access reviews!"
 			redirect_to calapp_path(current_app)
+		elsif not (is_admin? or berkeley_user?)
+			flash[:notice] = "Only UC Berkeley users can write reviews!"
+			redirect_to calapp_path(current_app)
 		elsif Review.where(user_id: current_user.id, calapp_id: current_app).first
 			flash[:notice] = "Already created a review for this app!"
 			redirect_to calapp_path(current_app)

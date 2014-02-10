@@ -59,4 +59,9 @@ module SessionsHelper
   def is_user?
     signed_in? && @current_user.email == @user.email
   end
+
+  def berkeley_user?
+    signed_in? and /@berkeley.edu$/.match(@current_user.email)
+  end
+
 end

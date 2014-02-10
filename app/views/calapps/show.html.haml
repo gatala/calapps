@@ -82,7 +82,7 @@
             =t.review_text
             ='"'
 
--if signed_in?
+-if signed_in? and (berkeley_user? or is_admin?)
   -if Review.where(user_id: current_user.id, calapp_id: current_app).first
     = link_to "Delete Your Review", calapp_review_path(@calapp), :method => "delete", :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) }, :class => 'button alert'
   -else
