@@ -35,8 +35,8 @@
     = f.text_field :github
 
     -if is_admin?
-      = f.label :is_admin, 'Admin Rights (yes or no)'
-      = f.text_field :is_admin
+      = f.label :admin, 'Admin Rights (Yes or No)'
+      = f.select :admin, {"Yes" => true, "No" => false}
 
   = submit_tag 'Update', :class => "button success"
   = link_to 'Back', user_path, :class => "button secondary"
