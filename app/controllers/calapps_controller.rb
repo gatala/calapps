@@ -2,7 +2,7 @@ class CalappsController < ApplicationController
 
     def show 
         id = params[:id]
-        @calapp = Calapp.find(id)
+        @calapp = Calapp.find_by_id(id)
     end 
 
     #This is solely for the use of the gallery page
@@ -57,32 +57,34 @@ class CalappsController < ApplicationController
     def new 
         if not signed_in?
             redirect_to calapps_path
+        else
+            @calapp = Calapp.new
         end
+
     end 
 
     def create 
-        @calapp = Calapp.create(params[:calapp])
+        @calapp = Calapp.new(params[:calapp])
         @calapp.user_email = current_user.email
         if @calapp.save
-            flash[:notice] = "#{@calapp.name} was successfully created."
-            redirect_to @calapp
+            redirect_to '/gallery', notice: "#{@calapp.name} was successfully created."
         else
             flash[:error] = 'error'
-            render 'new'
+            render action: 'new'
         end
     end 
 
 
     def edit 
-        @calapp = Calapp.find params[:id]
-        if not signed_in? or (@calapp.user_email != current_user.email and current_user.is_admin == 'no')
+        @calapp = Calapp.find_by_id(params[:id])
+        if not signed_in? or (@calapp.user_email != current_user.email and !current_user.admin)
             redirect_to calapps_path
         end     
     end 
 
 
     def update
-        @calapp = Calapp.find params[:id]
+        @calapp = Calapp.find_by_id(params[:id])
         #@calapp.update_attributes!(params[:calapp])
         #flash[:notice] = "#{@calapp.name} was successfully updated."
         #redirect_to calapp_path(@calapp)

@@ -1,6 +1,7 @@
 class Calapp < ActiveRecord::Base
 	#belongs_to :user
   has_many :reviews
+  has_many :users, through: :reviews
 
 	attr_accessible  :name, :URL, :creator, :description, :tag_list, :created_location, 
     :user_email, :category, :image, :screenshot1, :screenshot2, :screenshot3, :screenshot4, 

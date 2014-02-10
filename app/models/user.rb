@@ -1,5 +1,8 @@
 class User < ActiveRecord::Base
 
+  has_many :calapps, through: :reviews
+  has_many :reviews
+
   #array for grade year in Views:users:edit
   base_year = Time.new.year
   YEARS = (base_year..base_year + 4).to_a + ["Graduate Student", "Faculty/Staff"]
@@ -40,9 +43,6 @@ class User < ActiveRecord::Base
         self[column] = SecureRandom.urlsafe_base64
       end while User.exists?(column => self[column])
   end
-
-  has_many :calapps
-  has_many :reviews
 
   def User.new_remember_token
     SecureRandom.urlsafe_base64
