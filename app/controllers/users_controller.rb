@@ -28,7 +28,7 @@ class UsersController < ApplicationController
 	end 
 
 	def index 
-    if @user.admin
+    if is_admin?
       @users = User.all #only admin should be able to see all users
     else
       redirect_to calapps_path
