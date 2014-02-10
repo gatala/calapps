@@ -49,7 +49,7 @@ module SessionsHelper
   end
 
   def is_admin?
-    signed_in? && @current_user.admin == true
+    signed_in? && @current_user.admin
   end
 
   def is_owner?
