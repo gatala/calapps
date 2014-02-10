@@ -24,3 +24,5 @@
 
 #Temporary
 /public/uploads/tmp
+
+.DS_Store
