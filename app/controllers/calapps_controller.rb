@@ -60,7 +60,7 @@ class CalappsController < ApplicationController
         @calapp = Calapp.new(params[:calapp])
         @calapp.user_email = current_user.email
         if @calapp.save
-            redirect_to @calapp, notice: "#{@calapp.name} was successfully created."
+            redirect_to '/gallery', notice: "#{@calapp.name} was successfully created."
         else
             flash[:error] = 'error'
             render action: 'new'
