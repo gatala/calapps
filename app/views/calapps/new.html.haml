@@ -7,7 +7,7 @@
           #{msg}
     %a.close{:href => "#"} &times;
      
-= form_for Calapp.new, :html => {:multipart => true} do |f|
+= form_for @calapp, :html => {:multipart => true} do |f|
   %fieldset
     %legend Add Application
     = f.label :name, 'Name of Application'
