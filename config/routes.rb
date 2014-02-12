@@ -33,7 +33,8 @@ Calapps::Application.routes.draw do
   # Sample resource route (maps HTTP verbs to controller actions automatically):
   #   resources :products
   resources :users
-  resources :calapps do 
+  resources :calapps do
+    get 'search', on: :collection
     resources :reviews, :only => [:create, :new, :destroy]
   end
   resources :sessions

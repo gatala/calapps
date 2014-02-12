@@ -1,0 +1,7 @@
+results @calapps do |calapp|
+  name calapp.name
+  creator calapp.creator
+  URL calapp.URL
+  category calapp.category
+  description calapp.description
+end

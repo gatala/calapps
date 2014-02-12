@@ -3,6 +3,11 @@ class Calapp < ActiveRecord::Base
   has_many :reviews
   has_many :users, through: :reviews
 
+  scope :name_search, lambda {|name| where("upper(name) like ?", name)}
+  scope :creator_search, lambda {|creator| where("upper(creator) like ?", creator)}
+  scope :description_search, lambda {|description| where("upper(description) like ?", description)}
+  scope :category_search, lambda {|category| where("upper(category) like ?", category)}
+
 	attr_accessible  :name, :URL, :creator, :description, :tag_list, :created_location, 
     :user_email, :category, :image, :screenshot1, :screenshot2, :screenshot3, :screenshot4, 
     :screenshot5
