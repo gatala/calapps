@@ -21,7 +21,7 @@ class UsersController < ApplicationController
 	end
 
 	def show 
-    @user = User.find(params[:id])
+    @user = User.find_by_id(params[:id])
     if not signed_in?
       redirect_to calapps_path
     end
@@ -36,10 +36,10 @@ class UsersController < ApplicationController
 	end
 
 	def update
-		 @user = User.find(params[:id])
+		 @user = User.find_by_id(params[:id])
   	if @user.update_attributes(user_params)
-    		flash[:success] = "Profile udpated!"
-    		redirect_back_or @user
+    	flash[:success] = "Profile udpated!"
+    	redirect_back_or @user
   	else
       flash[:error] = 'error'
       render 'edit'
@@ -47,14 +47,14 @@ class UsersController < ApplicationController
 	end
 
   def edit 
-    @user = User.find(params[:id])
+    @user = User.find_by_id(params[:id])
     if not signed_in? or (@user.email != current_user.email and !current_user.admin)
       redirect_to calapps_path
     end
   end
 
   def destroy
-    @user = User.find(params[:id])
+    @user = User.find_by_id(params[:id])
     @user.destroy
   end
 
@@ -70,7 +70,7 @@ class UsersController < ApplicationController
     end
 
     def correct_user
-      @user = User.find(params[:id])
+      @user = User.find_by_id(params[:id])
       redirect_to(root_url) unless current_user?(@user)
     end
 end
