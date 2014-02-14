@@ -25,7 +25,7 @@ class Calapp < ActiveRecord::Base
 	validates :creator, :presence => true
 
 	#For validatidating that there must be a cateogry for the application be filed in
-	validates :category, :presence => true, inclusion: { in: %w(Academic Career Collaboration Commerce Food Health Miscellaneous Multipurpose Mobile),
+	validates :category, :presence => true, inclusion: { in: %w(Academic Career Collaboration Commerce Food Health Miscellaneous Mobile Multipurpose),
     message: "%{value} is not a valid category" }
 
     #For validating there must be an actual URL 
@@ -40,6 +40,9 @@ class Calapp < ActiveRecord::Base
   mount_uploader :screenshot3, ImageUploader
   mount_uploader :screenshot4, ImageUploader
   mount_uploader :screenshot5, ImageUploader
-    
+
+  def self.categories
+    [['Academic','Academic'],['Career','Career'],['Collaboration','Collaboration'], ["Commerce", "Commerce"],["Food", "Food"], ["Health", "Health"],["Miscellaneous", "Miscellaneous"], ["Mobile", "Mobile"], ["Multipurpose", "Multipurpose"]]
+  end
 end
 

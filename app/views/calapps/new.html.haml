@@ -42,7 +42,7 @@
     = f.text_field :created_location
 
     = f.label :category, "Category"
-    = f.select :category, [['Academic','Academic'],['Career','Career'],['Collaboration','Collaboration'], ["Commerce", "Commerce"],["Food", "Food"], ["Health", "Health"],["Miscellaneous", "Miscellaneous"], ["Multipurpose", "Multipurpose"], ["Mobile", "Mobile"]], :include_blank => true
+    = f.select :category, @categories, :include_blank => true
 
     = f.label :description, "Description"
     = f.text_area :description

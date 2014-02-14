@@ -3,4 +3,9 @@ class ApplicationController < ActionController::Base
   include SessionsHelper
   include SimpleCaptcha::ControllerHelpers
 
+  before_filter :categories
+
+  def categories
+  	@categories = Calapp.categories
+  end
 end

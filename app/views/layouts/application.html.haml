@@ -30,28 +30,10 @@
                 %li
                   %u
                     %h5
-                      %a{href: "#"} Categories: 
-                %li
-                  %a{href: "/category/Academic"} Academic
-                %li
-                  %a{href: "/category/Career"} Career
-                %li
-                  %a{href: "/category/Collaboration"} Collaboration
-                %li
-                  %a{href: "/category/Career"} Career
-                %li
-                  %a{href: "/category/Commerce"} Commerce
-                %li
-                  %a{href: "/category/Food"} Food
-                %li
-                  %a{href: "/category/Health"} Health
-                %li
-                  %a{href: "/category/Miscellaneous"} Miscellaneous
-
-                %li
-                  %a{href: "/category/Multipurpose"} Multipurpose
-                %li
-                  %a{href: "/category/Mobile"} Mobile
+                      %a{href: "#"} Categories:
+                - @categories.each do |category|
+                  %li
+                    %a{href: "/category/#{category[0]}"} #{category[0]}
               %li.divider
             %li.has-form
               = form_tag "/calapps", :method => :get do
