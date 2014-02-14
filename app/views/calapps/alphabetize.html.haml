@@ -4,10 +4,12 @@
   %li= link_to "List View", "/calapps"
   %li= link_to "Grid View", "/gallery"
   - if is_admin?
-    - if @pending 
-      %li= link_to "Show Approved", "/list"
-    - else
-      %li= link_to "Show Pending", "/list?pending=>true"
+    - if @pending or @archived
+      %li= link_to "Show Approved", "/calapps"
+    - if !@archived
+      %li= link_to "Show Archived", "/calapps?archived=>true"
+    - if !@pending
+      %li= link_to "Show Pending", "/calapps?pending=>true"
   -if signed_in?
     %li= link_to "Add an Application", new_calapp_path
 - @calapps.keys.sort.each do |starting_letter|

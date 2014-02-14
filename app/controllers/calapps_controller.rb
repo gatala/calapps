@@ -17,8 +17,15 @@ class CalappsController < ApplicationController
 
     #This is solely for the use of the gallery page
     def gallery
-        @calapps = params[:pending] ? Calapp.pending.order(:name) : Calapp.approved.order(:name)
+        if params[:pending]
+          @calapps = Calapp.pending.active.order(:name)
+        elsif params[:archived]
+          @calapps = Calapp.archived.order(:name)
+        else
+          @calapps = Calapp.approved.active.order(:name)
+        end
         @pending = params[:pending]
+        @archived = params[:archived]
 
         session[:search_query] = params[:search_query]
 

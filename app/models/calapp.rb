@@ -5,6 +5,8 @@ class Calapp < ActiveRecord::Base
 
   scope :approved, -> { where(approved: true) }
   scope :pending, -> { where(approved: false) }
+  scope :archived, -> { where(archived: true) }
+  scope :active, -> { where(archived: false) }
   scope :name_search, lambda {|name| where("upper(name) like ?", name)}
   scope :creator_search, lambda {|creator| where("upper(creator) like ?", creator)}
   scope :description_search, lambda {|description| where("upper(description) like ?", description)}
@@ -12,7 +14,7 @@ class Calapp < ActiveRecord::Base
 
 	attr_accessible  :name, :URL, :creator, :description, :tag_list, :created_location, 
     :user_email, :category, :image, :screenshot1, :screenshot2, :screenshot3, :screenshot4, 
-    :screenshot5
+    :screenshot5, :archived
 
 	#For tagging
 	acts_as_taggable 

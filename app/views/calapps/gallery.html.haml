@@ -4,10 +4,12 @@
   %li= link_to "List View", "/calapps"
   %li= link_to "Alphabetized View", "/list"
   - if is_admin?
-    - if @pending 
-      %li= link_to "Show Approved", "/gallery"
-    - else
-      %li= link_to "Show Pending", "/gallery?pending=>true"
+    - if @pending or @archived
+      %li= link_to "Show Approved", "/calapps"
+    - if !@archived
+      %li= link_to "Show Archived", "/calapps?archived=>true"
+    - if !@pending
+      %li= link_to "Show Pending", "/calapps?pending=>true"
   -if signed_in?
     %li= link_to "Add an Application", new_calapp_path
 
