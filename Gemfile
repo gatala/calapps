@@ -49,14 +49,4 @@ gem 'foundation-rails'
 gem 'jquery-rails'
 gem "haml", "~> 3.1"
 
-# To use Jbuilder templates for JSON
-# gem 'jbuilder'
-
-# Use unicorn as the app server
-# gem 'unicorn'
-
-# Deploy with Capistrano
-# gem 'capistrano'
-
-# To use debugger
-# gem 'debugger'
+gem 'json_builder'

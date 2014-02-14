@@ -110,6 +110,9 @@ GEM
       railties (>= 3.0, < 5.0)
       thor (>= 0.14, < 2.0)
     json (1.8.1)
+    json_builder (3.1.7)
+      activesupport (>= 2.0.0)
+      json
     libv8 (3.16.14.3)
     lockfile (2.1.0)
     mail (2.5.4)
@@ -227,6 +230,7 @@ DEPENDENCIES
   holder_rails
   jquery-fileupload-rails
   jquery-rails
+  json_builder
   mail
   mail_form
   pg

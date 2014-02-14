@@ -1,4 +1,14 @@
 class CalappsController < ApplicationController 
+    respond_to :json
+
+    def search
+        @calapps = Calapp.approved
+        @calapps = @calapps.name_search("%"+params[:name].upcase+"%") if params[:name]
+        @calapps = @calapps.creator_search("%"+params[:creator].upcase+"%") if params[:creator]
+        @calapps = @calapps.description_search("%"+params[:description].upcase+"%") if params[:description]
+        @calapps = @calapps.category_search("%"+params[:category].upcase+"%") if params[:category]
+        render :partial => "calapps/search.json"
+    end
 
     def show 
         id = params[:id]
