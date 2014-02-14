@@ -54,7 +54,7 @@
                   %a{href: "/category/Mobile"} Mobile
               %li.divider
             %li.has-form
-              = form_tag "/gallery", :method => :get do
+              = form_tag "/calapps", :method => :get do
                 .row.collapse
                   .large-8.small-9.columns
                     %input{:type => "text", :placeholder => "Find", :style => "height: 30px;", :name => "search_query", :value => session[:search_query]}
@@ -62,38 +62,17 @@
                     %input.alert.button.expand{:type => "submit", :value => "Search"}
             %li.divider
             %li
-              = link_to 'Gallery', '/gallery'
+              = link_to 'Gallery', '/calapps'
+            - if is_admin?
+              %li.divider
+              %li
+                = link_to 'Users', '/users'
             %li.divider
-            %li.has-dropdown.not-click
-              %a{:href=> "#"} Categories
-              %ul.dropdown
-                %li
-                  %a{href: "/category/Academic"} Academic
-                %li
-                  %a{href: "/category/Career"} Career
-                %li
-                  %a{href: "/category/Collaboration"} Collaboration
-                %li
-                  %a{href: "/category/Career"} Career
-                %li
-                  %a{href: "/category/Commerce"} Commerce
-                %li
-                  %a{href: "/category/Food"} Food
-                %li
-                  %a{href: "/category/Health"} Health
-                %li
-                  %a{href: "/category/Miscellaneous"} Miscellaneous
-
-                %li
-                  %a{href: "/category/Multipurpose"} Multipurpose
-                %li
-                  %a{href: "/category/Mobile"} Mobile
-              %li.divider
-              %li
-                = link_to 'About', '/welcome/about'
-              %li.divider
-              %li
-                = link_to 'Contact', '/contact'
+            %li
+              = link_to 'About', '/welcome/about'
+            %li.divider
+            %li
+              = link_to 'Contact', '/contact'
             %li.divider
           %ul.right
             - if signed_in?

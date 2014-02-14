@@ -15,7 +15,7 @@ class CalappsController < ApplicationController
   end 
 
   #This is solely for the use of the gallery page
-  def gallery
+  def index
     @calapps = params[:pending] ? Calapp.pending.order(:name) : Calapp.approved.order(:name)
     @pending = params[:pending]
 
@@ -23,15 +23,8 @@ class CalappsController < ApplicationController
 
     if ! [nil, ""].include?(session[:search_query])
       query = "%"+session[:search_query].upcase+"%"
-      @calapps = @calapps.where("upper(name) like ? or upper(description) like ? or upper(creator) like ?", query, query, query)
+      @calapps = @calapps.where("upper(name) like ? or upper(description) like ? or upper(creator) like ? or upper(category) like ?", query, query, query, query)
     end
-  end
-
-  #This is solely for the use of the alphabetized version of the gallery page. 
-  def alphabetize
-    @calapps = params[:pending] ? Calapp.pending : Calapp.approved
-    @pending = params[:pending]
-    @calapps = @calapps.group_by{|c| c.name[0]}
   end
 
   #This is used for category view
@@ -41,6 +34,7 @@ class CalappsController < ApplicationController
     @calapps = Calapp.approved.where(category: category)
   end
 
+=begin
   #This is for admin view only. 
   def index
     @calapps = params[:pending] ? Calapp.pending : Calapp.approved
@@ -65,7 +59,8 @@ class CalappsController < ApplicationController
       flash.keep
       redirect_to calapps_path({:sort => @sort, :pending => @pending})
     end
-  end 
+  end
+=end
 
 
   def new 
@@ -83,7 +78,7 @@ class CalappsController < ApplicationController
       @calapp.approved = true
     end
     if @calapp.save
-      redirect_to '/gallery', notice: (berkeley_user? or is_admin?) ? "#{@calapp.name} was successfully created." : "#{@calapp.name} submitted for approval."
+      redirect_to '/calapps', notice: (berkeley_user? or is_admin?) ? "#{@calapp.name} was successfully created." : "#{@calapp.name} submitted for approval."
     else
       flash[:error] = 'error'
       render action: 'new'
@@ -102,7 +97,8 @@ class CalappsController < ApplicationController
     @calapp.approved = params[:calapp][:approved]
     params[:calapp].delete(:approved)
     if @calapp.update_attributes(params[:calapp])
-      redirect_back_or @calapp, notice: "#{@calapp.name} was successfully updated."
+      flash[:notice] = "#{@calapp.name} was successfully updated."
+      redirect_back_or @calapp
     else
       flash[:error] = 'error'
       render 'edit'

@@ -12,8 +12,6 @@ Calapps::Application.routes.draw do
   match '/signout', :to => 'sessions#destroy',     via: :delete
   match 'contact' => 'contact#new', :as => 'contact', :via => :get
   match '/contact' => 'contact#create', :as => 'contact', :via => :post
-  match '/gallery', to: 'calapps#gallery', via: 'get'
-  match '/list', to: 'calapps#alphabetize', via: 'get'
   match '/category/:category', to: 'calapps#category', via: 'get'
 
   resources :users
@@ -24,6 +22,6 @@ Calapps::Application.routes.draw do
   resources :sessions
   resources :password_resets
   
-  root :to => 'calapps#gallery'
+  root :to => 'calapps#index'
 
 end
