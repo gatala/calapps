@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140210195230) do
+ActiveRecord::Schema.define(:version => 20140214073716) do
 
   create_table "calapps", :force => true do |t|
     t.string   "name"
@@ -30,6 +30,7 @@ ActiveRecord::Schema.define(:version => 20140210195230) do
     t.string   "screenshot4"
     t.string   "screenshot5"
     t.boolean  "approved",         :default => false
+    t.boolean  "archived",         :default => false
   end
 
   create_table "reviews", :force => true do |t|

@@ -16,9 +16,17 @@ class CalappsController < ApplicationController
 
   #This is solely for the use of the gallery page
   def index
-    @calapps = params[:pending] ? Calapp.pending.order(:name) : Calapp.approved.order(:name)
     @pending = params[:pending]
+    @archived = params[:archived]
 
+    if @pending
+      @calapps = Calapp.pending.active.order(:name)
+    elsif @archived
+      @calapps = Calapp.archived.order(:name)
+    else
+      @calapps = Calapp.approved.active.order(:name)
+    end
+    
     session[:search_query] = params[:search_query]
 
     if ! [nil, ""].include?(session[:search_query])
@@ -31,7 +39,7 @@ class CalappsController < ApplicationController
   def category
     category = params[:category]
     @category = category
-    @calapps = Calapp.approved.where(category: category)
+    @calapps = Calapp.approved.active.where(category: category)
   end
 
 =begin
@@ -61,7 +69,6 @@ class CalappsController < ApplicationController
     end
   end
 =end
-
 
   def new 
     if not signed_in?
