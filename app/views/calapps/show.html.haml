@@ -19,6 +19,10 @@
   %hr
   Category:
   = @calapp.category
+  - if @calapp.campus_approved
+    %hr
+    Campus Endorsed
+    = image_tag "/assets/cal.jpeg", :height=> "30px", :width=>"30px"
 %hr
 %h4 Screenshots
 %ul.clearing-thumbs{:data => {:clearing => true}}
@@ -44,6 +48,12 @@
 %div
   = @calapp.description
 %hr
+
+%h4 News & Updates
+%div
+  = @calapp.news
+%hr
+
 %div 
   %h4 Tags:
   - @calapp.tag_list.each do |t|

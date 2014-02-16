@@ -101,7 +101,9 @@ class CalappsController < ApplicationController
 
   def update
     @calapp = Calapp.find_by_id(params[:id])
+    @calapp.campus_approved = params[:calapp][:campus_approved]
     @calapp.approved = params[:calapp][:approved]
+    params[:calapp].delete(:campus_approved)
     params[:calapp].delete(:approved)
     if @calapp.update_attributes(params[:calapp])
       flash[:notice] = "#{@calapp.name} was successfully updated."

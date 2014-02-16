@@ -14,7 +14,7 @@ class Calapp < ActiveRecord::Base
 
 	attr_accessible  :name, :URL, :creator, :description, :tag_list, :created_location, 
     :user_email, :category, :image, :screenshot1, :screenshot2, :screenshot3, :screenshot4, 
-    :screenshot5, :archived
+    :screenshot5, :archived, :news
 
 	#For tagging
 	acts_as_taggable 

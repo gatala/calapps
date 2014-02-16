@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140214073716) do
+ActiveRecord::Schema.define(:version => 20140216205345) do
 
   create_table "calapps", :force => true do |t|
     t.string   "name"
@@ -31,6 +31,8 @@ ActiveRecord::Schema.define(:version => 20140214073716) do
     t.string   "screenshot5"
     t.boolean  "approved",         :default => false
     t.boolean  "archived",         :default => false
+    t.text     "news"
+    t.boolean  "campus_approved",  :default => false
   end
 
   create_table "reviews", :force => true do |t|
