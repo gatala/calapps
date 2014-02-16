@@ -105,7 +105,7 @@ class CalappsController < ApplicationController
     @calapp.approved = params[:calapp][:approved]
     params[:calapp].delete(:campus_approved)
     params[:calapp].delete(:approved)
-    if @calapp.update_attributes(params[:calapp])
+    if @calapp.save and @calapp.update_attributes(params[:calapp])
       flash[:notice] = "#{@calapp.name} was successfully updated."
       redirect_back_or @calapp
     else
