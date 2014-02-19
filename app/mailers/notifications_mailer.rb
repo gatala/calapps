@@ -3,6 +3,6 @@ class NotificationsMailer < ActionMailer::Base
 
   def new_message(message)
   	@message = message
-    mail(:subject => "[CalApps] #{message.subject}")
+    mail(:from => message.email, :subject => "[CalApps] #{message.subject}")
   end
 end
