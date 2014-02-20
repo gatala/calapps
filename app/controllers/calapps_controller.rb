@@ -20,9 +20,9 @@ class CalappsController < ApplicationController
     @pending = session[:pending] = params[:pending]
     @archived = session[:archived] = params[:archived]
 
-    if @pending and @pending != ""
+    if @pending
       @calapps = Calapp.pending.active.order(:name)
-    elsif @archived and @archived != ""
+    elsif @archived
       @calapps = Calapp.archived.order(:name)
     else
       @calapps = Calapp.approved.active.order(:name)
@@ -30,7 +30,7 @@ class CalappsController < ApplicationController
 
     @tag = session[:tag] = params[:tag]
 
-    if @tag and @tag != ""
+    if @tag
       @calapps = @calapps.tagged_with(params[:tag])
     end
     
