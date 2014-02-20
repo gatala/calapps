@@ -47,17 +47,4 @@ module CalappsHelper
 		end
 	end
 
-    def avg (app)
-        sum = 0.0
-        total = 0
-        app.reviews.each do |r|
-            sum += r.review_rating
-            total += 1
-        end
-        if total == 0
-        	return 'No Reviews Yet, Be the first!'
-        end
-        return "%.1f" % (sum/total).to_s
-    end
-
 end

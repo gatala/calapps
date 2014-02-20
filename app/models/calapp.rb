@@ -46,5 +46,19 @@ class Calapp < ActiveRecord::Base
   def self.categories
     [['Academic','Academic'],['Career','Career'],['Collaboration','Collaboration'], ["Commerce", "Commerce"],["Food", "Food"], ["Health", "Health"],["Miscellaneous", "Miscellaneous"], ["Mobile", "Mobile"], ["Multipurpose", "Multipurpose"]]
   end
+
+  def rating
+    sum = 0.0
+    total = 0
+    self.reviews.each do |review|
+      sum += review.review_rating
+      total += 1
+    end
+    if total == 0
+      return sum
+    else
+      return sum/total
+    end
+  end
 end
 
