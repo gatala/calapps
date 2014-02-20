@@ -3,12 +3,12 @@
   %a.button.dropdown.small{:href=>"#", :data=>{:dropdown=>"drop"}} Actions
   %ul#drop.f-dropdown{:data=>{"dropdown-content".to_sym=>true}}
     - if is_admin?
-      - if @pending or @archived
-        %li= link_to "Show Approved", "/calapps"
-      - if !@archived
-        %li= link_to "Show Archived", "/calapps?archived=>true"
-      - if !@pending
-        %li= link_to "Show Pending", "/calapps?pending=>true"
+      - if (@pending or @archived) and (@pending != "" or @archived != "")
+        %li= link_to "Show Approved", calapps_path(:search_query => @query, :tag => @tag)
+      - if !@archived or @archived == ""
+        %li= link_to "Show Archived", calapps_path(:search_query => @query, :tag => @tag, :archived => true)
+      - if !@pending or @pending == ""
+        %li= link_to "Show Pending", calapps_path(:search_query => @query, :tag => @tag, :pending => true)
     %li= link_to "Add an Application", new_calapp_path
 
 

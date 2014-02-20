@@ -7,6 +7,7 @@ class CalappsController < ApplicationController
     @calapps = @calapps.creator_search("%"+params[:creator].upcase+"%") if params[:creator]
     @calapps = @calapps.description_search("%"+params[:description].upcase+"%") if params[:description]
     @calapps = @calapps.category_search("%"+params[:category].upcase+"%") if params[:category]
+    @calapps = @calapps.tagged_with(params[:tag]) if params[:tag]
     render :partial => "calapps/search.json"
   end
 
@@ -16,23 +17,30 @@ class CalappsController < ApplicationController
 
   #This is solely for the use of the gallery page
   def index
-    @pending = params[:pending]
-    @archived = params[:archived]
+    @pending = session[:pending] = params[:pending]
+    @archived = session[:archived] = params[:archived]
 
-    if @pending
+    if @pending and @pending != ""
       @calapps = Calapp.pending.active.order(:name)
-    elsif @archived
+    elsif @archived and @archived != ""
       @calapps = Calapp.archived.order(:name)
     else
       @calapps = Calapp.approved.active.order(:name)
     end
-    
-    session[:search_query] = params[:search_query]
 
-    if ! [nil, ""].include?(session[:search_query])
-      query = "%"+session[:search_query].upcase+"%"
-      @calapps = @calapps.where("upper(name) like ? or upper(description) like ? or upper(creator) like ? or upper(category) like ?", query, query, query, query)
+    @tag = session[:tag] = params[:tag]
+
+    if @tag and @tag != ""
+      @calapps = @calapps.tagged_with(params[:tag])
     end
+    
+    @query = session[:search_query] = params[:search_query]
+
+    if ! [nil, ""].include?(@query)
+      query = "%"+@query.upcase+"%"
+      @calapps = @calapps.tagged_with(@query) + @calapps.where("upper(name) like ? or upper(description) like ? or upper(creator) like ? or upper(category) like ?", query, query, query, query)
+    end
+
   end
 
   #This is used for category view

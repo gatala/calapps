@@ -40,6 +40,9 @@
                 .row.collapse
                   .large-8.small-9.columns
                     %input{:type => "text", :placeholder => "Find", :style => "height: 30px;", :name => "search_query", :value => session[:search_query]}
+                    = hidden_field_tag :tag, session[:tag] if session[:tag]
+                    = hidden_field_tag :pending, session[:pending] if session[:pending]
+                    = hidden_field_tag :archived, session[:archived] if session[:archived]
                   .large-4.small-3.columns
                     %input.alert.button.expand{:type => "submit", :value => "Search"}
             %li.divider
