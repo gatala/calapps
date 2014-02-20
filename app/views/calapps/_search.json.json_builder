@@ -3,5 +3,8 @@ results @calapps do |calapp|
   creator calapp.creator
   URL calapp.URL
   category calapp.category
+  tags calapp.tags do |tag|
+  	tag.name
+  end
   description calapp.description
 end
