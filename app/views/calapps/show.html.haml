@@ -58,7 +58,7 @@
   %h4 Tags:
   - @calapp.tag_list.each do |t|
     %span.secondary.round.label
-      = link_to t, tag_path(t)
+      = link_to t, calapps_path(:tag => t)
 
 %hr
 
