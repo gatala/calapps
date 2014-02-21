@@ -68,7 +68,10 @@
     %li
       .panel.callout
         %h5="Average Rating:"
-        %p=  avg(@calapp)
+        - if @calapp.rating != 0
+          %p= "%.1f" % @calapp.rating.to_s
+        - else
+          %p No Reviews Yet, Be the first!
   %ul.small-block-grid-3
     - @calapp.reviews.each do |t|
       %li

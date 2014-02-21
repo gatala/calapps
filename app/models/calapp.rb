@@ -11,6 +11,8 @@ class Calapp < ActiveRecord::Base
   scope :creator_search, lambda {|creator| where("upper(creator) like ?", creator)}
   scope :description_search, lambda {|description| where("upper(description) like ?", description)}
   scope :category_search, lambda {|category| where("upper(category) like ?", category)}
+  scope :rated_at_least, lambda { |threshold| Calapp.joins(:reviews).group(:calapp_id).having(['AVG(reviews.review_rating) >= ?', threshold]) }
+  scope :order_by_rating, -> { Calapp.joins(:reviews).group(:calapp_id).order('AVG(reviews.review_rating) DESC') }
 
 	attr_accessible  :name, :URL, :creator, :description, :tag_list, :created_location, 
     :user_email, :category, :image, :screenshot1, :screenshot2, :screenshot3, :screenshot4, 
@@ -45,6 +47,20 @@ class Calapp < ActiveRecord::Base
 
   def self.categories
     [['Academic','Academic'],['Career','Career'],['Collaboration','Collaboration'], ["Commerce", "Commerce"],["Food", "Food"], ["Health", "Health"],["Miscellaneous", "Miscellaneous"], ["Mobile", "Mobile"], ["Multipurpose", "Multipurpose"]]
+  end
+
+  def rating
+    sum = 0.0
+    total = 0
+    self.reviews.each do |review|
+      sum += review.review_rating
+      total += 1
+    end
+    if total == 0
+      return sum
+    else
+      return sum/total
+    end
   end
 end
 
