@@ -7,3 +7,16 @@
         =link_to calapp_path(calapp), :class => "title" do
           =calapp.name
         .actions
+          -if is_admin?
+            -if !calapp.approved
+              = link_to 'Approve', approve_calapp_path(calapp), :method => :put, :class => "btn btn-primary btn-xs"
+            = link_to 'Edit', edit_calapp_path(calapp), {:method => :get, :class => "btn btn-default btn-xs"}
+            - if calapp.archived
+              = link_to 'Unarchive', archive_calapp_path(calapp), {:method => :put, :confirm => 'Are you sure?', :class => "btn btn-primary btn-xs"}
+            - else
+              = link_to 'Archive', archive_calapp_path(calapp), {:method => :put, :confirm => 'Are you sure?', :class => "btn btn-danger btn-xs"}
+            |
+
+          =calapp.creator
+          |
+          =calapp.category

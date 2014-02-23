@@ -16,6 +16,10 @@ Calapps::Application.routes.draw do
   resources :users
   resources :calapps do
     get 'search', on: :collection
+    member do
+      put 'archive'
+      put 'approve'
+    end
     resources :reviews, :only => [:create, :new, :destroy]
   end
   resources :sessions

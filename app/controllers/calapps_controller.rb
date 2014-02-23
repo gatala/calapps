@@ -100,6 +100,31 @@ class CalappsController < ApplicationController
     end
   end
 
+  def archive
+    if is_admin?
+      calapp = Calapp.find_by_id(params[:id])
+      if calapp.archived
+        calapp.archived = false
+        flash[:notice] = "#{calapp.name} was successfully unarchived."
+      else
+        calapp.archived = true
+        flash[:notice] = "#{calapp.name} was successfully archived."
+      end
+      calapp.save
+    end
+    redirect_to :back
+  end
+
+  def approve
+    if is_admin?
+      calapp = Calapp.find_by_id(params[:id])
+      calapp.approved = true
+      calapp.save
+      flash[:notice] = "#{calapp.name} was successfully approved."
+    end
+    redirect_to :back
+  end 
+
   def destroy
     @calapp = Calapp.find_by_id(params[:id])
     @calapp.destroy
