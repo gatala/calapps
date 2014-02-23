@@ -12,10 +12,9 @@
   .categories-container.left-container
     %h2 Categories
     %ul
-      .tags
-        - @categories.each do |category|
-          %li.category-container
-            %a{href: "/category/#{category[0]}"} #{category[0]}
+      - @categories.each do |category|
+        %li.category-container
+          %a{href: "/category/#{category[0]}"} #{category[0]}
   .tags-container.left-container
     %h2 Tags
     %ul
@@ -28,9 +27,9 @@
               = hidden_field_tag :archived, session[:archived] if session[:archived]
               = hidden_field_tag :tag, tag
               - if session[:tag] == tag
-                <input type="submit" class="label-danger tag" value="#{tag}" />
+                <input type="submit" class="btn btn-default label-danger tag" value="#{tag}" />
               - else
-                <input type="submit" class="label-default tag" value="#{tag}" />
+                <input type="submit" class="btn btn-default label-default tag" value="#{tag}" />
   - if session[:tag] or session[:search_query]
     .reset-container
       = link_to 'Reset Search', '/', :class => 'btn btn-default reset-search'
