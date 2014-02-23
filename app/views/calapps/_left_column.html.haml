@@ -1,0 +1,36 @@
+.left-column-container.column.gallery
+  .search-bar-container.left-container>
+    %h2 Search
+    = form_tag calapps_path, :method => :get, :id => 'search_form' do
+      = hidden_field_tag :tag, session[:tag] if session[:tag]
+      = hidden_field_tag :pending, session[:pending] if session[:pending]
+      = hidden_field_tag :archived, session[:archived] if session[:archived]
+      .search-input-container.input-group
+        %input{:class => 'form-control search-bar', :type => 'text', :placeholder => 'Search for an app...', :name => 'search_query', :value => session[:search_query]}
+        %span{:class =>"input-group-btn"}>
+          <input type="submit" class="btn btn-default search-submit" value="Go">
+  .categories-container.left-container
+    %h2 Categories
+    %ul
+      .categories
+        - @categories.each do |category|
+          %li.category-container
+            %a{href: "/category/#{category[0]}"} #{category[0]}
+  .tags-container.left-container
+    %h2 Tags
+    %ul
+      .tags
+        - @all_tags.each do |tag|
+          %li.tag-container{:data => {:tag => tag}}>
+            = form_tag calapps_path, :method => :get, :id => 'tag_form' do
+              = hidden_field_tag :search_query, session[:search_query] if session[:search_query]
+              = hidden_field_tag :pending, session[:pending] if session[:pending]
+              = hidden_field_tag :archived, session[:archived] if session[:archived]
+              = hidden_field_tag :tag, tag
+              - if session[:tag] == tag
+                <input type="submit" class="label-danger tag" value="#{tag}" />
+              - else
+                <input type="submit" class="label-default tag" value="#{tag}" />
+  - if session[:tag] or session[:search_query]
+    .reset-container
+      = link_to 'Reset Search', '/', :class => 'btn btn-default reset-search'

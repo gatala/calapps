@@ -1,0 +1,129 @@
+@import "base";
+
+$container-width: 960px;
+$units: 9;
+$menu-unit-width: (100% / $units);
+
+.nav  {
+    margin: 0 !important;
+}
+
+.navbar, .navbar-collapse, .navbar-collapse { //override bootstrap
+    padding: 0;
+    margin: 0;
+    border: 0;
+    border-radius: 0;
+}
+
+.navbar .navbar-toggle .icon-bar {
+    background-color: white
+}
+
+.navbar-header a {
+    vertical-align: bottom;
+    text-decoration: none;
+}
+
+
+$link-top-padding: 8px;
+$link-bottom-padding: 5px;
+$menu-text-height: 18px;
+$icon-text-height: 25px;
+$total-menu-height: $link-top-padding + $link-bottom-padding + $menu-text-height + $icon-text-height;
+#main-menu {
+    @include font($main-font, 300);
+    display: block;
+    ul.main-navigation {
+        list-style: none;
+        .tab {
+            background-color: $calapps-dark-blue;
+            cursor: pointer;
+            display: inline-block;
+            text-align: center;
+            a {
+                cursor: pointer;
+                text-decoration: none;
+                color: white;
+                padding: $link-top-padding 30px $link-bottom-padding 30px;
+                p {
+                    width: 100%;
+                    @include height($menu-text-height, 13px);
+                    display: block;
+                }
+                i {
+                    @include height($icon-text-height, 20px);
+                    
+                }
+            }
+            a:hover {
+                background: none;
+            }
+            p {
+                margin-bottom: 0;
+            }
+        }
+
+        li:hover {
+         background: lighten($calapps-dark-blue, 10%);
+        }
+    }
+}
+
+#main-menu {
+    background-color: $calapps-dark-blue;
+    @include font($main-font, 300);
+    .navbar-header {
+        img {
+        margin-left: 8px;
+        margin-top: 4px;
+        height: 40px;
+        }
+        .gallery-menu-text {
+            color: white;
+            padding-top: 15px;
+            font-size: 16px;
+        }
+    }
+    .home-link {
+        display: block;
+        height: $total-menu-height;
+        .gallery-menu-text {
+            font-size: 17px;
+            vertical-align: top;
+            display: inline-block;
+            padding-top: 25px;
+            font-weight: 400;
+            padding-left: 5px;
+        }
+    }
+}
+
+#main-menu a {
+    color: white;
+}
+
+#main-menu ul li.dropdown-custom ul {
+    display: none;
+}
+
+#main-menu ul li.dropdown-custom:hover ul {
+    display: block;
+    position: absolute;
+    width: 100%;
+    li {
+        list-style: none;
+        padding: 0;
+        // padding: 4px 0px 4px 0px;
+        cursor: pointer;
+        color: black;
+        font-size: 13px;
+        line-height: 20px;
+        a {
+            color: black;
+            text-decoration: none;
+        }
+        &:hover {
+            background: #ddd;
+        }
+    }
+}

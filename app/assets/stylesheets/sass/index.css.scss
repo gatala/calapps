@@ -1,0 +1,326 @@
+@import "base";
+
+$calapps-background-color: #fafafa;
+
+html, body {
+  height: 100%;
+}
+
+//override bootstrap, makes even columns a certain color, instead of transparent
+.table-striped tbody > tr:nth-child(even) > td, .table-striped tbody > tr:nth-child(even) > th {
+    background-color: white;
+}
+.table-striped tbody > tr:nth-child(odd) > td, .table-striped tbody > tr:nth-child(odd) > th {
+    background-color: #f4f4f4;
+}
+
+body {
+  background-color: $calapps-background-color;
+}
+
+#container.grey {
+  background-color:$calapps-background-color;
+}
+
+h1, h2, h3, h4, h5, h6, p, div {
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 300;
+}
+
+$page-width: 960px;
+
+.column {
+  display: inline-block;
+  vertical-align: top;
+}
+
+.right-column-container {
+  padding: 30px;
+  width: calc(100% - 298px);
+  overflow-y: scroll;
+  &.gallery {
+    padding-left: 10px;
+  }
+}
+
+.left-container {
+  background-color: white;
+  border: 1px solid #ddd;
+  box-sizing: border-box;
+
+  &.tags-container {
+    margin-top: 15px;
+  }
+}
+.reset-container {
+  margin-top: 15px;
+  .reset-search {
+    width: 100%;
+    font-weight: 300;
+  }
+}
+
+$left-column-container-width: 294px;
+.left-column-container {
+  &.gallery {
+    background-color: $calapps-background-color;
+  }
+  width: $left-column-container-width;
+  padding-left: 20px;
+  padding-right: 20px;
+  .header-text {
+    padding: 20px 0px 0px 20px;
+    @include line-height(50px, 35px);
+  }
+  h2 {
+    margin-top: 0;
+    padding: 10px 0px 0px 20px;
+    @include line-height(30px, 20px);
+  }
+}
+
+.calapp-wrapper {
+/*  @include make-xs-column(6);*/
+  @include make-xs-column(12);
+  @include make-sm-column(4);
+  @include make-md-column(3);
+  padding: 7px 15px 7px 0px;
+  max-width: 300px;
+
+  a {
+    text-decoration: none;
+    .calapp-container {
+      @include border-radius(2px, 2px, 2px, 2px);
+      text-align: center;
+      border: 1px #ddd solid;
+      background-color: white;
+      .calapp-info {
+        .img-wrapper {
+          height: 165px;
+          position: relative;
+          img {
+            padding: 0px;
+            max-height: 92%;
+            max-width: 92%;
+            margin: auto;
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+          }
+        }
+      }
+      .title {
+        font-size: 17px;
+        height: 39px;
+        margin: 5px 2px 10px;
+        text-decoration: none;
+      }
+      .subtitle {
+        @include height(25px, 12px);
+        color: white;
+        &.available { background-color: $calapps-green; }
+        &.unavailable { background-color: $calapps-red; }
+      }
+      &:hover {
+        border-color: gray;
+      }
+    }
+  }
+}
+
+.list-calapp-wrapper {
+  padding-top: 10px;
+  .calapp-container {
+    background-color: white;
+    padding: 7px;
+    border: 1px #ccc solid;
+    .image-wrapper {
+      margin-top: -10px;
+      margin-right: 5px;
+      margin-bottom: -10px;
+      padding-bottom: 10px;
+      width:50px;
+      height: 50px;
+      overflow:hidden;
+      display: inline-block;
+      position: relative;
+      img {
+        width:50px;
+        height: auto;
+      }
+    }
+    .content {
+      display: inline-block;
+      .title {
+        font-size: 16px;
+      }
+    }
+    .subtitle {
+
+      float:right;
+      margin-top: 10px;
+      display: inline-block;
+
+      color: white;
+      font-size: 12px;
+      padding: 2px 8px 4px;
+
+      border-radius: 7px;
+      width: 80px;
+      text-align: center;
+      &.available { background-color: $calapps-green; }
+      &.unavailable { background-color: $calapps-red; }
+    }
+    .subtitle.location {
+      color: black;
+    }
+    .actions {
+      margin-top: 3px;
+      .button_to {
+        margin-right: 5px;
+        display: inline-block;
+      }
+    }
+  }
+}
+
+$grid-units: 3;
+$category-width: ($left-column-container-width - 44)/$grid-units;
+.category {
+  i {
+    padding-top: 18px;
+    font-size: 35px;
+  }
+  i, .category-name {
+    display: block;
+    text-align: center;
+  }
+  .category-name {
+    @include line-height(25px, 13px);
+    a {
+      color: white;
+      font-size: 12px;
+      padding: 2px 8px 4px;
+
+      border-radius: 7px;
+      width: 80px;
+      text-align: center;
+      &.available { background-color: $calapps-green; }
+      &.unavailable { background-color: $calapps-red; }
+    }
+    .actions {
+      margin-top: 3px;
+      .button_to {
+        margin-right: 5px;
+        display: inline-block;
+      }
+    }
+  }
+}
+
+.search-bar-container {
+  margin-top: 30px;
+  padding-bottom: 15px;
+  .search-input-container {
+    width: 90%;
+    margin-left: 5%;
+  }
+  .search-submit {
+    line-height: 20px;
+  }
+}
+
+.tags-container {
+  ul {
+    padding-left: 20px;
+    margin-bottom: 25px;
+  }
+  .tag-container {
+    display: inline-block;
+    vertical-align: top;
+    padding: 0;
+    padding-right: 2px;
+
+    color: white;
+    cursor: pointer;
+   .tag {
+      color: white;
+      border: none;
+      font-size: 14px;
+    }
+  }
+}
+
+.active-btn {
+  display: inline-block;
+  float: left;
+}
+
+#calapp-cards {
+  clear: both;
+}
+
+.header {
+  #toolbar {
+    float: left;
+    margin-bottom: 10px;
+    .view-txt {
+      display: inline-block;
+      margin-left: 5px;
+      font-weight: bold;
+    }
+  }
+  #admin-toolbar {
+    #gallery-settings {
+      position: relative;
+      float: right;
+      margin-right: 15px;
+      .settings {
+        position: relative;
+        margin-top: -5px;
+      }
+    }
+  }
+}
+
+.add-calapp {
+  float:right;
+  margin-right: 10px;
+}
+
+// "No results" styles
+.no-results-container {
+  width: 70%;
+  margin: 0 auto;
+  margin-top: 125px;
+  .no-results-icon-container {
+    @include height(100px, 80px);
+  }
+  .no-results-title-container {
+    @include line-height(35px, 20px);
+  }
+  .no-results-description-container {
+    color: #ccc;
+    .no-results-search-tips {
+      @include line-height(28px, 18px);
+    }
+
+    ul {
+      @include line-height(24px, 13px);
+    }
+  }
+}
+
+.account-form-button {
+  margin-top: 10px;
+}
+
+// Fixes Bootstrap Shifting Container Issue
+// https://github.com/jschr/bootstrap-modal/issues/64
+body.modal-open {
+  margin-left: auto;
+  margin-right: auto;
+}
+

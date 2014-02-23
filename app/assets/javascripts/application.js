@@ -12,11 +12,9 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require foundation
 //= require_tree .
 //= require holder
 //= require jquery-fileupload/basic
 //= require jquery-fileupload/vendor/tmpl
-
-
-$(function(){ $(document).foundation(); });
+//= require select2
+//= require bootstrap

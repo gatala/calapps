@@ -1,0 +1,26 @@
+#admin-toolbar
+  .dropdown#gallery-settings
+    .settings.btn.btn-default{"data-toggle" => "dropdown"}
+      %i.fa.fa-gear.gear-icon
+      %i.fa.fa-caret-down
+    %ul.dropdown-menu{"role"=>"menu", "aria-labelledby"=>"dLabel"}
+      %li
+        = link_to calapps_path() do
+          - if @pending or @archived
+            %i.fa.fa-check.icon.trans
+          - else
+            %i.fa.fa-check.icon
+          Show Approved
+        = link_to calapps_path(:pending => true) do
+          - if @pending
+            %i.fa.fa-check.icon
+          - else
+            %i.fa.fa-check.icon.trans
+          Show Pending
+        = link_to calapps_path(:archived => true) do
+          - if @archived
+            %i.fa.fa-check.icon
+          - else
+            %i.fa.fa-check.icon.trans
+          Show Archived
+  = link_to 'Add App', new_calapp_path(), :class => "btn btn-danger add-calapp"

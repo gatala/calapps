@@ -1,0 +1,9 @@
+.list-calapp-wrapper
+  .calapp-container{:data => {:calapp_id => calapp.id}}
+    .calapp-info
+      .image-wrapper
+        =link_to image_tag(thumbnail_url(calapp)), calapp_path(calapp), :id => "#{calapp.name}"
+      .content
+        =link_to calapp_path(calapp), :class => "title" do
+          =calapp.name
+        .actions

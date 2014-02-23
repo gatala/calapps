@@ -5,7 +5,6 @@ gem 'bcrypt-ruby', '3.0.1'
 gem 'strong_parameters'
 gem 'acts-as-taggable-on'
 gem 'mail'
-#gem "railroady"
 gem 'jquery-fileupload-rails'
 gem "carrierwave"
 gem 'rmagick'
@@ -13,13 +12,7 @@ gem 'mail_form'
 gem "holder_rails"
 gem "social-buttons", git: "git://github.com/kristianmandrup/social-buttons.git"
 gem "galetahub-simple_captcha", :require => "simple_captcha"
-gem "font-awesome-rails"
 
-# Bundle edge Rails instead:
-# gem 'rails', :git => 'git://github.com/rails/rails.git'
-
-
-#gem 'sqlite3'
 group :development,:test do
   gem 'sqlite3'
   gem 'factory_girl'
@@ -34,19 +27,19 @@ group :production do
   gem 'pg'
 end
 
-# Gems used only for assets and not required
-# in production environments by default.
 group :assets do
-  gem 'coffee-rails', '~> 3.2.1'
-  gem 'therubyracer', :platforms => :ruby
-
-  gem 'uglifier', '>= 1.0.3'
-  gem "haml-bootstrap-rails", "~> 0.3.11"
-  gem 'foundation-icons-sass-rails'
+  gem 'coffee-rails'
+  gem 'therubyracer'
+  gem 'uglifier'
+  gem "haml-bootstrap-rails"
 end
 
-gem 'foundation-rails'
 gem 'jquery-rails'
-gem "haml", "~> 3.1"
+gem "haml"
+gem "font-awesome-rails"
+gem "sass-rails"
+gem 'bootstrap-sass'
+
+gem "select2-rails"
 
 gem 'json_builder'

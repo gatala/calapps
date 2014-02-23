@@ -1,0 +1,9 @@
+.calapp-wrapper
+  = link_to calapp_path(calapp) do
+    .calapp-container{:data => {:calapp_id => calapp.id}}
+      .calapp-info
+        .img-wrapper
+          = image_tag(thumbnail_url(calapp))
+        .title= truncate(calapp.name, :length => 34)
+        .wrapper
+          .subtitle= calapp.creator

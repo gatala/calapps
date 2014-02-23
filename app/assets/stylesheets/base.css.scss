@@ -1,0 +1,29 @@
+@import "bootstrap/mixins";
+@import "bootstrap/variables";
+@import "sass/utils";
+
+
+$calapps-blue: #32ccfe;
+$calapps-red: #dd4b39;
+$calapps-green: #5bab48;
+$calapps-yellow: #f5cd38;
+$calapps-dark-blue: #0076b7;
+$main-font: 'Open Sans', sans-serif;
+
+textarea:focus, input:focus{
+    outline: 0;
+}
+
+ul {
+    padding: 0; //override bootstrap
+    margin: 0; //override bootstrap
+}
+
+p {
+    padding: 0;
+    margin: 0;
+}
+
+.alert {
+    margin: 0; //override bootstrap
+}

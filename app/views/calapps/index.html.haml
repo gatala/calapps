@@ -1,26 +1,51 @@
-%h1 Gallery
-- if signed_in?
-  %a.button.dropdown.small{:href=>"#", :data=>{:dropdown=>"drop"}} Actions
-  %ul#drop.f-dropdown{:data=>{"dropdown-content".to_sym=>true}}
-    - if is_admin?
-      - if (@pending or @archived)
-        %li= link_to "Show Approved", calapps_path(:search_query => @query, :tag => @tag)
-      - if !@archived
-        %li= link_to "Show Archived", calapps_path(:search_query => @query, :tag => @tag, :archived => true)
-      - if !@pending
-        %li= link_to "Show Pending", calapps_path(:search_query => @query, :tag => @tag, :pending => true)
-    %li= link_to "Add an Application", new_calapp_path
+/ %h1 Gallery
+/ - if signed_in?
+/   %a.button.dropdown.small{:href=>"#", :data=>{:dropdown=>"drop"}} Actions
+/   %ul#drop.f-dropdown{:data=>{"dropdown-content".to_sym=>true}}
+/     - if is_admin?
+/       - if (@pending or @archived)
+/         %li= link_to "Show Approved", calapps_path(:search_query => @query, :tag => @tag)
+/       - if !@archived
+/         %li= link_to "Show Archived", calapps_path(:search_query => @query, :tag => @tag, :archived => true)
+/       - if !@pending
+/         %li= link_to "Show Pending", calapps_path(:search_query => @query, :tag => @tag, :pending => true)
+/     %li= link_to "Add an Application", new_calapp_path
 
 
 
-%ul.small-block-grid-4
-  - @calapps.each do |calapp|
-    %li
-      =link_to calapp_path(calapp), :class => "th" do
-        = image_tag thumbnail_url(calapp)
-        .caption
-          %h3= calapp.name
-          %p
-            %em= calapp.creator
+/ %ul.small-block-grid-4
+/   - @calapps.each do |calapp|
+/     %li
+/       =link_to calapp_path(calapp), :class => "th" do
+/         = image_tag thumbnail_url(calapp)
+/         .caption
+/           %h3= calapp.name
+/           %p
+/             %em= calapp.creator
 
+#is-admin{"data-is-admin" => "#{is_admin?}"}
 
+#container.gallery
+  .content
+    = render partial: 'left_column'
+    .right-column-container.column.gallery
+      .header
+        .btn-group#toolbar
+          %a.btn.btn-default#card-view-link{:href => "#card-view", "data-toggle" => "tab"}
+            %i.fa.fa-th-large
+          %a.btn.btn-default#list-view-link{:href => "#list-view", "data-toggle" => "tab"}
+            %i.fa.fa-list
+        - if is_admin?
+          = render "settings"
+
+      #gallery-cards.tab-content
+        - if @calapps.length > 0
+          .tab-pane#card-view
+            - @calapps.each do |calapp|
+              = render partial: 'square_calapp_card', locals: {calapp: calapp}
+          .tab-pane#list-view
+            - @calapps.each do |calapp|
+              = render partial: 'list_calapp_card', locals: {calapp: calapp}
+
+        - else
+          = render partial: 'no_results'

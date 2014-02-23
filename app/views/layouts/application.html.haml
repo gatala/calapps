@@ -1,89 +1,144 @@
 !!! 5
-%html(lang="en")
+%html
+
   %head
-    %meta{:charset => "utf-8"}
-    %title= content_for?(:title) ? yield(:title) : "CalApps"
-    %meta{:name =>"viewport", :content => "width=device-width, initial-scale=1.0"}
-    = csrf_meta_tags
-    / Le HTML5 shim, for IE6-8 support of HTML elements
-    /[if lt IE 9]
-    = javascript_include_tag "//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.6.1/html5shiv.js"
+
+    %title CalApps
+    = favicon_link_tag '/favicon.ico'
+    = stylesheet_link_tag "http://fonts.googleapis.com/css?family=Open+Sans:300italic,400,300,700,600"
     = stylesheet_link_tag "application"
-    = stylesheet_link_tag "welcome"
-    = favicon_link_tag 'favicon.ico', :rel => 'shortcut icon'
-    = javascript_include_tag "vendor/modernizr"
-    = javascript_include_tag "holder"
+    = javascript_include_tag "application"
+    = csrf_meta_tags
 
-  - homepage = @homepage ? 'homepage': ''
-  %body{:class => homepage}
-    .fixed
-      %nav.top-bar{:data=>{:topbar => true}}
-        %ul.title-area
-          / %li.name
-          /   %h1=link_to "CalApps", '/'
-        %section.top-bar-section
-          %ul.left
-            %li.has-dropdown.not-click
-              %ul.title-area
-                %a{href: "/"} CalApps
-              %ul.dropdown
+  %body
+
+    #main-menu.navbar
+
+      .navbar-header
+        %button.navbar-toggle{:type => "button", "data-toggle" => "collapse", "data-target" => ".navbar-collapse"}
+          %span.sr-only Toggle navigation
+          %span.icon-bar
+          %span.icon-bar
+          %span.icon-bar
+
+        = link_to "/", :class => "home-link" do
+          /=image_tag calapp logo
+          %span.gallery-menu-text
+            CalApps Gallery
+
+      .navbar-collapse.collapse
+        %ul{:class => "nav navbar-nav navbar-right main-navigation"}
+
+          - if is_admin?
+            %li{:class => "tab"}>
+              = link_to users_path do
+                %i{:class => "fa fa-user"}
+                %p Users
+
+          %li{:class => "tab"}>
+            = link_to '/welcome/about' do
+              %i{:class => "fa fa-info"}
+              %p About
+
+          %li{:class => "tab"}>
+            = link_to '/contact' do
+              %i{:class => "fa fa-envelope"}
+              %p Contact
+
+          - if signed_in?
+
+            %li.dropdown-custom.tab.account
+              %a
+                %i.fa.fa-user
+                %p
+                  = current_user.email
+                  %b.caret
+
+              %ul.dropdown-menu
                 %li
-                  %u
-                    %h5
-                      %a{href: "#"} Categories:
-                - @categories.each do |category|
-                  %li
-                    %a{href: "/category/#{category[0]}"} #{category[0]}
-              %li.divider
-            %li.has-form
-              = form_tag "/calapps", :method => :get do
-                .row.collapse
-                  .large-8.small-9.columns
-                    %input{:type => "text", :placeholder => "Find", :style => "height: 30px;", :name => "search_query", :value => session[:search_query]}
-                    = hidden_field_tag :tag, session[:tag] if session[:tag]
-                    = hidden_field_tag :pending, session[:pending] if session[:pending]
-                    = hidden_field_tag :archived, session[:archived] if session[:archived]
-                  .large-4.small-3.columns
-                    %input.alert.button.expand{:type => "submit", :value => "Search"}
-            %li.divider
-            %li
-              = link_to 'Gallery', '/calapps'
-            - if is_admin?
-              %li.divider
-              %li
-                = link_to 'Users', '/users'
-            %li.divider
-            %li
-              = link_to 'About', '/welcome/about'
-            %li.divider
-            %li
-              = link_to 'Contact', '/contact'
-            %li.divider
-          %ul.right
-            - if signed_in?
-              %li.has-dropdown.not-click
-                %a{:href => "#"} #{@current_user.name}
-                %ul.dropdown
-                  %li= link_to "Profile", @current_user
-                  %li= link_to "Sign out", signout_path, :method =>"delete"
-            -else
-              %li
-                %a#loginlink{:href => "/signin"} Login
-              %li
-                %a#signuplink{:href => signup_path} Create Account
-    .row
-      .large-12.columns
-        - if flash[:notice]
-          .alert-box{:data=>{:alert => true}}
-            #notice.message= flash[:notice]
-            %a.close{:href => "#"} &times;
-        - elsif flash[:warning]
-          .alert-box{:data=>{:alert => true}}
-            #warning.message= flash[:warning]
-            %a.close{:href => "#"} &times;
-        = yield
-      = javascript_include_tag "application"
+                  = link_to "Profile", @current_user
+                %li
+                  = link_to "Sign out", signout_path, :method => :delete
 
+          - else
+            %li{:class => "tab account"}>
+              = link_to signup_path do
+                %i{:class => "fa fa-user"}
+                %p Sign up
 
+            %li{:class => "tab account"}>
+              = link_to signin_path do
+                %i{:class => "fa fa-book"}
+                %p Log In
 
+    - flash.each do |name, msg|
+      .flash
+        - if not msg.nil?
+          - if msg.is_a?(String)
+            %div{:class => "alert alert-#{name == :notice ? "success" : "warning"}", :id => "flash"}
+              %a.close{"data-dismiss" => "alert"} ×
+              = content_tag :div, msg, :id => "flash_#{name}"
+
+    #container
+      = yield
+
+/ !!! 5
+/ %html(lang="en")
+/   %head
+/     %meta{:charset => "utf-8"}
+/     %title= content_for?(:title) ? yield(:title) : "CalApps"
+/     %meta{:name =>"viewport", :content => "width=device-width, initial-scale=1.0"}
+/     = csrf_meta_tags
+/     / Le HTML5 shim, for IE6-8 support of HTML elements
+/     /[if lt IE 9]
+/     = javascript_include_tag "//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.6.1/html5shiv.js"
+/     = stylesheet_link_tag "application"
+/     = favicon_link_tag 'favicon.ico', :rel => 'shortcut icon'
+/     = javascript_include_tag "vendor/modernizr"
+/     = javascript_include_tag "holder"
+
+/   %body
+/     .fixed
+/       %nav.top-bar{:data=>{:topbar => true}}
+/         %ul.title-area
+/         %section.top-bar-section
+/           %ul.left
+/             %li.divider
+/             %li
+/               = link_to 'Gallery', '/calapps'
+/             - if is_admin?
+/               %li.divider
+/               %li
+/                 = link_to 'Users', '/users'
+/             %li.divider
+/             %li
+/               = link_to 'About', '/welcome/about'
+/             %li.divider
+/             %li
+/               = link_to 'Contact', '/contact'
+/             %li.divider
+/           %ul.right
+/             - if signed_in?
+/               %li.has-dropdown.not-click
+/                 %a{:href => "#"} #{@current_user.name}
+/                 %ul.dropdown
+/                   %li= link_to "Profile", @current_user
+/                   %li= link_to "Sign out", signout_path, :method =>"delete"
+/             -else
+/               %li
+/                 %a#loginlink{:href => "/signin"} Login
+/               %li
+/                 %a#signuplink{:href => signup_path} Create Account
+/     .row
+/       .large-12.columns
+/         - if flash[:notice]
+/           .alert-box{:data=>{:alert => true}}
+/             #notice.message= flash[:notice]
+/             %a.close{:href => "#"} &times;
+/         - elsif flash[:warning]
+/           .alert-box{:data=>{:alert => true}}
+/             #warning.message= flash[:warning]
+/             %a.close{:href => "#"} &times;
+/         = yield
+/       = javascript_include_tag "application"
 
