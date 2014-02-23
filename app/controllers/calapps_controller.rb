@@ -33,6 +33,9 @@ class CalappsController < ApplicationController
       query = "%"+session[:search_query].upcase+"%"
       @calapps = @calapps.where("upper(name) like ? or upper(description) like ? or upper(creator) like ? or upper(category) like ?", query, query, query, query)
     end
+    
+    @calapps_aca = Calapp.where(category:"Academic")[0,4]
+    @calapps_com = Calapp.where(category:"Commerce")[0,4]
   end
 
   #This is used for category view

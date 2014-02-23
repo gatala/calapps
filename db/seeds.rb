@@ -46,5 +46,5 @@ admin1 = User.create!(:name => "Admin Admin", :email => "admin@admin.com", :pass
 admin2 = User.create!(:name => "Joseph Lim", :email => "cs169badjr@gmail.com", :password => "whatdidthefoxsay", :password_confirmation => "whatdidthefoxsay", :admin => true)
 
 applications.each do |app|
-	Calapp.create!(app)
+	Calapp.create(app)
 end

@@ -43,12 +43,17 @@ class ReviewsController < ApplicationController
   end 
 
   def destroy
-	if Review.where(user_id: current_user.id, calapp_id: current_app).first
-	  @review = Review.where(user_id: current_user.id, calapp_id: current_app).first
-	  @review.destroy
-	  redirect_to calapp_path(current_app), notice: "Review was sucessfully deleted."
+  	if is_admin?
+  		user_id=params[:user_id]
 	else
-	  redirect_to calapp_path(current_app), notice:	"No review to destroy!"
-	end		
+		user_id=current_user.id
+	end
+	if Review.where(user_id: current_user.id, calapp_id: current_app).first
+	  		@review = Review.where(user_id: current_user.id, calapp_id: current_app).first
+	  		@review.destroy
+	  		redirect_to calapp_path(current_app), notice: "Review was sucessfully deleted."
+	else
+	  	redirect_to calapp_path(current_app), notice:	"No review to destroy!"
+	end	
   end
 end
