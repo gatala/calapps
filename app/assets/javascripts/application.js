@@ -18,3 +18,6 @@
 //= require jquery-fileupload/vendor/tmpl
 //= require select2
 //= require bootstrap
+//= require foundation
+
+$(function(){ $(document).foundation(); });

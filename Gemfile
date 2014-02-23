@@ -39,6 +39,8 @@ gem "haml"
 gem "font-awesome-rails"
 gem "sass-rails"
 gem 'bootstrap-sass'
+gem 'foundation-icons-sass-rails'
+gem 'foundation-rails'
 
 gem "select2-rails"
 
