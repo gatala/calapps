@@ -38,5 +38,14 @@
           %p
             %em= calapp.creator
 
+%h2
 
-
+%ul.small-block-grid-4
+  - @calapps.each do |calapp|
+    %li
+      =link_to calapp_path(calapp), :class => "ti" do
+        = image_tag thumbnail_url(calapp)
+        .caption
+          %h3= calapp.name
+          %p
+            %em= calapp.creator
