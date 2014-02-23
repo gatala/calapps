@@ -48,6 +48,10 @@ $page-width: 960px;
   border: 1px solid #ddd;
   box-sizing: border-box;
 
+  &.categories-container {
+    margin-top: 15px;
+  }
+
   &.tags-container {
     margin-top: 15px;
   }
@@ -250,6 +254,21 @@ $category-width: ($left-column-container-width - 44)/$grid-units;
       border: none;
       font-size: 14px;
     }
+  }
+}
+
+.categories-container {
+  ul {
+    padding-left: 20px;
+    margin-bottom: 25px;
+  }
+  .category-container {
+    vertical-align: top;
+    padding: 0;
+    padding-right: 2px;
+
+    color: white;
+    cursor: pointer;
   }
 }
 

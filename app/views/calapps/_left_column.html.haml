@@ -12,7 +12,7 @@
   .categories-container.left-container
     %h2 Categories
     %ul
-      .categories
+      .tags
         - @categories.each do |category|
           %li.category-container
             %a{href: "/category/#{category[0]}"} #{category[0]}
