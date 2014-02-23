@@ -1,34 +1,35 @@
-%h2 #{@user.name}
-//= stylesheet_link_tag 'profile'
-= image_tag avatar_url(@user)
+.container
+  %h2 #{@user.name}
+  //= stylesheet_link_tag 'profile'
+  = image_tag avatar_url(@user)
 
-%fieldset
-  %legend User Information
-  %div
-    - if @user.admin
-      %b Administrator
+  %fieldset
+    %legend User Information
+    %div
+      - if @user.admin
+        %b Administrator
 
+    %div
+      - if @user.email
+        %b Email:
+        = @user.email
+    %div
+      %b Public Name:
+      = @user.public_name
+    %div
+      %b School:
+      = @user.school
+    %div
+      %b Class Year: 
+      = @user.year
+    %div
+      %b Major:
+      = @user.major
+    %div
+      %b Github:
+      = @user.github
+  %hr
   %div
-    - if @user.email
-      %b Email:
-      = @user.email
-  %div
-    %b Public Name:
-    = @user.public_name
-  %div
-    %b School:
-    = @user.school
-  %div
-    %b Class Year: 
-    = @user.year
-  %div
-    %b Major:
-    = @user.major
-  %div
-    %b Github:
-    = @user.github
-%hr
-%div
-  - if is_admin? or is_user?
-    = link_to "Edit Profile", edit_user_path, :class => "btn btn-primary account-button"
-    = link_to t('.back', :default => t("helpers.links.back")), '/users', :class => 'btn btn-default'
+    - if is_admin? or is_user?
+      = link_to "Edit Profile", edit_user_path, :class => "btn btn-primary account-button"
+      = link_to t('.back', :default => t("helpers.links.back")), '/users', :class => 'btn btn-default'

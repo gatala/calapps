@@ -1,26 +1,27 @@
-= form_for @user do |new_user|
-  -partial = render 'shared/error_messages'
-  -if partial.present?
-    .alert-box{:data=>{:alert => true}}
-      = partial
-      %a.close{:href => "#"} &times;
-  %h1 Sign Up for an Account
-  
-  %fieldset
-    %legend Sign Up
-    = new_user.label :name, 'Name (e.g. Oski Bear)'
-    = new_user.text_field :name, :placeholder => "Oski Bear"
+.container
+  = form_for @user do |new_user|
+    -partial = render 'shared/error_messages'
+    -if partial.present?
+      .alert-box{:data=>{:alert => true}}
+        = partial
+        %a.close{:href => "#"} &times;
+    %h1 Sign Up for an Account
+    
+    %fieldset
+      %legend Sign Up
+      = new_user.label :name, 'Name (e.g. Oski Bear)'
+      = new_user.text_field :name, :placeholder => "Oski Bear"
+      %div
+        = new_user.label :email, 'Email Address'
+        = new_user.email_field :email, :placeholder => "Email address"
+      %div
+        = new_user.label :password, 'Password (at least 8 characters)'
+        = new_user.password_field :password, :placeholder => "Password"
+      %div
+        = new_user.label :password_confirmation, 'Confirm your password'
+        = new_user.password_field :password_confirmation, :placeholder => "Password"
+      %div
+        = new_user.label :simple_captcha, "Enter the code in the box"
+        = show_simple_captcha
     %div
-      = new_user.label :email, 'Email Address'
-      = new_user.email_field :email, :placeholder => "Email address"
-    %div
-      = new_user.label :password, 'Password (at least 8 characters)'
-      = new_user.password_field :password, :placeholder => "Password"
-    %div
-      = new_user.label :password_confirmation, 'Confirm your password'
-      = new_user.password_field :password_confirmation, :placeholder => "Password"
-    %div
-      = new_user.label :simple_captcha, "Enter the code in the box"
-      = show_simple_captcha
-  %div
-    = new_user.submit "Sign Up", :class => "btn btn-default account-form-button"
+      = new_user.submit "Sign Up", :class => "btn btn-default account-form-button"

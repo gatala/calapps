@@ -1,13 +1,14 @@
-%h1 Calapps Users
+.container
+  %h1 CalApps Users
 
-%table
-  %thead
-    %tr
-      %th Username
-      %th Email
-  %tbody
-    - @users.each do |user|
+  %table
+    %thead
       %tr
-        %td= link_to "#{user.name}", user_path(user)
-        %td #{user.email}
+        %th Username
+        %th Email
+    %tbody
+      - @users.each do |user|
+        %tr
+          %td= link_to "#{user.name}", user_path(user)
+          %td #{user.email}
 

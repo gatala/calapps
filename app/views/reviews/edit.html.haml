@@ -1,7 +1,8 @@
-= form_for @review, :url => { :action => "create" } do |edit_review|
-    %fieldset
-        %legend Edit Review
-        = edit_review.select :review_rating, [['1','1'],['2','2'],['3','3'],['4','4'],['5','5']], :include_blank => true
-        = edit_review.label :review_text, 'Comment Here'
-        = edit_review.text_area :review_text, :placeholder => 'Your Comment Here'
-    = edit_review.submit 'Save Changes', :class => "btn btn-primary"
+.container
+  = form_for @review, :url => { :action => "create" } do |edit_review|
+      %fieldset
+          %legend Edit Review
+          = edit_review.select :review_rating, [['1','1'],['2','2'],['3','3'],['4','4'],['5','5']], :include_blank => true
+          = edit_review.label :review_text, 'Comment Here'
+          = edit_review.text_area :review_text, :placeholder => 'Your Comment Here'
+      = edit_review.submit 'Save Changes', :class => "btn btn-primary"

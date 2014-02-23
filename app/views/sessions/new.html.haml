@@ -1,20 +1,21 @@
-- if flash[:error]
-  .alert-box{:data=>{:alert => true}}
-    Invalid username/password combination
-    %a.close{:href => "#"} &times;
-%h1 Please sign in
+.container
+  - if flash[:error]
+    .alert-box{:data=>{:alert => true}}
+      Invalid username/password combination
+      %a.close{:href => "#"} &times;
+  %h1 Please sign in
 
-= form_for(:session, url: sessions_path, class: "form-signin") do |f|
-  %fieldset
-    %legend Sign in
-    %div                                                 
-      = f.label :email
-      = f.email_field :email, :placeholder => "oski@gmail.com"
-    %div
-      = f.label :password
-      = f.password_field :password, :placeholder => "Password"
-  = f.submit "Sign in", :class => "btn btn-default account-form-button"
-%p
-  New user? #{link_to "Sign up now!", signup_path}
-%p
-  Forgot your password? #{link_to "Recover Password.",  new_password_reset_path}
+  = form_for(:session, url: sessions_path, class: "form-signin") do |f|
+    %fieldset
+      %legend Sign in
+      %div                                                 
+        = f.label :email
+        = f.email_field :email, :placeholder => "oski@gmail.com"
+      %div
+        = f.label :password
+        = f.password_field :password, :placeholder => "Password"
+    = f.submit "Sign in", :class => "btn btn-default account-form-button"
+  %p
+    New user? #{link_to "Sign up now!", signup_path}
+  %p
+    Forgot your password? #{link_to "Recover Password.",  new_password_reset_path}

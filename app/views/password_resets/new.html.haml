@@ -1,13 +1,14 @@
-- if flash[:error]
-  .alert-box{:data=>{:alert => true}}
-    Sorry, invalid email.  Try again.
-    %a.close{:href => "#"} &times;
+.container
+  - if flash[:error]
+    .alert-box{:data=>{:alert => true}}
+      Sorry, invalid email.  Try again.
+      %a.close{:href => "#"} &times;
 
-%h1 Reset Password
+  %h1 Reset Password
 
-= form_tag password_resets_path, :method => :post do
-  %fieldset
-    %legend Reset Password
-    = label_tag :email
-    = text_field_tag :email, params[:email]
-  = submit_tag "Reset Password", :class => "btn btn-danger"
+  = form_tag password_resets_path, :method => :post do
+    %fieldset
+      %legend Reset Password
+      = label_tag :email
+      = text_field_tag :email, params[:email]
+    = submit_tag "Reset Password", :class => "btn btn-danger"

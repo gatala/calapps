@@ -1,42 +1,28 @@
-
 .container
-  - if flash[:error]
-    .alert.alert-error
-      The form contains #{pluralize(@user.errors.count, "error")}.
-    %ul
-      - @user.errors.full_messages.each do |msg|
-        %li
-          #{msg}
+  = form_for @user, :html => {:multipart => true} do |f|
+    %fieldset
+      %legend Update Account
+      = f.label :image, "Upload Profile"
+      = f.file_field :image
 
+      = f.label :public_name, "Public Name"
+      = f.text_field :public_name
+      
+      = f.label :school, "School"
+      = f.text_field :school
 
+      = f.label :year, "Class Year"
+      = f.collection_select :year, User::YEARS, :to_s, :to_s, :include_blank => true
 
+      = f.label :major, "Major"
+      = f.text_field :major
 
+      = f.label :github, "Github"
+      = f.text_field :github
 
+      -if is_admin?
+        = f.label :admin, 'Admin Rights (Yes or No)'
+        = f.select :admin, {"Yes" => true, "No" => false}
 
-= form_for @user, :html => {:multipart => true} do |f|
-  %fieldset
-    %legend Update Account
-    = f.label :image, "Upload Profile"
-    = f.file_field :image
-
-    = f.label :public_name, "Public Name"
-    = f.text_field :public_name
-    
-    = f.label :school, "School"
-    = f.text_field :school
-
-    = f.label :year, "Class Year"
-    = f.collection_select :year, User::YEARS, :to_s, :to_s, :include_blank => true
-
-    = f.label :major, "Major"
-    = f.text_field :major
-
-    = f.label :github, "Github"
-    = f.text_field :github
-
-    -if is_admin?
-      = f.label :admin, 'Admin Rights (Yes or No)'
-      = f.select :admin, {"Yes" => true, "No" => false}
-
-  = submit_tag 'Update', :class => "btn btn-primary account-button"
-  = link_to 'Back', user_path, :class => "btn btn-default"
+    = submit_tag 'Update', :class => "btn btn-primary account-button"
+    = link_to 'Back', user_path, :class => "btn btn-default"
