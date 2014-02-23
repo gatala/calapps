@@ -1,4 +1,6 @@
 .container
+  = render 'shared/error_messages'
+
   = form_for @user, :html => {:multipart => true} do |f|
     %fieldset
       %legend Update Account

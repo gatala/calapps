@@ -1,10 +1,8 @@
 .container
+  = render 'shared/error_messages'
+  
   = form_for @user do |new_user|
-    -partial = render 'shared/error_messages'
-    -if partial.present?
-      .alert-box{:data=>{:alert => true}}
-        = partial
-        %a.close{:href => "#"} &times;
+
     %h1 Sign Up for an Account
     
     %fieldset

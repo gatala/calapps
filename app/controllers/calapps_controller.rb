@@ -95,7 +95,7 @@ class CalappsController < ApplicationController
     if @calapp.save
       redirect_to '/calapps', notice: (berkeley_user? or is_admin?) ? "#{@calapp.name} was successfully created." : "#{@calapp.name} submitted for approval."
     else
-      flash[:error] = 'error'
+      flash[:error] = @calapp.errors.full_messages
       render action: 'new'
     end
   end 
@@ -117,7 +117,7 @@ class CalappsController < ApplicationController
       flash[:notice] = "#{@calapp.name} was successfully updated."
       redirect_back_or @calapp
     else
-      flash[:error] = 'error'
+      flash[:error] = @calapp.errors.full_messages
       render 'edit'
     end
   end

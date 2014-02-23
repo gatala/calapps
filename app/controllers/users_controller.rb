@@ -15,7 +15,9 @@ class UsersController < ApplicationController
       UserMailer.registration_confirmation(@user).deliver
 			flash[:success] = "You have succesfully registered."
 			redirect_to welcome_success_path
-		else 
+		else
+      flash[:error] = @user.errors.full_messages
+      flash[:captcha] = simple_captcha_valid? ? 0 : 1
 			render 'new'
 		end
 	end
@@ -41,7 +43,7 @@ class UsersController < ApplicationController
     	flash[:success] = "Profile udpated!"
     	redirect_back_or @user
   	else
-      flash[:error] = 'error'
+      flash[:error] = @user.errors.full_messages
       render 'edit'
   	end
 	end

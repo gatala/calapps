@@ -5,7 +5,7 @@ class PasswordResetsController < ApplicationController
 	  user.send_password_reset if user
 	  redirect_to root_url, notice: "Email sent with password reset instructions."
 	else
-	  flash[:error] = 'error'
+	  flash[:error] = 'Sorry, invalid email. Try again.'
 	  render 'new'
 	end
   end

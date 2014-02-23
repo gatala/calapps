@@ -1,9 +1,4 @@
 .container
-  - if flash[:error]
-    .alert-box{:data=>{:alert => true}}
-      Sorry, invalid email.  Try again.
-      %a.close{:href => "#"} &times;
-
   %h1 Reset Password
 
   = form_tag password_resets_path, :method => :post do

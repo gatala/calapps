@@ -1,18 +1,22 @@
+- if @calapp
+  - if flash[:error]
+    %div{:class => "alert alert-warning", :id => "flash"}
+      %a.close{"data-dismiss" => "alert"} ×
+      The form contains #{pluralize(@calapp.errors.count, "error")}:
+      %ol
+        - @calapp.errors.full_messages.each do |msg|
+          %li
+            #{msg}
 
-- if @user != nil and @user.errors.any?
-  #error_explanation
-    .alert.alert-error
-      The form contains #{pluralize(@user.errors.count, "error")}.
-    %ul
-      - @user.errors.full_messages.each do |msg|
-        %li
-          #{msg}
-
-- if @calapp != nil and @calapp.errors.any?
-  #error_explanation
-    .alert.alert-error
-      The form contains #{pluralize(@calapp.errors.count, "error")}.
-    %ul
-      - @calapp.errors.full_messages.each do |msg|
-        %li
-          #{msg}
+- if @user
+  - if flash[:error]
+    %div{:class => "alert alert-warning", :id => "flash"}
+      %a.close{"data-dismiss" => "alert"} ×
+      The form contains #{pluralize(@user.errors.count + (flash[:captcha] ? flash[:captcha] : 0), "error")}:
+      %ol
+        - @user.errors.full_messages.each do |msg|
+          %li
+            #{msg}
+        - if flash[:captcha] == 1
+          %li
+            invalid captcha code

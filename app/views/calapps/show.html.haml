@@ -1,12 +1,4 @@
 .container
-  - if flash[:notice]
-    .alert-box{:data=>{:alert => true}}
-      #notice.message= flash[:notice]
-      %a.close{:href => "#"} &times;
-  %br
-  %br
-  %br
-
   %h1 #{@calapp.name}
 
   = image_tag thumbnail_url(@calapp)
