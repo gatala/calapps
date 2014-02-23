@@ -33,7 +33,13 @@ class CalappsController < ApplicationController
     if @tag
       @calapps = @calapps.tagged_with(params[:tag])
     end
+
+    @category = session[:category] = params[:category]
     
+    if @category
+      @calapps = @calapps.category_search(params[:category])
+    end
+
     @query = session[:search_query] = params[:search_query]
 
     if ! [nil, ""].include?(@query)
@@ -49,34 +55,6 @@ class CalappsController < ApplicationController
     @category = category
     @calapps = Calapp.approved.active.where(category: category)
   end
-
-=begin
-  #This is for admin view only. 
-  def index
-    @calapps = params[:pending] ? Calapp.pending : Calapp.approved
-    @pending = params[:pending]
-
-    # This is for tags 
-    if params[:tag]
-      @calapps = @calapps.tagged_with(params[:tag])
-    end
-        
-    #This is for alphabetizing based on application name or creator
-    # we should consider having the original list updated by "last updated or last posted"
-    #still needs to be fixed/ session collides with the ability to use the search engine
-    @sort = params[:sort] || session[:sort]
-    safe_list = ["name", "creator", "updated_at"]
-    if safe_list.include? @sort
-      session[:sort] = @sort
-      @calapps = @calapps.order(@sort.to_s)
-    end
- 
-    if (!params[:sort] && session[:sort]) 
-      flash.keep
-      redirect_to calapps_path({:sort => @sort, :pending => @pending})
-    end
-  end
-=end
 
   def new 
     if not signed_in?

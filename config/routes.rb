@@ -12,7 +12,6 @@ Calapps::Application.routes.draw do
   match '/signout', :to => 'sessions#destroy',     via: :delete
   match 'contact' => 'contact#new', :as => 'contact', :via => :get
   match '/contact' => 'contact#create', :as => 'contact', :via => :post
-  match '/category/:category', to: 'calapps#category', via: 'get'
 
   resources :users
   resources :calapps do
