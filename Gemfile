@@ -9,7 +9,6 @@ gem 'jquery-fileupload-rails'
 gem "carrierwave"
 gem 'rmagick'
 gem 'mail_form'
-gem "holder_rails"
 gem "social-buttons", git: "git://github.com/kristianmandrup/social-buttons.git"
 gem "galetahub-simple_captcha", :require => "simple_captcha"
 
