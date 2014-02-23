@@ -36,7 +36,7 @@ $total-menu-height: $link-top-padding + $link-bottom-padding + $menu-text-height
     ul.main-navigation {
         list-style: none;
         .tab {
-            background-color: $calapps-dark-blue;
+            background-color: $calapps-black;
             cursor: pointer;
             display: inline-block;
             text-align: center;
@@ -64,13 +64,13 @@ $total-menu-height: $link-top-padding + $link-bottom-padding + $menu-text-height
         }
 
         li:hover {
-         background: lighten($calapps-dark-blue, 10%);
+         background: lighten($calapps-black, 15%);
         }
     }
 }
 
 #main-menu {
-    background-color: $calapps-dark-blue;
+    background-color: $calapps-black;
     @include font($main-font, 300);
     .navbar-header {
         img {
