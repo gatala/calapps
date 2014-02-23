@@ -15,7 +15,6 @@ Calapps::Application.routes.draw do
   match '/category/:category', to: 'calapps#category', via: 'get'
  
   resources :users
-
   
   resources :calapps do
     get 'search', on: :collection
