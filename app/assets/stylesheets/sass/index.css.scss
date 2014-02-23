@@ -304,6 +304,18 @@ $category-width: ($left-column-container-width - 44)/$grid-units;
   }
 }
 
+.dropdown {
+  position: absolute;
+  top: 5px;
+  right: 0px;
+  .settings.btn {
+    .gear-icon {
+      font-size: 18px;
+      margin-right: 4px;
+    }
+  }
+}
+
 .add-calapp {
   float:right;
   margin-right: 10px;

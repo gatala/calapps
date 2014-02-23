@@ -1,28 +1,3 @@
-/ %h1 Gallery
-/ - if signed_in?
-/   %a.button.dropdown.small{:href=>"#", :data=>{:dropdown=>"drop"}} Actions
-/   %ul#drop.f-dropdown{:data=>{"dropdown-content".to_sym=>true}}
-/     - if is_admin?
-/       - if (@pending or @archived)
-/         %li= link_to "Show Approved", calapps_path(:search_query => @query, :tag => @tag)
-/       - if !@archived
-/         %li= link_to "Show Archived", calapps_path(:search_query => @query, :tag => @tag, :archived => true)
-/       - if !@pending
-/         %li= link_to "Show Pending", calapps_path(:search_query => @query, :tag => @tag, :pending => true)
-/     %li= link_to "Add an Application", new_calapp_path
-
-
-
-/ %ul.small-block-grid-4
-/   - @calapps.each do |calapp|
-/     %li
-/       =link_to calapp_path(calapp), :class => "th" do
-/         = image_tag thumbnail_url(calapp)
-/         .caption
-/           %h3= calapp.name
-/           %p
-/             %em= calapp.creator
-
 #is-admin{"data-is-admin" => "#{is_admin?}"}
 
 #container.gallery
@@ -38,7 +13,7 @@
         - if is_admin?
           = render "settings"
 
-      #gallery-cards.tab-content
+      #calapp-cards.tab-content
         - if @calapps.length > 0
           .tab-pane#card-view
             - @calapps.each do |calapp|
