@@ -13,14 +13,30 @@
 
 
 
+%h2 Academics
+
 %ul.small-block-grid-4
-  - @calapps.each do |calapp|
+  - @calapps_aca.each do |calapp|
     %li
-      =link_to calapp_path(calapp), :class => "th" do
+      =link_to calapp_path(calapp), :class => "ti" do
         = image_tag thumbnail_url(calapp)
         .caption
           %h3= calapp.name
           %p
             %em= calapp.creator
+          
+    
+%h2 Commerce
+
+%ul.small-block-grid-4
+  - @calapps_com.each do |calapp|
+    %li
+      =link_to calapp_path(calapp), :class => "ti" do
+        = image_tag thumbnail_url(calapp)
+        .caption
+          %h3= calapp.name
+          %p
+            %em= calapp.creator
+
 
 
