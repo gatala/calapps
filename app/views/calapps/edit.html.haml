@@ -69,6 +69,6 @@
       = f.label :archived, "Archive"
       = f.select :archived, {"Yes" => true, "No" => false}
 
-  = link_to 'Back to App Details', calapp_path(@calapp), :class => "button secondary"
-  = link_to 'Back to App List', calapps_path, :class => "button secondary"
-  = f.submit 'Update', :class => "button success"
+  = link_to 'Back to App Details', calapp_path(@calapp), :class => "btn btn-default"
+  = link_to 'Back to App List', calapps_path, :class => "btn btn-default"
+  = f.submit 'Update', :class => "btn btn-primary"

@@ -52,5 +52,5 @@
 
     = f.label :tag_list, "Tags (separate by commas)"
     = f.text_field :tag_list
-  = link_to 'Back', calapps_path, :class =>"button secondary"
-  = f.submit 'Save Changes', :class => "button success", :url => calapp_path(f)
+  = link_to 'Back', calapps_path, :class =>"btn btn-default"
+  = f.submit 'Submit', :class => "btn btn-primary", :url => calapp_path(f)
