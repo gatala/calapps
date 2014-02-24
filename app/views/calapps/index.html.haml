@@ -12,6 +12,8 @@
             %i.fa.fa-list
         - if is_admin?
           = render "settings"
+        - if signed_in?
+          = link_to 'Add App', new_calapp_path(), :class => "btn btn-primary add-calapp"
 
       #calapp-cards.tab-content
         - if @calapps.length > 0
