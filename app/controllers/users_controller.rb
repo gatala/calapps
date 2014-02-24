@@ -40,7 +40,7 @@ class UsersController < ApplicationController
 	def update
 		 @user = User.find_by_id(params[:id])
   	if @user.update_attributes(user_params)
-    	flash[:success] = "Profile udpated!"
+    	flash[:success] = "Profile updated!"
     	redirect_back_or @user
   	else
       flash[:error] = @user.errors.full_messages
