@@ -312,6 +312,20 @@ $category-width: ($left-column-container-width - 44)/$grid-units;
       margin-right: 4px;
     }
   }
+  .dropdown-menu {
+    right: 0;
+    left: auto;
+    a:hover, a:focus {
+      background-color: #f5f5f5;
+      color: #262626;
+    }
+    .icon {
+      margin-right: 3px;
+      &.trans {
+        color: transparent;
+      }
+    }
+  }
 }
 
 .add-calapp {
