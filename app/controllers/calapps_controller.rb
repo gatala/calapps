@@ -37,7 +37,7 @@ class CalappsController < ApplicationController
     @category = session[:category] = params[:category]
     
     if @category
-      @calapps = @calapps.category_search(params[:category])
+      @calapps = @calapps.category_search("%"+params[:category].upcase+"%")
     end
 
     @query = session[:search_query] = params[:search_query]
