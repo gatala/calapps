@@ -37,7 +37,7 @@
                   .category-row
                     %fieldset
                       %legend #{category}
-                      - @calapps.category_search("%"+category+"%").each do |calapp|
+                      - @calapps.category_search("%"+category.upcase+"%").each do |calapp|
                         = render partial: 'square_calapp_card', locals: {calapp: calapp}
             .tab-pane#list-view
               - @categories.each do |category|
