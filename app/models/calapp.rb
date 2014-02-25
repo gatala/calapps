@@ -13,7 +13,7 @@ class Calapp < ActiveRecord::Base
   scope :description_search, lambda { |description| where("upper(description) like ?", description) }
   scope :category_search, lambda { |category| where("upper(category) like ?", category) }
   scope :rated_at_least, lambda { |threshold| joins(:reviews).group('calapps.id').having(['AVG(reviews.review_rating >= ?', threshold]) }
-  scope :order_by_rating, -> { joins(:reviews).group('calapps.id').order('AVG(reviews.review_rating) DESC') }
+  scope :order_by_rating, -> { includes(:reviews).group('calapps.id').order('AVG(reviews.review_rating) DESC') }
 
 	attr_accessible  :name, :URL, :creator, :description, :tag_list, :created_location, 
     :user_email, :category, :image, :screenshot1, :screenshot2, :screenshot3, :screenshot4, 
@@ -66,12 +66,6 @@ class Calapp < ActiveRecord::Base
 
   def self.top_four(category)
     calapps = approved.active.category_search("%"+category.upcase+"%").order_by_rating[0,4]
-    if calapps.length < 4
-      category_search("%"+category.upcase+"%").each do |calapp|
-        break if calapps.length == 4
-        calapps << calapp if !calapps.include?(calapp)
-      end
-    end
     if calapps.length == 0
       []
     else
