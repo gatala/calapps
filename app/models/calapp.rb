@@ -3,12 +3,11 @@ class Calapp < ActiveRecord::Base
   has_many :reviews
   has_many :users, through: :reviews
 
-  scope :all, -> { where("name IS NOT NULL") }
   scope :approved, -> { where(approved: true) }
   scope :pending, -> { where(approved: false) }
   scope :archived, -> { where(archived: true) }
   scope :active, -> { where(archived: false) }
-  scope :search_query, lambda { |query| where("upper(name) like ? or upper(description) like ? or upper(creator) like ? or upper(category) like ?", query, query, query, query) }
+  scope :search_query, lambda { |query| where("upper(name) like ? or upper(description) like ? or upper(creator) like ?", query, query, query) }
   scope :name_search, lambda { |name| where("upper(name) like ?", name) }
   scope :creator_search, lambda { |creator| where("upper(creator) like ?", creator) }
   scope :description_search, lambda { |description| where("upper(description) like ?", description) }
