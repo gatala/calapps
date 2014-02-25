@@ -3,7 +3,7 @@ class Calapp < ActiveRecord::Base
   has_many :reviews
   has_many :users, through: :reviews
 
-  scope :all, -> { where("id IS NOT NULL") }
+  scope :all, -> { where("name IS NOT NULL") }
   scope :approved, -> { where(approved: true) }
   scope :pending, -> { where(approved: false) }
   scope :archived, -> { where(archived: true) }
