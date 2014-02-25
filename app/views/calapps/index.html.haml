@@ -17,12 +17,27 @@
 
       #calapp-cards.tab-content
         - if @calapps.length > 0
-          .tab-pane#card-view
-            - @calapps.each do |calapp|
-              = render partial: 'square_calapp_card', locals: {calapp: calapp}
-          .tab-pane#list-view
-            - @calapps.each do |calapp|
-              = render partial: 'list_calapp_card', locals: {calapp: calapp}
+          - if @home
+            .tab-pane#card-view
+              - @categories.each do |category|
+                - if @calapp.top_four(category)
+                  .category-row
+                    %fieldset
+                      %legend #{category}
+                      - @calapp.top_four(category).each do |calapp|
+                        = render partial: 'square_calapp_card', locals: {calapp: calapp}
+            .tab-pane#list-view
+              - @categories.each do |category|
+                - if @calapp.top_four(category)
+                  - @calapp.top_four(category).each do |calapp|
+                    = render partial: 'list_calapp_card', locals: {calapp: calapp}
+          - else
+            .tab-pane#card-view
+              - @calapps.each do |calapp|
+                = render partial: 'square_calapp_card', locals: {calapp: calapp}
+            .tab-pane#list-view
+              - @calapps.each do |calapp|
+                = render partial: 'list_calapp_card', locals: {calapp: calapp}
 
         - else
           = render partial: 'no_results'

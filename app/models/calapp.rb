@@ -46,7 +46,7 @@ class Calapp < ActiveRecord::Base
   mount_uploader :screenshot5, ImageUploader
 
   def self.categories
-    [['Academic','Academic'],['Career','Career'],['Collaboration','Collaboration'], ["Commerce", "Commerce"],["Food", "Food"], ["Health", "Health"],["Miscellaneous", "Miscellaneous"], ["Mobile", "Mobile"], ["Multipurpose", "Multipurpose"]]
+    ['Academic', 'Career', 'Collaboration', "Commerce", "Food", "Health", "Miscellaneous", "Mobile", "Multipurpose"]
   end
 
   def rating
@@ -60,6 +60,21 @@ class Calapp < ActiveRecord::Base
       return sum
     else
       return sum/total
+    end
+  end
+
+  def self.top_four(category)
+    calapps = category_search("%"+category.upcase+"%").order_by_rating[0,4]
+    if calapps.length < 4
+      category_search("%"+category.upcase+"%").each do |calapp|
+        break if calapps.length == 4
+        calapps << calapp if !calapps.include?(calapp)
+      end
+    end
+    if calapps.length == 0
+      nil
+    else
+      calapps
     end
   end
 end

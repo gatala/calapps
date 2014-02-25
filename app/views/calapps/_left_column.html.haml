@@ -15,10 +15,10 @@
     %ul
       - @categories.each do |category|
         %li.category-container
-          - if session[:category] == category[0]
+          - if session[:category] == category
             <b>
-          = link_to "#{category[0]}", calapps_path(:search_query => session[:search_query], :tag => session[:tag], :pending => session[:pending], :archived => session[:archived], :category => category[0])
-          - if session[:category] == category[0]
+          = link_to "#{category}", calapps_path(:search_query => session[:search_query], :tag => session[:tag], :pending => session[:pending], :archived => session[:archived], :category => category)
+          - if session[:category] == category
             </b>
   .tags-container.left-container
     %h2 Tags

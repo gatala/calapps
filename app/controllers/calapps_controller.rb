@@ -46,9 +46,13 @@ class CalappsController < ApplicationController
       query = "%"+@query.upcase+"%"
       @calapps = @calapps.tagged_with(@query) + @calapps.where("upper(name) like ? or upper(description) like ? or upper(creator) like ? or upper(category) like ?", query, query, query, query)
     end
-    
-    @calapps_aca = Calapp.where(category:"Academic")[0,4]
-    @calapps_com = Calapp.where(category:"Commerce")[0,4]
+ 
+    if @pending or @archived or @tag or @category or @query
+      @home = false
+    else
+      @home = true
+      @calapp = Calapp
+    end
   end
 
   #This is used for category view
