@@ -20,7 +20,7 @@
           - if @home
             .tab-pane#card-view
               - @categories.each do |category|
-                - if @calapp.top_four(category)
+                - if !@calapp.top_four(category).empty?
                   .category-row
                     %fieldset
                       %legend #{category}
@@ -28,16 +28,21 @@
                         = render partial: 'square_calapp_card', locals: {calapp: calapp}
             .tab-pane#list-view
               - @categories.each do |category|
-                - if @calapp.top_four(category)
-                  - @calapp.top_four(category).each do |calapp|
-                    = render partial: 'list_calapp_card', locals: {calapp: calapp}
+                - @calapp.top_four(category).each do |calapp|
+                  = render partial: 'list_calapp_card', locals: {calapp: calapp}
           - else
             .tab-pane#card-view
-              - @calapps.each do |calapp|
-                = render partial: 'square_calapp_card', locals: {calapp: calapp}
+              - @categories.each do |category|
+                - if !@calapps.category_search("%"+category.upcase+"%").empty?
+                  .category-row
+                    %fieldset
+                      %legend #{category}
+                      - @calapps.category_search("%"+category+"%").each do |calapp|
+                        = render partial: 'square_calapp_card', locals: {calapp: calapp}
             .tab-pane#list-view
-              - @calapps.each do |calapp|
-                = render partial: 'list_calapp_card', locals: {calapp: calapp}
+              - @categories.each do |category|
+                - @calapps.category_search("%"+category.upcase+"%").each do |calapp|
+                  = render partial: 'list_calapp_card', locals: {calapp: calapp}
 
         - else
           = render partial: 'no_results'

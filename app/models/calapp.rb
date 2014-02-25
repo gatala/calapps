@@ -3,14 +3,16 @@ class Calapp < ActiveRecord::Base
   has_many :reviews
   has_many :users, through: :reviews
 
+  scope :all, -> { where("id IS NOT NULL") }
   scope :approved, -> { where(approved: true) }
   scope :pending, -> { where(approved: false) }
   scope :archived, -> { where(archived: true) }
   scope :active, -> { where(archived: false) }
-  scope :name_search, lambda {|name| where("upper(name) like ?", name)}
-  scope :creator_search, lambda {|creator| where("upper(creator) like ?", creator)}
-  scope :description_search, lambda {|description| where("upper(description) like ?", description)}
-  scope :category_search, lambda {|category| where("upper(category) like ?", category)}
+  scope :search_query, lambda { |query| where("upper(name) like ? or upper(description) like ? or upper(creator) like ? or upper(category) like ?", query, query, query, query) }
+  scope :name_search, lambda { |name| where("upper(name) like ?", name) }
+  scope :creator_search, lambda { |creator| where("upper(creator) like ?", creator) }
+  scope :description_search, lambda { |description| where("upper(description) like ?", description) }
+  scope :category_search, lambda { |category| where("upper(category) like ?", category) }
   scope :rated_at_least, lambda { |threshold| joins(:reviews).group(:calapp_id).having(['AVG(reviews.review_rating) >= ?', threshold]) }
   scope :order_by_rating, -> { joins(:reviews).group(:calapp_id).order('AVG(reviews.review_rating) DESC') }
 
@@ -72,7 +74,7 @@ class Calapp < ActiveRecord::Base
       end
     end
     if calapps.length == 0
-      nil
+      []
     else
       calapps
     end

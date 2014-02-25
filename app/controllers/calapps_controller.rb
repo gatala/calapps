@@ -17,15 +17,24 @@ class CalappsController < ApplicationController
 
   #This is solely for the use of the gallery page
   def index
+    @query = session[:search_query] = params[:search_query]
+
+    if ! [nil, ""].include?(@query)
+      query = "%"+@query.upcase+"%"
+      @calapps = Calapp.tagged_with(@query).or.search_query(query)
+    else
+      @calapps = Calapp.all
+    end
+
     @pending = session[:pending] = params[:pending]
     @archived = session[:archived] = params[:archived]
 
     if @pending
-      @calapps = Calapp.pending.active.order(:name)
+      @calapps = @calapps.pending.active.order(:name)
     elsif @archived
-      @calapps = Calapp.archived.order(:name)
+      @calapps = @calapps.archived.order(:name)
     else
-      @calapps = Calapp.approved.active.order(:name)
+      @calapps = @calapps.approved.active.order(:name)
     end
 
     @tag = session[:tag] = params[:tag]
@@ -38,13 +47,6 @@ class CalappsController < ApplicationController
     
     if @category
       @calapps = @calapps.category_search("%"+params[:category].upcase+"%")
-    end
-
-    @query = session[:search_query] = params[:search_query]
-
-    if ! [nil, ""].include?(@query)
-      query = "%"+@query.upcase+"%"
-      @calapps = @calapps.tagged_with(@query) + @calapps.where("upper(name) like ? or upper(description) like ? or upper(creator) like ? or upper(category) like ?", query, query, query, query)
     end
  
     if @pending or @archived or @tag or @category or @query
