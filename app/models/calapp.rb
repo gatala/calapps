@@ -13,7 +13,7 @@ class Calapp < ActiveRecord::Base
   scope :description_search, lambda { |description| where("upper(description) like ?", description) }
   scope :category_search, lambda { |category| where("upper(category) like ?", category) }
   scope :rated_at_least, lambda { |threshold| joins(:reviews).group(:calapp_id).having(['AVG(reviews.review_rating) >= ?', threshold]) }
-  scope :order_by_rating, -> { joins(:reviews).group(:calapp_id).order('AVG(reviews.review_rating) DESC') }
+  scope :order_by_rating, -> { joins(:reviews).group(:calapp_id).having(['AVG(reviews.review_rating > 0)']).order('AVG(reviews.review_rating) DESC') }
 
 	attr_accessible  :name, :URL, :creator, :description, :tag_list, :created_location, 
     :user_email, :category, :image, :screenshot1, :screenshot2, :screenshot3, :screenshot4, 
