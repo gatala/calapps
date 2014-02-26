@@ -86,7 +86,7 @@ class CalappsController < ApplicationController
 
   def edit 
     @calapp = Calapp.find_by_id(params[:id])
-    if not signed_in? or (@calapp.user_email != current_user.email and !current_user.admin)
+    if not signed_in? or (@calapp.user_email != current_user.email and !is_admin?)
       redirect_to calapps_path
     end     
   end 

@@ -31,7 +31,7 @@ class ReviewsController < ApplicationController
 
   def edit 
     @review = Review.where(user_id: current_user.id, calapp_id: current_app).first
-    if not signed_in? or (@review.user_id != current_user.id and !current_user.admin)
+    if not signed_in? or (@review.user_id != current_user.id and !is_admin?)
       redirect_to calapp_path(@calapp)
     end   
   end
