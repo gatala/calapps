@@ -20,3 +20,9 @@
           =calapp.creator
           |
           =calapp.category
+          |
+          Rating:
+          - if calapp.rating != 0
+            = "%.1f" % calapp.rating.to_s
+          - else
+            N/A
