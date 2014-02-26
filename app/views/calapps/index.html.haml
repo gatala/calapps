@@ -21,28 +21,36 @@
             .tab-pane#card-view
               - @categories.each do |category|
                 - if !@calapp.top_four(category).empty?
-                  .category-row
+                  .category-card-row
                     %fieldset
                       %legend #{category}
                       - @calapp.top_four(category).each do |calapp|
                         = render partial: 'square_calapp_card', locals: {calapp: calapp}
             .tab-pane#list-view
               - @categories.each do |category|
-                - @calapp.top_four(category).each do |calapp|
-                  = render partial: 'list_calapp_card', locals: {calapp: calapp}
+                - if !@calapp.top_four(category).empty?
+                  .category-list-row
+                    %fieldset
+                      %legend #{category}
+                      - @calapp.top_four(category).each do |calapp|
+                        = render partial: 'list_calapp_card', locals: {calapp: calapp}
           - else
             .tab-pane#card-view
               - @categories.each do |category|
                 - if !@calapps.category_search("%"+category.upcase+"%").empty?
-                  .category-row
+                  .category-card-row
                     %fieldset
                       %legend #{category}
                       - @calapps.category_search("%"+category.upcase+"%").each do |calapp|
                         = render partial: 'square_calapp_card', locals: {calapp: calapp}
             .tab-pane#list-view
               - @categories.each do |category|
-                - @calapps.category_search("%"+category.upcase+"%").each do |calapp|
-                  = render partial: 'list_calapp_card', locals: {calapp: calapp}
+                - if !@calapps.category_search("%"+category.upcase+"%").empty?
+                  .category-list-row
+                    %fieldset
+                      %legend #{category}
+                      - @calapps.category_search("%"+category.upcase+"%").each do |calapp|
+                        = render partial: 'list_calapp_card', locals: {calapp: calapp}
 
         - else
           = render partial: 'no_results'
