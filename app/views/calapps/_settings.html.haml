@@ -11,13 +11,13 @@
           - else
             %i.fa.fa-check.icon
           Show Approved
-        = link_to calapps_path(:pending => true) do
+        = link_to calapps_path(:pending => true, :search_query => session[:search_query], :tag => session[:tag], :category => session[:category]) do
           - if @pending
             %i.fa.fa-check.icon
           - else
             %i.fa.fa-check.icon.trans
           Show Pending
-        = link_to calapps_path(:archived => true) do
+        = link_to calapps_path(:archived => true, :search_query => session[:search_query], :tag => session[:tag], :category => session[:category]) do
           - if @archived
             %i.fa.fa-check.icon
           - else
