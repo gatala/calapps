@@ -5,7 +5,7 @@
       %i.fa.fa-caret-down
     %ul.dropdown-menu{"role"=>"menu", "aria-labelledby"=>"dLabel"}
       %li
-        = link_to calapps_path() do
+        = link_to calapps_path(:search_query => session[:search_query], :tag => session[:tag], :category => session[:category]) do
           - if @pending or @archived
             %i.fa.fa-check.icon.trans
           - else
