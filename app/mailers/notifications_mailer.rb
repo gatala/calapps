@@ -1,5 +1,5 @@
 class NotificationsMailer < ActionMailer::Base
-  default :to => "cs169badjr@gmail.com"
+  default :to => "app-gallery@lists.berkeley.edu"
 
   def new_message(message)
   	@message = message
