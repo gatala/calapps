@@ -64,7 +64,7 @@ applications = applications = [
   },
   {
     :name => 'Sellegit', 
-    :creator => 'Unknown', 
+    :creator => 'Jeff Zhang, Rocky Duan, Peter Chen, Peter Qian, George Zhang', 
     :URL => 'http://sellegit.com/', 
     :description => "Sellegit is a unique, online marketplace that utilizes the Dutch auction method for local trading. Prices on our website can only go down. Buyers no longer need to wait until the end of an auction to win. For any item, you can buy it now or name your price. Sellegit will automatically place bids for buyers when the price falls to their ideal value. We offer sellers complete pricing control.",
     :category => "Commerce"
