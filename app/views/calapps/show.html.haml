@@ -1,7 +1,6 @@
 .container
   %h1 #{@calapp.name}
-  .image
-    = image_tag thumbnail_url(@calapp)
+  = image_tag(thumbnail_url(@calapp), :class => "image")
 
   %fieldset
     %legend Information
