@@ -44,7 +44,7 @@ class UsersController < ApplicationController
       params[:user].delete(:admin)
       @user.save
     end
-    if @user.update_attributes(user_params)
+    if @user.update_attributes(params[:user])
       flash[:success] = "Profile updated!"
       redirect_back_or @user
     else
