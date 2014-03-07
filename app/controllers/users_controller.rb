@@ -46,7 +46,7 @@ class UsersController < ApplicationController
     end
     if @user.update_attributes(params[:user])
       flash[:success] = "Profile updated!"
-      redirect_back_or @user
+      redirect_to :back
     else
       flash[:error] = @user.errors.full_messages
       render 'edit'

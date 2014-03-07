@@ -9,6 +9,6 @@
     %tbody
       - @users.each do |user|
         %tr
-          %td= link_to "#{user.name}", user_path(user)
+          %td= link_to "#{user.name}", edit_user_path(user)
           %td #{user.email}
 
