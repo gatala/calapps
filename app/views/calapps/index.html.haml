@@ -17,7 +17,7 @@
 
       #calapp-cards.tab-content
         - if @calapps.length > 0
-          - if @home
+          - if @home and !is_admin?
             .tab-pane#card-view
               - @categories.each do |category|
                 - if !@calapp.top_four(category).empty?
