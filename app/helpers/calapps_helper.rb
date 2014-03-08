@@ -47,4 +47,8 @@ module CalappsHelper
 		end
 	end
 
+	def screenshot_present?(calapp)
+		screenshot1_url(@calapp).present? or screenshot2_url(@calapp).present? or screenshot3_url(@calapp).present? or screenshot4_url(@calapp).present? or screenshot5_url(@calapp).present?
+	end
+	
 end

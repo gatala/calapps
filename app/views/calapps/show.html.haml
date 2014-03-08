@@ -16,43 +16,46 @@
       Campus Endorsed
       = image_tag "/assets/cal.jpeg", :height=> "30px", :width=>"30px"
   %hr
-  %h4 Screenshots
-  %ul.clearing-thumbs{:data => {:clearing => true}}
-    -if screenshot1_url(@calapp).present?
-      %li
-        = image_tag screenshot1_url(@calapp)
-    -if screenshot2_url(@calapp).present?
-      %li
-        = image_tag screenshot2_url(@calapp)
-    -if screenshot3_url(@calapp).present?
-      %li
-        = image_tag screenshot3_url(@calapp)
-    -if screenshot4_url(@calapp).present?
-      %li
-        = image_tag screenshot4_url(@calapp)
-    -if screenshot5_url(@calapp).present?
-      %li
-        = image_tag screenshot5_url(@calapp)
+  - if screenshot_present?(@calapp)
+    %h4 Screenshots
+    %ul.clearing-thumbs{:data => {:clearing => true}}
+      -if screenshot1_url(@calapp).present?
+        %li
+          = image_tag screenshot1_url(@calapp)
+      -if screenshot2_url(@calapp).present?
+        %li
+          = image_tag screenshot2_url(@calapp)
+      -if screenshot3_url(@calapp).present?
+        %li
+          = image_tag screenshot3_url(@calapp)
+      -if screenshot4_url(@calapp).present?
+        %li
+          = image_tag screenshot4_url(@calapp)
+      -if screenshot5_url(@calapp).present?
+        %li
+          = image_tag screenshot5_url(@calapp)
 
-  %hr
+    %hr
 
   %h4 Description
   %div
     = @calapp.description
   %hr
 
-  %h4 News & Updates
-  %div
-    = @calapp.news
-  %hr
+  - if @calapp.news.length > 0
+    %h4 News & Updates
+    %div
+      = @calapp.news
+    %hr
 
-  %div 
-    %h4 Tags:
-    - @calapp.tag_list.each do |t|
-      %span.secondary.round.label
-        = link_to t, calapps_path(:tag => t)
+  - if @calapp.tag_list.length > 0
+    %div 
+      %h4 Tags:
+      - @calapp.tag_list.each do |t|
+        %span.secondary.round.label
+          = link_to t, calapps_path(:tag => t)
 
-  %hr
+    %hr
 
   %div
     %h4 Reviews
