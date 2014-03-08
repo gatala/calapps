@@ -31,13 +31,13 @@ group :assets do
   gem 'therubyracer'
   gem 'uglifier'
   gem "haml-bootstrap-rails"
-  gem "sass-rails"
 end
 
 gem 'jquery-rails'
 gem "haml"
 gem "font-awesome-rails"
-gem 'bootstrap-sass'
+gem "sass-rails"
+#gem 'bootstrap-sass'
 gem 'foundation-icons-sass-rails'
 gem 'foundation-rails'
 
