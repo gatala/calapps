@@ -29,12 +29,6 @@
       .navbar-collapse.collapse
         %ul{:class => "nav navbar-nav navbar-right main-navigation"}
 
-          - if is_admin?
-            %li{:class => "tab"}>
-              = link_to users_path do
-                %i{:class => "fa fa-user"}
-                %p Users
-
           %li{:class => "tab"}>
             = link_to '/welcome/about' do
               %i{:class => "fa fa-info"}
@@ -44,6 +38,16 @@
             = link_to '/contact' do
               %i{:class => "fa fa-envelope"}
               %p Contact
+
+          - if is_admin?
+            %li{:class => "tab"}>
+              = link_to feed_calapps_path do
+                %i{:class => "fa fa-rss"}
+                %p Feed
+            %li{:class => "tab"}>
+              = link_to users_path do
+                %i{:class => "fa fa-user"}
+                %p Users  
 
           - if signed_in?
 

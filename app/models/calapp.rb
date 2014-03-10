@@ -46,6 +46,16 @@ class Calapp < ActiveRecord::Base
   mount_uploader :screenshot4, ImageUploader
   mount_uploader :screenshot5, ImageUploader
 
+  @@changes = []
+
+  def self.changes
+    @@changes
+  end
+
+  def self.add_change(change)
+    @@changes.push(change)
+  end
+
   def self.categories
     ['Academic', 'Career', 'Collaboration', "Commerce", "Food", "Health", "Miscellaneous", "Mobile", "Multipurpose"]
   end

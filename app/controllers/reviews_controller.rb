@@ -22,6 +22,7 @@ class ReviewsController < ApplicationController
     @review.calapp_id = current_app
 
     if @review.save
+      Calapp.add_change("#{current_user.email} wrote a review for #{Calapp.find_by_id(current_app).name}")
       redirect_to calapp_path(current_app), notice: "Review was successfully created."
     else
       flash[:notice] = @review.errors.full_messages
@@ -39,6 +40,7 @@ class ReviewsController < ApplicationController
   def update
     @review = Review.where(user_id: current_user.id, calapp_id: current_app).first
     @review.update_attributes!(params[:review])
+    Calapp.add_change("#{current_user.email} updated a review for #{Calapp.find_by_id(current_app).name}")
     redirect_to calapp_path(current_app), notice: "Review was successfully updated."
   end 
 
@@ -51,6 +53,7 @@ class ReviewsController < ApplicationController
     if Review.where(user_id: user_id, calapp_id: current_app).first
       @review = Review.where(user_id: user_id, calapp_id: current_app).first
       @review.destroy
+      Calapp.add_change("#{current_user.email} deleted a review for #{Calapp.find_by_id(current_app).name}")
       redirect_to calapp_path(current_app), notice: "Review was sucessfully deleted."
     else
       redirect_to calapp_path(current_app), notice: "No review to destroy!"

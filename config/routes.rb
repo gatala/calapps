@@ -16,7 +16,10 @@ Calapps::Application.routes.draw do
   resources :users
   
   resources :calapps do
-    get 'search', on: :collection
+    collection do
+      get 'search'
+      get 'feed'
+    end
     member do
       put 'archive'
       put 'approve'

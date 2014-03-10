@@ -55,13 +55,6 @@ class CalappsController < ApplicationController
     end
   end
 
-  #This is used for category view
-  def category
-    category = params[:category]
-    @category = category
-    @calapps = Calapp.approved.active.where(category: category)
-  end
-
   def new 
     if not signed_in?
       redirect_to calapps_path
@@ -77,6 +70,7 @@ class CalappsController < ApplicationController
       @calapp.approved = true
     end
     if @calapp.save
+      Calapp.add_change("#{current_user.email} created #{@calapp.name}")
       redirect_to '/calapps', notice: is_admin? ? "#{@calapp.name} was successfully created." : "#{@calapp.name} submitted for approval."
     else
       flash[:error] = @calapp.errors.full_messages
@@ -98,12 +92,20 @@ class CalappsController < ApplicationController
     params[:calapp].delete(:campus_approved)
     params[:calapp].delete(:approved)
     if @calapp.save and @calapp.update_attributes(params[:calapp])
+      Calapp.add_change("#{current_user.email} updated #{@calapp.name}")
       flash[:notice] = "#{@calapp.name} was successfully updated."
       redirect_back_or @calapp
     else
       flash[:error] = @calapp.errors.full_messages
       render 'edit'
     end
+  end
+
+  def destroy
+    @calapp = Calapp.find_by_id(params[:id])
+    @calapp.destroy
+    Calapp.add_change("#{current_user.email} deleted #{@calapp.name}")
+    redirect_to calapps_path, notice: "#{@calapp.name} was sucessfully deleted."
   end
 
   def archive
@@ -131,9 +133,12 @@ class CalappsController < ApplicationController
     redirect_to :back
   end 
 
-  def destroy
-    @calapp = Calapp.find_by_id(params[:id])
-    @calapp.destroy
-    redirect_to calapps_path, notice: "#{@calapp.name} was sucessfully deleted."
+  def feed
+    if is_admin?
+      @changes = Calapp.changes
+    else
+      redirect_to :back
+    end
   end
+
 end 
