@@ -30,7 +30,6 @@ group :assets do
   gem 'coffee-rails'
   gem 'therubyracer'
   gem 'uglifier'
-  gem "haml-bootstrap-rails"
 end
 
 gem 'jquery-rails'
