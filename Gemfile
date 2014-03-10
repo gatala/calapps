@@ -37,7 +37,7 @@ gem 'jquery-rails'
 gem "haml"
 gem "font-awesome-rails"
 gem "sass-rails"
-gem 'bootstrap-sass', '~> 3.1.1'
+gem 'bootstrap-sass'
 gem 'foundation-icons-sass-rails'
 gem 'foundation-rails'
 
