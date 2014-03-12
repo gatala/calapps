@@ -76,6 +76,48 @@ applications = [
     :URL => 'http://nextbus.com', 
     :description => "NextBus is dedicated to providing cost effective, high quality, reliable, real-time transportation information to the passengers and managers of public transit.",
     :category => "Miscellaneous"
+  },
+  {
+    :name => 'MainStackr', 
+    :creator => 'Ian Fox, Dennis Zhao', 
+    :URL => 'http://mainstackr.herokuapp.com', 
+    :description => "Mainstackr seeks to populate video content with valuable discourse between students and University content publishers. To accomplish this, our application allows students to pinpoint moments of a video, and post their question/comment to an activity feed. Other students can then click the post and be brought to that moment to help contribute to the discussion. If a student feels confused or appreciates a certain moment, they can tag their feelings. Tags may accumulate on certain moments and other students can visualize this under the video player. Students can then resolve the accumulation in that moment of the video and receive reputation points.",
+    :category => "Academic"
+  },
+  {
+    :name => 'telebearsRTC', 
+    :creator => 'Larry Xu, Lehao Zhang', 
+    :URL => 'http://telebears-rtc.herokuapp.com', 
+    :description => "This website provides a means for UC Berkeley students to easily access real-time course enrollment information from telebears. Most other course scheduling websites only provide daily updates to enrollment information, which can be pretty useless when it comes time to actually registering for your classes, resulting in haphazardly coming up with some sort of backup plan on the spot. With this tool, you can keep checking enrollment data throughout the day or over the course of several days and immediately see when spots open up. Students can also subscribe to courses and get email/text notifications immediately when enrollment opens up.",
+    :category => "Academic"
+  },
+  {
+    :name => 'OccuHunt', 
+    :creator => 'Sanchit Bareja, Sidwyn Koh', 
+    :URL => 'http://occuhunt.com', 
+    :description => "Occuhunt is a professional platform for students to discover, plan and apply for career opportunities while connecting them directly with recruiters and helping them leverage their college career center’s services effectively. For the student, he can upload and drop his resume and into a company’s inbox before the fair, all this while being able to keep track of recruiters who have viewed his resume. For the recruiter, he can scribble notes on his tablet about students he met at the fair, and send an automated rejection to the student if he decides to reject him, or export the applicant into his current Application Tracking System workflow.",
+    :category => "Career"
+  },
+  {
+    :name => 'Simplist', 
+    :creator => 'Simplist', 
+    :URL => 'http://www.simplist.io', 
+    :description => "Simplist is the easiest online marketplace for Berkeley students to buy and sell textbooks directly. It is like a Craigslist for Berkeley students. Books are organized by classes so students can easily find their books. In addition, if the book has not been listed yet, students can be notified by Simplist when someone posts the book. All of these functionality come without needing to create an account on Simplist or Facebook connect ensuring privacy and ease of use.",
+    :category => "Commerce"
+  },
+  {
+    :name => 'Cal@Heart', 
+    :creator => 'Grace Chen, Eugenia Kang, Kenneth Le', 
+    :URL => 'http://calatheart.herokuapp.com', 
+    :description => "Cal@Heart is a growing online community focused on developing emotional wellbeing and confidence at Cal. We aim to provide users with an environment that fosters open communication. Users may create profiles and post anonymously about personal issues in a safe virtual space. They may also respond to other users’ posts with encouragement and/or advice. Upcoming features include anonymous private messaging between users and video testimonials.",
+    :category => "Health"
+  },
+  {
+    :name => 'UCBPlan', 
+    :creator => 'Pierre Karashchuk, Luvsanbyamba Buyankhuu, Derrick Mar', 
+    :URL => 'http://ucbplan.herokuapp.com', 
+    :description => "UCBPlan is an application that provides a more convenient and functional way to view current and upcoming events on campus. A user can create an account and subscribe to particular categories of events that are most relevant to him/her. The website is updated daily through an automated script to include the most up-to-date information. In truth, we actually only started the project 4 days ago and you can already see the tremendous progress we have made thus far. Our plans in the near future are to give users the ability to favorite events and get reminders as well as include club events by scraping Facebook.",
+    :category => "Miscellaneous"
   }
 ]
 
