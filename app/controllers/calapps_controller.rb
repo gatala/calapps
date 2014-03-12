@@ -87,25 +87,33 @@ class CalappsController < ApplicationController
 
   def update
     @calapp = Calapp.find_by_id(params[:id])
-    @calapp.campus_approved = params[:calapp][:campus_approved]
-    @calapp.approved = params[:calapp][:approved]
-    params[:calapp].delete(:campus_approved)
-    params[:calapp].delete(:approved)
-    if @calapp.save and @calapp.update_attributes(params[:calapp])
-      Calapp.add_change("#{current_user.email} updated #{@calapp.name}")
-      flash[:notice] = "#{@calapp.name} was successfully updated."
-      redirect_back_or @calapp
+    if not signed_in? or (@calapp.user_email != current_user.email and !is_admin?)
+      redirect_to calapps_path
     else
-      flash[:error] = @calapp.errors.full_messages
-      render 'edit'
+      @calapp.campus_approved = params[:calapp][:campus_approved]
+      @calapp.approved = params[:calapp][:approved]
+      params[:calapp].delete(:campus_approved)
+      params[:calapp].delete(:approved)
+      if @calapp.save and @calapp.update_attributes(params[:calapp])
+        Calapp.add_change("#{current_user.email} updated #{@calapp.name}")
+        flash[:notice] = "#{@calapp.name} was successfully updated."
+        redirect_back_or @calapp
+      else
+        flash[:error] = @calapp.errors.full_messages
+        render 'edit'
+      end
     end
   end
 
   def destroy
-    @calapp = Calapp.find_by_id(params[:id])
-    @calapp.destroy
-    Calapp.add_change("#{current_user.email} deleted #{@calapp.name}")
-    redirect_to calapps_path, notice: "#{@calapp.name} was sucessfully deleted."
+    if is_admin?
+      @calapp = Calapp.find_by_id(params[:id])
+      @calapp.destroy
+      Calapp.add_change("#{current_user.email} deleted #{@calapp.name}")
+      redirect_to calapps_path, notice: "#{@calapp.name} was sucessfully deleted."
+    else
+      redirect_to :back
+    end
   end
 
   def archive

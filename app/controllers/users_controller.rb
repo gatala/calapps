@@ -39,17 +39,21 @@ class UsersController < ApplicationController
 
   def update
     @user = User.find_by_id(params[:id])
-    if is_admin?
-      @user.admin = params[:user][:admin]
-      params[:user].delete(:admin)
-      @user.save
-    end
-    if @user.update_attributes(params[:user])
-      flash[:success] = "Profile updated!"
-      redirect_to :back
+    if not signed_in? or (@user.email != current_user.email and !is_admin?)
+      redirect_to calapps_path
     else
-      flash[:error] = @user.errors.full_messages
-      render 'edit'
+      if is_admin?
+        @user.admin = params[:user][:admin]
+        params[:user].delete(:admin)
+        @user.save
+      end
+      if @user.update_attributes(params[:user])
+        flash[:success] = "Profile updated!"
+        redirect_to :back
+      else
+        flash[:error] = @user.errors.full_messages
+        render 'edit'
+      end
     end
   end
 
@@ -61,8 +65,12 @@ class UsersController < ApplicationController
   end
 
   def destroy
-    @user = User.find_by_id(params[:id])
-    @user.destroy
+    if !is_admin?
+      redirect_to :back
+    else
+      @user = User.find_by_id(params[:id])
+      @user.destroy
+    end
   end
 
   private

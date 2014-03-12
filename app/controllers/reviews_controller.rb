@@ -10,23 +10,27 @@ class ReviewsController < ApplicationController
     elsif not (is_admin? or berkeley_user?)
       redirect_to calapp_path(current_app), notice: "Only UC Berkeley users can write reviews!"
     elsif Review.where(user_id: current_user.id, calapp_id: current_app).first
-      redirect_to calapp_path(current_app), notice: "Already created a review for this app!"
+      redirect_to calapp_path(current_app), alert: "Already created a review for this app!"
     else
       @review = Review.new
     end
   end 
 
-  def create 
-    @review = Review.create(params[:review])        
-    @review.user_id = current_user.id
-    @review.calapp_id = current_app
+  def create
+    if not Review.where(user_id: current_user.id, calapp_id: current_app).first
+      @review = Review.create(params[:review])        
+      @review.user_id = current_user.id
+      @review.calapp_id = current_app
 
-    if @review.save
-      Calapp.add_change("#{current_user.email} wrote a review for #{Calapp.find_by_id(current_app).name}")
-      redirect_to calapp_path(current_app), notice: "Review was successfully created."
+      if @review.save
+        Calapp.add_change("#{current_user.email} wrote a review for #{Calapp.find_by_id(current_app).name}")
+        redirect_to calapp_path(current_app), notice: "Review was successfully created."
+      else
+        flash[:notice] = @review.errors.full_messages
+        render 'new'
+      end
     else
-      flash[:notice] = @review.errors.full_messages
-      render 'new'
+      redirect_to calapp_path(current_app), alert: "Already created a review for this app!"
     end
   end
 
