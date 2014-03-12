@@ -2,7 +2,6 @@
   %h1 CalApps Update Feed
   %ul
   - if @changes.length > 0
-    %li= @changes.length
     - @changes.reverse.each do |change|
       %li= change
   - else
