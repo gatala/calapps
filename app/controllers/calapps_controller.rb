@@ -66,12 +66,12 @@ class CalappsController < ApplicationController
   def create 
     @calapp = Calapp.new(params[:calapp])
     @calapp.user_email = current_user.email
-    if is_admin?
+    if is_admin? or berkeley_user?
       @calapp.approved = true
     end
     if @calapp.save
       Calapp.add_change("#{current_user.email} created #{@calapp.name}")
-      redirect_to '/calapps', notice: is_admin? ? "#{@calapp.name} was successfully created." : "#{@calapp.name} submitted for approval."
+      redirect_to '/calapps', notice: (is_admin? or berkeley_user?) ? "#{@calapp.name} was successfully created." : "#{@calapp.name} submitted for approval."
     else
       flash[:error] = @calapp.errors.full_messages
       render action: 'new'
