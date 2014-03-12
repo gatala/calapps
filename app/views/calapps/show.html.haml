@@ -42,13 +42,13 @@
     = @calapp.description
   %hr
 
-  - if @calapp.news.length > 0
+  - if @calapp.news and @calapp.news.length > 0
     %h4 News & Updates
     %div
       = @calapp.news
     %hr
 
-  - if @calapp.tag_list.length > 0
+  - if @calapp.tag_list and @calapp.tag_list.length > 0
     %div 
       %h4 Tags:
       - @calapp.tag_list.each do |t|
