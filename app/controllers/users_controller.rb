@@ -13,8 +13,7 @@ class UsersController < ApplicationController
     @user = User.new(params[:user])
     if simple_captcha_valid? and @user.save
       UserMailer.registration_confirmation(@user).deliver
-      flash[:success] = "You have succesfully registered."
-      redirect_to welcome_success_path
+      redirect_to welcome_success_path, notice: "You have succesfully registered."
     else
       flash[:error] = @user.errors.full_messages
       flash[:captcha] = simple_captcha_valid? ? 0 : 1
@@ -48,8 +47,7 @@ class UsersController < ApplicationController
         @user.save
       end
       if @user.update_attributes(params[:user])
-        flash[:success] = "Profile updated!"
-        redirect_to :back
+        redirect_to :back, notice: "Profile updated!"
       else
         flash[:error] = @user.errors.full_messages
         render 'edit'
