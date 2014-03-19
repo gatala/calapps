@@ -118,6 +118,14 @@ applications = [
     :URL => 'http://ucbplan.herokuapp.com', 
     :description => "UCBPlan is an application that provides a more convenient and functional way to view current and upcoming events on campus. A user can create an account and subscribe to particular categories of events that are most relevant to him/her. The website is updated daily through an automated script to include the most up-to-date information. In truth, we actually only started the project 4 days ago and you can already see the tremendous progress we have made thus far. Our plans in the near future are to give users the ability to favorite events and get reminders as well as include club events by scraping Facebook.",
     :category => "Miscellaneous"
+  },
+  {
+    :name => "CalCentral",
+    :creator => "CalCentral Team",
+    :URL => "http://calcentral.berkeley.edu",
+    :description => "Access to Berkeley's bCourses, financial aid, and registration information via an easy to use personal online dashboard.",
+    :category => "Academic",
+    :news => "http://twitter.com/CalCentral"
   }
 ]
 
