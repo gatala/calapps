@@ -2,32 +2,36 @@
 	= form_for @review, :url => { :action => "create" } do |new_review|
 		%fieldset
 			%legend New Review
-			= new_review.label :review_rating, "Review"
-			= new_review.radio_button :review_rating, '1'
-			%i.fi-star
-			%br
-			= new_review.radio_button :review_rating, '2'
-			%i.fi-star
-			%i.fi-star
-			%br
-			= new_review.radio_button :review_rating, '3'
-			%i.fi-star
-			%i.fi-star
-			%i.fi-star
-			%br
-			= new_review.radio_button :review_rating, '4'
-			%i.fi-star
-			%i.fi-star
-			%i.fi-star
-			%i.fi-star
-			%br
-			= new_review.radio_button :review_rating, '5'
-			%i.fi-star
-			%i.fi-star
-			%i.fi-star
-			%i.fi-star
-			%i.fi-star
-			%br
-			= new_review.label :review_text, 'Comments'
-			= new_review.text_area :review_text, :placeholder => 'Your Comment Here'
-		= new_review.submit 'Submit', :class => "btn btn-primary"
+			#rating.form-group
+				= new_review.label :review_rating, "Review", :class => "control-label reserve-label"
+				= new_review.radio_button :review_rating, '1'
+				%i.fi-star
+				%br
+				= new_review.radio_button :review_rating, '2'
+				%i.fi-star
+				%i.fi-star
+				%br
+				= new_review.radio_button :review_rating, '3'
+				%i.fi-star
+				%i.fi-star
+				%i.fi-star
+				%br
+				= new_review.radio_button :review_rating, '4'
+				%i.fi-star
+				%i.fi-star
+				%i.fi-star
+				%i.fi-star
+				%br
+				= new_review.radio_button :review_rating, '5'
+				%i.fi-star
+				%i.fi-star
+				%i.fi-star
+				%i.fi-star
+				%i.fi-star
+				%br
+			#comment.form-group
+				= new_review.label :review_text, 'Comment', :class => "control-label reserve-label"
+				.reserve-input
+					= new_review.text_area :review_text, :placeholder => 'Your Comment Here'
+		#submit
+			= new_review.submit 'Submit', :class => "btn btn-primary"

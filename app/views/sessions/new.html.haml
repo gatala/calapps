@@ -4,13 +4,16 @@
   = form_for(:session, url: sessions_path, class: "form-signin") do |f|
     %fieldset
       %legend Sign in
-      %div                                                 
-        = f.label :email
-        = f.email_field :email, :placeholder => "oski@gmail.com"
-      %div
-        = f.label :password
-        = f.password_field :password, :placeholder => "Password"
-    = f.submit "Sign in", :class => "btn btn-default account-form-button"
+      #email.form-group                                                 
+        = f.label :email, :class => "control-label reserve-label"
+        .reserve-input
+          = f.email_field :email, :placeholder => "oski@gmail.com"
+      #password.form-group
+        = f.label :password, :class => "control-label reserve-label"
+        .reserve-input
+          = f.password_field :password, :placeholder => "Password"
+    #submit
+      = f.submit "Sign in", :class => "btn btn-default account-form-button"
   %p
     New user? #{link_to "Sign up now!", signup_path}
   %p

@@ -4,17 +4,21 @@
   = form_for @message, :url => contact_path do |form|
     %fieldset.fields
       %legend Contact Form
-      .field
-        = form.label :name
-        = form.text_field :name
-      .field
-        = form.label :email
-        = form.text_field :email
-      .field
-        = form.label :subject
-        = form.text_field :subject
-      .field
-        = form.label :body
-        = form.text_area :body
-
-    = form.submit "Submit", :class => "btn btn-primary"
+      #name.form-group
+        = form.label :name, :class => "control-label reserve-label"
+        .reserve-input
+          = form.text_field :name
+      #email.form-group
+        = form.label :email, :class => "control-label reserve-label"
+        .reserve-input
+          = form.text_field :email
+      #subject.form-group
+        = form.label :subject, :class => "control-label reserve-label"
+        .reserve-input
+          = form.text_field :subject
+      #body.form-group
+        = form.label :body, :class => "control-label reserve-label"
+        .reserve-input
+          = form.text_area :body
+    #submit
+      = form.submit "Submit", :class => "btn btn-primary"

@@ -7,11 +7,13 @@
           - for message in @user.errors.full_messages
             %li= message
 
-    .field
-      = f.label :password
-      = f.password_field :password
+    #password.form-group
+      = f.label :password, :class => "control-label reserve-label"
+      .reserve-input
+        = f.password_field :password
       
-    .field
-      = f.label :password_confirmation
-      = f.password_field :password_confirmation
+    #password-confirmation.form-group
+      = f.label :password_confirmation, :class => "control-label reserve-label"
+      .reserve-input
+        = f.password_field :password_confirmation
     .actions= f.submit "Update Password"

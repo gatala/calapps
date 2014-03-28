@@ -4,47 +4,75 @@
   = form_for @calapp, :html => {:multipart => true} do |f|
     %fieldset
       %legend Add Application
-      = f.label :name, 'Name of Application'
-      = f.text_field :name
+      #name.form-group
+        = f.label :name, 'Name of Application', :class => "control-label reserve-label"
+        .reserve-input
+          = f.text_field :name
 
-      = f.label :image, "Upload Thumbnail"
-      = f.file_field :image
+      #image.form-group
+        = f.label :image, "Upload Thumbnail", :class => "control-label reserve-label"
+        .reserve-input
+          = f.file_field :image
 
       %h3 Upload Screenshots
-      = f.label :screenshot1, "Upload Screenshot"
-      = f.file_field :screenshot1
+      #screenshot1.form-group
+        = f.label :screenshot1, "Upload Screenshot", :class => "control-label reserve-label"
+        .reserve-input
+          = f.file_field :screenshot1
 
-      = f.label :screenshot2, "Upload Screenshot"
-      = f.file_field :screenshot2
+      #screenshot2.form-group
+        = f.label :screenshot2, "Upload Screenshot", :class => "control-label reserve-label"
+        .reserve-input
+          = f.file_field :screenshot2
 
-      = f.label :screenshot3, "Upload Screenshot"
-      = f.file_field :screenshot3
+      #screenshot3.form-group
+        = f.label :screenshot3, "Upload Screenshot", :class => "control-label reserve-label"
+        .reserve-input
+          = f.file_field :screenshot3
 
-      = f.label :screenshot4, "Upload Screenshot"
-      = f.file_field :screenshot4
+      #screenshot4.form-group
+        = f.label :screenshot4, "Upload Screenshot", :class => "control-label reserve-label"
+        .reserve-input
+          = f.file_field :screenshot4
 
-      = f.label :screenshot5, "Upload Screenshot"
-      = f.file_field :screenshot5
+      #screenshot5.form-group
+        = f.label :screenshot5, "Upload Screenshot", :class => "control-label reserve-label"
+        .reserve-input
+          = f.file_field :screenshot5
 
-      = f.label :URL, "Application URL"
-      = f.url_field :URL
+      #url.form-group
+        = f.label :URL, "Application URL", :class => "control-label reserve-label"
+        .reserve-input
+          = f.url_field :URL
 
-      = f.label :creator, "Creator(s)"
-      = f.text_field :creator
+      #creator.form-group
+        = f.label :creator, "Creator(s)", :class => "control-label reserve-label"
+        .reserve-input
+          = f.text_field :creator
 
-      = f.label :created_location, "Event created"
-      = f.text_field :created_location
+      #created.form-group
+        = f.label :created_location, "Event created", :class => "control-label reserve-label"
+        .reserve-input
+          = f.text_field :created_location
 
-      = f.label :category, "Category"
-      = f.select :category, @categories, :include_blank => true
+      #category.form-group
+        = f.label :category, "Category", :class => "control-label reserve-label"
+        .reserve-input
+          = f.select :category, @categories, :include_blank => true
 
-      = f.label :description, "Description"
-      = f.text_area :description
+      #description.form-group
+        = f.label :description, "Description", :class => "control-label reserve-label"
+        .reserve-input
+          = f.text_area :description
 
-      = f.label :news, "News & Updates"
-      = f.text_area :news
+      #news.form-group
+        = f.label :news, "News & Updates", :class => "control-label reserve-label"
+        .reserve-input
+          = f.text_area :news
 
-      = f.label :tag_list, "Tags (separate by commas)"
-      = f.text_field :tag_list
+      #tags.form-group
+        = f.label :tag_list, "Tags (separate by commas)", :class => "control-label reserve-label"
+        .reserve-input
+          = f.text_field :tag_list
     = link_to 'Back', calapps_path, :class =>"btn btn-default"
     = f.submit 'Submit', :class => "btn btn-primary", :url => calapp_path(f)

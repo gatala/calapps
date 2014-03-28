@@ -4,30 +4,46 @@
   = form_for @user, :html => {:multipart => true} do |f|
     %fieldset
       %legend Update Account
-      = f.label :image, "Upload Profile"
-      = f.file_field :image
+      #image.form-group
+        = f.label :image, "Upload Profile", :class => "control-label reserve-label"
+        .reserve-input
+          = f.file_field :image
 
-      = f.label :name, "Name"
-      = f.text_field :name
+      #name.form-group
+        = f.label :name, "Name", :class => "control-label reserve-label"
+        .reserve-input
+          = f.text_field :name
 
-      = f.label :public_name, "Public Name"
-      = f.text_field :public_name
+      #public-name.form-group
+        = f.label :public_name, "Public Name", :class => "control-label reserve-label"
+        .reserve-input
+          = f.text_field :public_name
       
-      = f.label :school, "School"
-      = f.text_field :school
+      #school.form-group
+        = f.label :school, "School", :class => "control-label reserve-label"
+        .reserve-input
+          = f.text_field :school
 
-      = f.label :year, "Class Year"
-      = f.collection_select :year, User::YEARS, :to_s, :to_s, :include_blank => true
+      #year.form-group
+        = f.label :year, "Class Year", :class => "control-label reserve-label"
+        .reserve-input
+          = f.collection_select :year, User::YEARS, :to_s, :to_s, :include_blank => true
 
-      = f.label :major, "Major"
-      = f.text_field :major
+      #major.form-group
+        = f.label :major, "Major", :class => "control-label reserve-label"
+        .reserve-input
+          = f.text_field :major
 
-      = f.label :github, "Github"
-      = f.text_field :github
+      #github.form-group
+        = f.label :github, "Github", :class => "control-label reserve-label"
+        .reserve-input
+          = f.text_field :github
 
       -if is_admin?
-        = f.label :admin, 'Admin Rights (Yes or No)'
-        = f.select :admin, {"Yes" => true, "No" => false}
-
+        #admin.form-group
+          = f.label :admin, 'Admin Rights (Yes or No)', :class => "control-label reserve-label"
+          .reserve-input
+            = f.select :admin, {"Yes" => true, "No" => false}
+    
     = submit_tag 'Update', :class => "btn btn-primary account-button"
     = link_to 'Back', :back, :class => "btn btn-default"
